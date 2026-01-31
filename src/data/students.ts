@@ -18,6 +18,69 @@ export interface Student {
   bio?: string;
 }
 
+// 中山大学研究生
+export const sysuStudents: Student[] = [
+  {
+    id: "he-jiangnan",
+    name: "何江南",
+    nameEn: "Jiangnan He",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "硕士",
+    status: "current",
+    researchTopic: "海洋智能预报和三维重建",
+    bio: "研究方向为人工智能方法在海洋科学中的应用。"
+  },
+  {
+    id: "yang-guangyu",
+    name: "杨光宇",
+    nameEn: "Guangyu Yang",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科/硕士",
+    status: "current",
+    researchTopic: "Neural Wave Model",
+    publications: ["Yang et al. (2024) Science of The Total Environment"],
+    awards: ["省级大创项目优秀结题"],
+    bio: "本科大创团队成员，研究方向为利用人工智能方法重建海洋三维硝酸盐结构。"
+  },
+  {
+    id: "zheng-yujiao",
+    name: "郑钰娇",
+    nameEn: "Yujiao Zheng",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "硕士",
+    status: "current",
+    researchTopic: "海洋热浪三维重建",
+    bio: "研究方向为海洋热浪三维结构的深海遥感重建。"
+  },
+  {
+    id: "huang-nanxiang",
+    name: "黄南翔",
+    nameEn: "Nanxiang Huang",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "海洋智能预报",
+    bio: "研究方向为海洋数值模式与智能预报技术。"
+  },
+  {
+    id: "ren-hengye",
+    name: "任姮烨",
+    nameEn: "Hengye Ren",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "博士",
+    status: "graduated",
+    researchTopic: "MJO与海洋生态系统",
+    publications: ["Ren et al. (2024) Progress in Oceanography"],
+    bio: "研究方向为Madden-Julian振荡对南海海洋生态系统的影响。"
+  }
+];
+
+
 // 福州大学研究生
 export const fzuStudents: Student[] = [
   {
@@ -92,75 +155,13 @@ export const fzuStudents: Student[] = [
   }
 ];
 
-// 中山大学研究生
-export const sysuStudents: Student[] = [
-  {
-    id: "ren-hengye",
-    name: "任姮烨",
-    nameEn: "Hengye Ren",
-    institution: "sysu",
-    institutionName: "中山大学",
-    degree: "博士",
-    status: "graduated",
-    researchTopic: "MJO与海洋生态系统",
-    publications: ["Ren et al. (2024) Progress in Oceanography"],
-    bio: "研究方向为Madden-Julian振荡对南海海洋生态系统的影响。"
-  },
-  {
-    id: "he-jiangnan",
-    name: "何江南",
-    nameEn: "Jiangnan He",
-    institution: "sysu",
-    institutionName: "中山大学",
-    degree: "硕士",
-    status: "current",
-    researchTopic: "海洋智能预报和三维重建",
-    bio: "研究方向为人工智能方法在海洋科学中的应用。"
-  },
-  {
-    id: "yang-guangyu",
-    name: "杨光宇",
-    nameEn: "Guangyu Yang",
-    institution: "sysu",
-    institutionName: "中山大学",
-    degree: "本科/硕士",
-    status: "current",
-    researchTopic: "Neural Wave Model",
-    publications: ["Yang et al. (2024) Science of The Total Environment"],
-    awards: ["省级大创项目优秀结题"],
-    bio: "本科大创团队成员，研究方向为利用人工智能方法重建海洋三维硝酸盐结构。"
-  },
-  {
-    id: "zheng-yujiao",
-    name: "郑钰娇",
-    nameEn: "Yujiao Zheng",
-    institution: "sysu",
-    institutionName: "中山大学",
-    degree: "硕士",
-    status: "current",
-    researchTopic: "海洋热浪三维重建",
-    bio: "研究方向为海洋热浪三维结构的深海遥感重建。"
-  },
-  {
-    id: "huang-nanxiang",
-    name: "黄南翔",
-    nameEn: "Nanxiang Huang",
-    institution: "sysu",
-    institutionName: "中山大学",
-    degree: "本科",
-    status: "current",
-    researchTopic: "海洋智能预报",
-    bio: "研究方向为海洋数值模式与智能预报技术。"
-  }
-];
-
 // 所有学生
 export const allStudents = [...fzuStudents, ...sysuStudents];
 
 // 按学校分组
 export const studentsByInstitution = {
-  fzu: fzuStudents,
-  sysu: sysuStudents
+  sysu: sysuStudents,
+  fzu: fzuStudents
 };
 
 // 根据ID获取学生
