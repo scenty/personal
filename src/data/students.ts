@@ -3,7 +3,7 @@ export interface Student {
   id: string;
   name: string;
   nameEn?: string;
-  institution: "fzu" | "sysu"; // 福州大学 or 中山大学
+  institution:  "sysu" | "fzu" ; // 福州大学 or 中山大学
   institutionName: string;
   degree?: string; // 硕士/博士
   year?: number; // 入学年份
@@ -156,7 +156,7 @@ export const fzuStudents: Student[] = [
 ];
 
 // 所有学生
-export const allStudents = [...fzuStudents, ...sysuStudents];
+export const allStudents = [...sysuStudents, ...fzuStudents];
 
 // 按学校分组
 export const studentsByInstitution = {
