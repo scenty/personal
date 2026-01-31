@@ -18,7 +18,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: 'images/hero-ocean.jpg',
+    image: '/images/hero-ocean.jpg',
     title: '探索海洋奥秘',
     titleEn: 'Explore Ocean Mysteries',
     subtitle: '人工智能驱动的海洋科学研究',
@@ -28,7 +28,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: 'images/hero-satellite.jpg',
+    image: '/images/hero-satellite.jpg',
     title: '遥感海洋监测',
     titleEn: 'Remote Sensing Ocean Monitoring',
     subtitle: '卫星数据揭示海洋变化规律',
@@ -38,7 +38,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: 'images/hero-research.jpg',
+    image: '/images/hero-research.jpg',
     title: '海洋数值模拟',
     titleEn: 'Ocean Numerical Modeling',
     subtitle: '计算海洋科学与海洋模型研究',
@@ -48,7 +48,7 @@ const slides: Slide[] = [
   },
   {
     id: 4,
-    image: 'images/hero-ai.jpg',
+    image: '/images/hero-ai.jpg',
     title: '智能海洋预报',
     titleEn: 'Intelligent Ocean Forecasting',
     subtitle: '深度学习赋能海洋环境预测',
