@@ -144,7 +144,7 @@ Currently serves as a Young Editorial Board Member of the international English-
                 : 'Focusing on the intersection of AI and ocean science'}
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {researchInterests.map((interest, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-all hover:-translate-y-1 border-0 bg-gradient-to-br from-gray-50 to-white">
                 <CardContent className="p-5">
