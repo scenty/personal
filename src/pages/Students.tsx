@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { fzuStudents, sysuStudents, allStudents } from '@/data';
+import { fzuStudents, sysuStudents, allStudents, sysuUndergraduates, studentsByDegree } from '@/data';
 
 const Students = () => {
   const StudentCard = ({ student }: { student: typeof allStudents[0] }) => (
@@ -73,9 +73,9 @@ const Students = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">研究生团队</h1>
+          <h1 className="text-4xl font-bold mb-4">学生团队</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
-            指导的研究生获国家奖学金、校级优秀硕士学位论文、中山大学"博英汇学术沙龙"二等奖等奖励。
+            指导的学生获国家奖学金、校级优秀硕士学位论文、中山大学"博英汇学术沙龙"二等奖等奖励。
             欢迎海洋、环境、大气、地理等专业学生报考！
           </p>
         </div>
@@ -85,7 +85,7 @@ const Students = () => {
           <Card>
             <CardContent className="pt-6">
               <div className="text-3xl font-bold text-primary">{allStudents.length}</div>
-              <div className="text-sm text-muted-foreground">指导研究生总数</div>
+              <div className="text-sm text-muted-foreground">指导学生总数</div>
             </CardContent>
           </Card>
           <Card>
@@ -106,6 +106,8 @@ const Students = () => {
         <Tabs defaultValue="all" className="w-full">
           <TabsList className="mb-8">
             <TabsTrigger value="all">全部学生</TabsTrigger>
+            <TabsTrigger value="graduate">研究生</TabsTrigger>
+            <TabsTrigger value="undergraduate">本科生</TabsTrigger>
             <TabsTrigger value="sysu">中山大学</TabsTrigger>
             <TabsTrigger value="fzu">福州大学</TabsTrigger>
           </TabsList>
@@ -113,6 +115,22 @@ const Students = () => {
           <TabsContent value="all">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {allStudents.map((student) => (
+                <StudentCard key={student.id} student={student} />
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="graduate">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {studentsByDegree.graduate.map((student) => (
+                <StudentCard key={student.id} student={student} />
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="undergraduate">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {studentsByDegree.undergraduate.map((student) => (
                 <StudentCard key={student.id} student={student} />
               ))}
             </div>

@@ -13,7 +13,7 @@ const translations = {
     // Navigation
     'nav.home': '首页',
     'nav.publications': '研究成果',
-    'nav.students': '研究生团队',
+    'nav.students': '学生团队',
     'nav.dataProducts': '数据产品',
     'nav.projects': '科研项目',
     'nav.contact': '联系方式',
@@ -41,7 +41,7 @@ const translations = {
     // Quick Links
     'quickLinks.publications': '研究成果',
     'quickLinks.publicationsDesc': '查看发表的学术论文和专著',
-    'quickLinks.students': '研究生团队',
+    'quickLinks.students': '学生团队',
     'quickLinks.studentsDesc': '了解指导的研究生及其研究方向',
     'quickLinks.dataProducts': '数据产品',
     'quickLinks.dataProductsDesc': '下载开放共享的科学数据集',

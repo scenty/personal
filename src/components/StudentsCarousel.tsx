@@ -45,12 +45,12 @@ const StudentsCarousel = () => {
         <div className="flex items-center justify-between mb-10">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              {language === 'zh' ? '研究生团队' : 'Student Team'}
+              {language === 'zh' ? '学生团队' : 'Student Team'}
             </h2>
             <p className="text-muted-foreground">
               {language === 'zh' 
-                ? `共指导 ${allStudents.length} 名研究生` 
-                : `Supervising ${allStudents.length} graduate students`}
+                ? `共指导 ${allStudents.length} 名学生` 
+                : `Supervising ${allStudents.length} students`}
             </p>
           </div>
           <div className="flex items-center gap-4">

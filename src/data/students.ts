@@ -180,13 +180,122 @@ export const fzuStudents: Student[] = [
   }
 ];
 
-// 所有学生
-export const allStudents = [...sysuStudents, ...fzuStudents];
+// 中山大学本科生
+export const sysuUndergraduates: Student[] = [
+  {
+    id: "he-lechi",
+    name: "何乐驰",
+    nameEn: "Lechi He",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "待补充大创项目或毕业设计题目",
+    bio: "本科生，研究方向待补充。"
+  },
+  {
+    id: "feng-jiacheng",
+    name: "冯家成",
+    nameEn: "Jiacheng Feng",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "待补充大创项目或毕业设计题目",
+    bio: "本科生，研究方向待补充。"
+  },
+  {
+    id: "wang-qishuo",
+    name: "王启硕",
+    nameEn: "Qishuo Wang",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "待补充大创项目或毕业设计题目",
+    bio: "本科生，研究方向待补充。"
+  },
+  {
+    id: "li-rongzu",
+    name: "李荣祖",
+    nameEn: "Rongzu Li",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "待补充大创项目或毕业设计题目",
+    bio: "本科生，研究方向待补充。"
+  },
+  {
+    id: "ding-zhaoxuan",
+    name: "丁兆轩",
+    nameEn: "Zhaoxuan Ding",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "待补充大创项目或毕业设计题目",
+    bio: "本科生，研究方向待补充。"
+  },
+  {
+    id: "ma-ke",
+    name: "马克",
+    nameEn: "Ke Ma",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "待补充大创项目或毕业设计题目",
+    bio: "本科生，研究方向待补充。"
+  },
+  {
+    id: "fang-xihong",
+    name: "方希泓",
+    nameEn: "Xihong Fang",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "待补充大创项目或毕业设计题目",
+    bio: "本科生，研究方向待补充。"
+  },
+  {
+    id: "li-yuanyuan",
+    name: "李园园",
+    nameEn: "Yuanyuan Li",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "待补充大创项目或毕业设计题目",
+    bio: "本科生，研究方向待补充。"
+  },
+  {
+    id: "liu-xiongyu",
+    name: "刘雄宇",
+    nameEn: "Xiongyu Liu",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "待补充大创项目或毕业设计题目",
+    bio: "本科生，研究方向待补充。"
+  }
+];
+
+// 所有学生（包括研究生和本科生）
+export const allStudents = [...sysuStudents, ...fzuStudents, ...sysuUndergraduates];
 
 // 按学校分组
 export const studentsByInstitution = {
   sysu: sysuStudents,
   fzu: fzuStudents
+};
+
+// 按学位类型分组
+export const studentsByDegree = {
+  graduate: [...sysuStudents.filter(s => s.degree !== '本科'), ...fzuStudents],
+  undergraduate: [...sysuStudents.filter(s => s.degree === '本科'), ...sysuUndergraduates]
 };
 
 // 根据ID获取学生

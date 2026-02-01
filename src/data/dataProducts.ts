@@ -29,9 +29,9 @@ export const dataProducts: DataProduct[] = [
     timeRange: "1993-2020",
     region: "全球海洋",
     variables: ["海洋热含量 (0-2000m)", "温度异常"],
-    dataLink: "https://doi.org/10.5281/zenodo.xxxxx",
-    codeLink: "https://github.com/xxxx/open",
-    paperLink: "https://doi.org/10.3390/rsxxxxxxx",
+    dataLink: "https://www.scidb.cn/en/detail?dataSetId=8f8a64729f2b44229052dfdf20fcbbe3",
+    codeLink: "https://github.com/scenty/OPEN-OHC",
+    paperLink: "https://doi.org/10.3390/rs12142294",
     paperId: "su-2020-rs-open"
   },
   {
@@ -45,8 +45,8 @@ export const dataProducts: DataProduct[] = [
     timeRange: "1993-2020",
     region: "全球海洋",
     variables: ["海洋热含量", "次表层温盐结构"],
-    dataLink: "https://doi.org/10.5281/zenodo.xxxxx",
-    paperLink: "https://doi.org/10.1016/j.rse.2021.xxxxx",
+    dataLink: "https://www.scidb.cn/en/detail?dataSetId=636322132f92407b84dda14821c18329",
+    paperLink: "https://doi.org/10.1016/j.rse.2021.112465",
     paperId: "su-2021-rse"
   },
   {
@@ -60,9 +60,9 @@ export const dataProducts: DataProduct[] = [
     timeRange: "2005-2019",
     region: "南海",
     variables: ["叶绿素a浓度", "数据质量标识"],
-    dataLink: "https://www.scidb.cn/s/xxxxxx",
-    codeLink: "https://github.com/xxxx/scsdct",
-    paperLink: "https://doi.org/10.1109/TGRS.2021.xxxxx",
+    dataLink: "https://www.scidb.cn/en/detail?dataSetId=1387ffe83af54f0fb574d60e97b206b2",
+    codeLink: "https://github.com/Yotill/SCS_CHL_2005-2019",
+    paperLink: "https://doi.org/10.1109/tgrs.2021.3067646",
     paperId: "wang-2021-tgrs",
     applications: [
       { title: "冬季吕宋海区叶绿素的季节间尺度调控", paperId: "wang-2021-tgrs" },
@@ -81,8 +81,8 @@ export const dataProducts: DataProduct[] = [
     timeRange: "1993-2021",
     region: "北美大西洋海岸带",
     variables: ["表层pCO₂", "海气CO₂通量"],
-    dataLink: "https://doi.org/10.5281/zenodo.14038561",
-    paperLink: "https://doi.org/10.5194/essd-17-xxx-2025",
+    dataLink: "https://zenodo.org/doi/10.5281/zenodo.14038561",
+    paperLink: "https://doi.org/10.5194/essd-17-43-2025",
     paperId: "wu-2025-essd"
   }
 ];
