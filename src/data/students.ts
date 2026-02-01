@@ -29,6 +29,8 @@ export const sysuStudents: Student[] = [
     degree: "硕士",
     status: "current",
     researchTopic: "海洋智能预报和三维重建",
+    publications: ["He et al. (2024) Ocean-Land-Atmosphere Research"],
+    awards: ["第三届人工智能海洋学论坛最佳海报奖"],
     bio: "研究方向为人工智能方法在海洋科学中的应用。"
   },
   {
@@ -67,6 +69,17 @@ export const sysuStudents: Student[] = [
     bio: "研究方向为海洋数值模式与智能预报技术。"
   },
   {
+    id: "zhong-xinyi",
+    name: "钟昕怡",
+    nameEn: "Xinyi Zhong",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "硕士",
+    status: "current",
+    researchTopic: "海浪智能降尺度",
+    bio: "研究方向为海浪智能降尺度。"
+  },
+  {
     id: "ren-hengye",
     name: "任姮烨",
     nameEn: "Hengye Ren",
@@ -77,6 +90,18 @@ export const sysuStudents: Student[] = [
     researchTopic: "MJO与海洋生态系统",
     publications: ["Ren et al. (2024) Progress in Oceanography"],
     bio: "研究方向为Madden-Julian振荡对南海海洋生态系统的影响。"
+  },
+  {
+    id: "jiang-youjie",
+    name: "姜佑捷",
+    nameEn: "Youjie Jiang",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "硕士",
+    status: "graduated",
+    researchTopic: "日尺度南海三维温度场的人工智能构建研究",
+    currentPosition: "三亚市某局",
+    bio: "研究方向为日尺度南海三维温度场的人工智能构建研究。"
   }
 ];
 

@@ -110,8 +110,7 @@ const Home = () => {
         'AI Oceanography',
         'Ocean Dynamics & Ecosystem Modeling',
         'Remote Sensing Applications',
-        'Global Climate Change',
-        'Global Warming Hiatus'
+        'Global Climate Change'
       ];
 
   // 更新后的个人简介（简短版）
@@ -193,48 +192,51 @@ Currently serves as a Young Editorial Board Member of the international English-
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            {/* Left: Name & Bio */}
-            <div className="flex flex-col justify-center">
+          <div className="flex flex-col gap-8">
+            {/* Top: Name & Bio */}
+            <div className="flex flex-col">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 {language === 'zh' ? profile.name : profile.nameEn}
               </h2>
               <p className="text-lg text-white/70 mb-6">{profile.title}</p>
               
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 max-w-4xl">
                 <p className="text-white/85 leading-relaxed whitespace-pre-line text-sm md:text-base">
                   {bioText}
                 </p>
               </div>
+            </div>
 
-              <div className="flex flex-wrap gap-3 mt-6">
-                <Button asChild className="bg-white text-slate-900 hover:bg-white/90">
-                  <Link to="/publications">
-                    <Mail className="mr-2 w-4 h-4" /> 
-                    {language === 'zh' ? '查看论文' : 'Publications'}
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" className="border-white text-white hover:bg-white/10">
-                  <Link to="/contact">
-                    <BookOpen className="mr-2 w-4 h-4" /> 
-                    {language === 'zh' ? '联系我' : 'Contact Me'}
-                  </Link>
-                </Button>
+            {/* Middle: 2x2 Awards Grid */}
+            <div className="flex">
+              <div className="grid grid-cols-2 gap-4 max-w-md">
+                {awards.map((award, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 flex items-center justify-center text-center hover:bg-white/15 transition-colors"
+                  >
+                    <p className="text-white font-medium text-sm md:text-base leading-snug">
+                      🏆 {language === 'zh' ? award.title : award.titleEn}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right: 2x2 Awards Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {awards.map((award, idx) => (
-                <div 
-                  key={idx} 
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 flex items-center justify-center text-center hover:bg-white/15 transition-colors"
-                >
-                  <p className="text-white font-medium text-sm md:text-base leading-snug">
-                    {language === 'zh' ? award.title : award.titleEn}
-                  </p>
-                </div>
-              ))}
+            {/* Bottom: Action Buttons */}
+            <div className="flex flex-wrap gap-3">
+              <Button asChild className="bg-white text-slate-900 hover:bg-white/90">
+                <Link to="/publications">
+                  <Mail className="mr-2 w-4 h-4" /> 
+                  {language === 'zh' ? '查看论文' : 'Publications'}
+                </Link>
+              </Button>
+              <Button asChild className="bg-white text-slate-900 hover:bg-white/90">
+                <Link to="/contact">
+                  <BookOpen className="mr-2 w-4 h-4" /> 
+                  {language === 'zh' ? '联系我' : 'Contact Me'}
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

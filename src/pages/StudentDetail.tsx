@@ -135,7 +135,7 @@ const StudentDetail = () => {
                   <div>
                     <p className="font-medium">{student.institutionName}</p>
                     <p className="text-sm text-muted-foreground">
-                      {student.institution === 'sysu' ? '海洋科学学院' : '数学与统计学院'}
+                      {student.institution === 'sysu' ? '海洋科学学院' : '数字中国研究院（福建）'}
                     </p>
                   </div>
                 </div>

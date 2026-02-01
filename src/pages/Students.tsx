@@ -146,7 +146,7 @@ const Students = () => {
                   <div className="flex items-center gap-3">
                     <Building2 className="w-8 h-8 text-red-600" />
                     <div>
-                      <h3 className="text-lg font-semibold">福州大学数学与统计学院</h3>
+                      <h3 className="text-lg font-semibold">数字中国研究院（福建）</h3>
                       <p className="text-sm text-muted-foreground">外聘导师合作项目</p>
                     </div>
                   </div>
