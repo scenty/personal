@@ -59,6 +59,11 @@ const translations = {
     'footer.institution': '所属机构',
     'footer.copyright': '版权所有',
     
+    // Social Links
+    'socialLinks.title': '友情链接',
+    'socialLinks.subtitle': '关注我的更多平台',
+    'socialLinks.visit': '访问',
+    
     // Language Switch
     'lang.switch': 'EN',
     'lang.current': '中文',
@@ -112,6 +117,11 @@ const translations = {
     'footer.quickLinks': 'Quick Links',
     'footer.institution': 'Institution',
     'footer.copyright': 'All Rights Reserved',
+    
+    // Social Links
+    'socialLinks.title': 'Social Links',
+    'socialLinks.subtitle': 'Follow me on other platforms',
+    'socialLinks.visit': 'Visit',
     
     // Language Switch
     'lang.switch': '中',
