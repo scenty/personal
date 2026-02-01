@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import Layout from '@/components/Layout';
@@ -16,7 +16,7 @@ function App() {
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <LanguageProvider>
-        <HashRouter>
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
@@ -30,7 +30,7 @@ function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </LanguageProvider>
     </ThemeProvider>
   );
