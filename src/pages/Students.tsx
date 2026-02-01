@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { fzuStudents, sysuStudents, allStudents, sysuUndergraduates, studentsByDegree } from '@/data';
+import { fzuStudents, sysuStudents, allStudents, studentsByDegree } from '@/data';
 
 const Students = () => {
   const StudentCard = ({ student }: { student: typeof allStudents[0] }) => (
