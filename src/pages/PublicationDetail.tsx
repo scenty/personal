@@ -134,11 +134,13 @@ const PublicationDetail = () => {
                 <Separator className="my-6" />
 
                 {/* Keywords */}
-                {publication.keywords && (
+                {(publication.keywords || publication.keywordsEn) && (
                   <div className="mb-6">
                     <h2 className="text-lg font-semibold mb-3">{t('pubDetail.keywords')}</h2>
                     <div className="flex flex-wrap gap-2">
-                      {publication.keywords.map((keyword, idx) => (
+                      {(language === 'en' && publication.keywordsEn 
+                        ? publication.keywordsEn 
+                        : publication.keywords || []).map((keyword, idx) => (
                         <Badge key={idx} variant="outline" className="text-sm">
                           {keyword}
                         </Badge>

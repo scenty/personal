@@ -21,6 +21,7 @@ export interface Publication {
   abstract?: string;
   abstractEn?: string; // 英文摘要
   keywords?: string[];
+  keywordsEn?: string[]; // 英文关键词
   highlightsEn?: string[]; // 英文亮点
   dataLink?: string;
   codeLink?: string;
@@ -73,18 +74,35 @@ export const publications: Publication[] = [
   },
   {
     id: "wu-2025-essd",
-    authors: "Wu, Z., Lu, W.*, Roobaert, A., Song, L., Yan, X. H., & Cai, W. J.",
+    authors: "吴泽伦，卢文芳*，Alizée Roobaert，宋鲁平，严晓海，蔡卫君",
+    authorsEn: "Wu, Z., Lu, W.*, Roobaert, A., Song, L., Yan, X. H., & Cai, W. J.",
     year: 2025,
     title: "A machine-learning reconstruction of sea surface pCO₂ in the North American Atlantic Coastal Ocean Margin from 1993 to 2021",
     journal: "Earth System Science Data",
+    volume: "17",
+    pages: "43-61",
     doi: "10.5194/essd-17-43-2025",
     doiLink: "https://doi.org/10.5194/essd-17-43-2025",
     isFirstAuthor: false,
     isCorrespondingAuthor: true,
     quartile: "Q1",
     impactFactor: 11.2,
-    abstract: "本研究利用机器学习方法重建了北美大西洋海岸带海洋表层二氧化碳分压（pCO₂）数据集（1993-2021），为海岸带碳循环研究提供了重要的数据支撑。",
-    keywords: ["pCO₂ reconstruction", "machine learning", "coastal ocean", "carbon cycle", "North Atlantic"],
+    abstract: "海岸带海洋是重要的碳汇区域，准确估算其碳通量对于理解全球碳循环至关重要。然而，由于观测数据稀疏，海岸带海洋表层二氧化碳分压（pCO₂）的长期变化特征仍不清楚。本研究利用机器学习方法重建了北美大西洋海岸带海洋（1993-2021年）的pCO₂数据集。该数据集结合了多种环境变量（海表温度、盐度、叶绿素等）和机器学习模型，填补了观测空白，为海岸带碳循环研究提供了重要的数据支撑。重建结果显示，该区域pCO₂存在明显的季节变化和长期趋势，为理解海岸带碳循环的动态变化提供了新的认识。",
+    abstractEn: "Coastal oceans are important carbon sink regions, and accurate estimation of their carbon fluxes is crucial for understanding the global carbon cycle. However, due to sparse observational data, the long-term variability of sea surface partial pressure of CO₂ (pCO₂) in coastal oceans remains unclear. This study uses machine learning methods to reconstruct a pCO₂ dataset for the North American Atlantic Coastal Ocean Margin from 1993 to 2021. The dataset combines various environmental variables (sea surface temperature, salinity, chlorophyll, etc.) with machine learning models to fill observational gaps, providing important data support for coastal carbon cycle research. The reconstruction results show significant seasonal variations and long-term trends in pCO₂ in this region, providing new insights into the dynamic changes of the coastal carbon cycle.",
+    keywords: ["二氧化碳分压重建", "机器学习", "海岸带海洋", "碳循环", "北大西洋"],
+    keywordsEn: ["pCO₂ reconstruction", "machine learning", "coastal ocean", "carbon cycle", "North Atlantic"],
+    highlights: [
+      "利用机器学习方法重建了北美大西洋海岸带海洋pCO₂数据集（1993-2021）",
+      "填补了海岸带海洋pCO₂观测数据的空白，为碳循环研究提供重要数据支撑",
+      "揭示了该区域pCO₂的季节变化和长期趋势特征",
+      "数据集已公开发布，支持海岸带碳循环相关研究"
+    ],
+    highlightsEn: [
+      "Reconstructed pCO₂ dataset for the North American Atlantic Coastal Ocean Margin (1993-2021) using machine learning methods",
+      "Filled observational gaps in coastal ocean pCO₂ data, providing important data support for carbon cycle research",
+      "Revealed seasonal variations and long-term trends in pCO₂ in this region",
+      "Dataset is publicly available, supporting coastal carbon cycle research"
+    ],
     dataLink: "https://doi.org/10.5281/zenodo.14038561"
   },
   {
