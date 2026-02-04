@@ -2,6 +2,7 @@
 export interface Publication {
   id: string;
   authors: string;
+  authorsEn?: string; // 英文作者，用于引用信息
   year: number;
   title: string;
   journal: string;
@@ -18,13 +19,58 @@ export interface Publication {
   quartile?: string;
   impactFactor?: number;
   abstract?: string;
+  abstractEn?: string; // 英文摘要
   keywords?: string[];
+  highlightsEn?: string[]; // 英文亮点
   dataLink?: string;
   codeLink?: string;
   newsCoverage?: { title: string; link: string }[];
+  figures?: { image: string; caption: string; captionEn?: string }[];
+  firstAuthorId?: string; // 第一作者的学生ID，用于链接到学生详情页
 }
 
 export const publications: Publication[] = [
+  {
+    id: "he-2026-olar",
+    authors: "何江南，卢文芳*，刘勇，杨光宇，Jo Young-Heon，来志刚",
+    authorsEn: "He, J., Lu, W.*, Liu, Y., Yang, G., Jo, Y.-H., & Lai, Z.",
+    year: 2026,
+    title: "Accurate Sea Level Anomaly Forecast over North Pacific with Improved AI Training Strategies",
+    journal: "Ocean-Land-Atmosphere Research",
+    volume: "5",
+    pages: "Article 0128",
+    doi: "10.34133/olar.0128",
+    doiLink: "https://doi.org/10.34133/olar.0128",
+    isFirstAuthor: false,
+    isCorrespondingAuthor: true,
+    firstAuthorId: "he-jiangnan",
+    quartile: "Q1",
+    abstract: "及时准确的海平面异常（SLA）预报对于监测海洋环境和指导海岸管理至关重要。利用多卫星高度计产品可以有效满足这些预报需求。本研究报告了一个基于人工智能的SLA预报模型，专门针对北太平洋，使用高度计产品和先前应用的基于Transformer的网络（即Earthformer）来实现短期（<7天）和中长期（7至30天）预报。在基线性能的基础上，当考虑优化的训练策略时，中长期预测精度可以显著提高。两种创新的训练策略包括：将预测目标改为SLA时间趋势（以解决SLA的缓慢变化），以及通过滚动和多步训练来弥合训练-预报差距（仅训练下一天，而预报更长时间范围）。因此，正式训练的模型Multistep-Earthformer超越了持续性预报（在1至30个预测提前期的测试中，均方根误差降低21%至58%）和最先进的数值产品GLO12v4（在1至10个预测提前期的预报中，均方根误差降低10%至77%）。结果突出了Multistep-Earthformer在提供准确的短期至中长期SLA预报方面的强大能力。此外，采用的两种训练策略是模型无关的，具有增强各种地球科学预测任务的潜力。",
+    abstractEn: "Timely and accurate sea level anomaly (SLA) forecasts are essential for monitoring the ocean environment and guiding coastal management. Utilizing multi-satellite altimetry products is effective for meeting these forecast demands. Here, we report an artificial intelligence-based SLA forecast model tailored for the North Pacific Ocean using altimetry products and a previously applied transformer-based network (i.e., Earthformer) to achieve short-range (<7d) and medium-range (7 to 30 d) forecasts. Building upon the high baseline performance, when optimized training strategies are considered, medium-range prediction accuracy can be markedly improved. The 2 innovative training strategies include changing the prediction target to the SLA temporal tendency (to address the slow variation of the SLA) and bridging the training-forecast gap (training only for the next day, while forecasting for longer horizons) through rolling and multi-step training. Consequently, the formally trained model Multistep-Earthformer surpassed the persistence forecast (21% to 58% root mean square error reduction in the test over 1 to 30 prediction lead days) and state-of-the-art numerical product GLO12v4 (10% to 77% root mean square error reduction in the forecast over 1 to 10 prediction lead days). The results highlight the strong capability of Multistep-Earthformer in delivering accurate short- to medium-range SLA forecasts. Moreover, the 2 training strategies employed are model-agnostic and hold potential for enhancing various geoscientific prediction tasks.",
+    keywords: ["sea level anomaly", "forecast", "Earthformer", "North Pacific", "AI training strategies", "transformer", "deep learning"],
+    highlights: [
+      "提出了基于Earthformer架构的SLA预报模型，实现短期和中长期预报",
+      "创新性地采用两种训练策略显著提升中长期预报精度",
+      "Multistep-Earthformer在测试中超越持续性预报21%-58%，在预报中超越GLO12v4产品10%-77%",
+      "训练策略具有模型无关性，可应用于其他地球科学预测任务"
+    ],
+    highlightsEn: [
+      "Proposed an SLA forecast model based on Earthformer architecture for short- and medium-range forecasts",
+      "Innovatively employed two training strategies to significantly improve medium-range forecast accuracy",
+      "Multistep-Earthformer outperformed persistence forecast by 21%-58% in tests and GLO12v4 product by 10%-77% in forecasts",
+      "Training strategies are model-agnostic and applicable to other geoscientific prediction tasks"
+    ],
+    figures: [
+      {
+        image: "/images/he-2026-olar-figure2.png",
+        caption: "SLA预报框架示意图。(A) 数据时间线和产品类型：展示了训练数据（2006-2020）、测试数据（2021）和预报数据（2024-2025）的时间线。(B) Earthformer架构用于SLA预测：展示了从观测SLA输入到预测SLA输出的编码器-解码器结构，包括Cuboid attention机制。(C) 输入SLA和预测策略：展示了如何使用观测序列进行多步预测。(D) 训练策略：比较了常规训练、多步训练和滚动训练三种方法。",
+        captionEn: "Framework for SLA forecasting. (A) Data timeline and product types: Timeline showing training data (2006-2020), test data (2021), and forecast data (2024-2025). (B) Earthformer architecture for SLA prediction: Encoder-decoder structure from observed SLA input to predicted SLA output, including Cuboid attention mechanism. (C) Input SLA and prediction strategy: How to use observed sequences for multi-step prediction. (D) Training strategies: Comparison of conventional training, multi-step training, and rolling training methods."
+      }
+    ],
+    newsCoverage: [
+      { title: "公众号报道", link: "https://mp.weixin.qq.com/s/WAtv69cG5ugXWJJDgyHv7w" }
+    ]
+  },
   {
     id: "wu-2025-essd",
     authors: "Wu, Z., Lu, W.*, Roobaert, A., Song, L., Yan, X. H., & Cai, W. J.",

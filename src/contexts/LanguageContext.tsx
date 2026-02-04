@@ -67,6 +67,21 @@ const translations = {
     // Language Switch
     'lang.switch': 'EN',
     'lang.current': '中文',
+    
+    // Publication Detail
+    'pubDetail.back': '返回论文列表',
+    'pubDetail.abstract': '摘要',
+    'pubDetail.keywords': '关键词',
+    'pubDetail.highlights': '亮点',
+    'pubDetail.figures': '代表性图表',
+    'pubDetail.newsCoverage': '媒体报道',
+    'pubDetail.relatedLinks': '相关链接',
+    'pubDetail.viewPaper': '查看论文 (DOI)',
+    'pubDetail.downloadPDF': 'PDF下载',
+    'pubDetail.downloadData': '数据下载',
+    'pubDetail.codeRepo': '代码仓库',
+    'pubDetail.citation': '引用信息',
+    'pubDetail.relatedPubs': '相关论文',
   },
   en: {
     // Navigation
@@ -126,6 +141,21 @@ const translations = {
     // Language Switch
     'lang.switch': '中',
     'lang.current': 'English',
+    
+    // Publication Detail
+    'pubDetail.back': 'Back to Publications',
+    'pubDetail.abstract': 'Abstract',
+    'pubDetail.keywords': 'Keywords',
+    'pubDetail.highlights': 'Highlights',
+    'pubDetail.figures': 'Representative Figures',
+    'pubDetail.newsCoverage': 'News Coverage',
+    'pubDetail.relatedLinks': 'Related Links',
+    'pubDetail.viewPaper': 'View Paper (DOI)',
+    'pubDetail.downloadPDF': 'Download PDF',
+    'pubDetail.downloadData': 'Download Data',
+    'pubDetail.codeRepo': 'Code Repository',
+    'pubDetail.citation': 'Citation',
+    'pubDetail.relatedPubs': 'Related Publications',
   }
 };
 

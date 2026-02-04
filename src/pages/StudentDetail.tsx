@@ -1,10 +1,10 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, GraduationCap, Mail, BookOpen, Award, Building2 } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Mail, BookOpen, Award, Building2, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { getStudentById, allStudents } from '@/data';
+import { getStudentById, allStudents, publications } from '@/data';
 
 const StudentDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -92,12 +92,54 @@ const StudentDetail = () => {
                       <BookOpen className="w-5 h-5 text-primary" /> 代表性成果
                     </h2>
                     <ul className="space-y-2">
-                      {student.publications.map((pub, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="text-primary mt-1">•</span>
-                          <span className="text-muted-foreground">{pub}</span>
-                        </li>
-                      ))}
+                      {student.publications.map((pub, idx) => {
+                        // 尝试匹配论文并添加链接
+                        // 匹配格式: "He et al. (2026) Ocean-Land-Atmosphere Research"
+                        const match = pub.match(/(.+?)\s*\((\d{4})\)\s*(.+)/);
+                        if (match) {
+                          const [, authors, year, journal] = match;
+                          const yearNum = parseInt(year);
+                          const journalName = journal.trim();
+                          const firstAuthor = authors.trim().split(' ')[0];
+                          
+                          // 查找匹配的论文：匹配年份和期刊，并且第一作者匹配
+                          const matchedPub = publications.find(p => {
+                            const pubYearMatch = p.year === yearNum;
+                            const journalMatch = p.journal.includes(journalName) || journalName.includes(p.journal);
+                            // 检查第一作者：He -> 何江南 或 He, J.
+                            const authorMatch = p.authors.includes(firstAuthor) || 
+                                              p.authors.includes('何江南') ||
+                                              (firstAuthor === 'He' && p.authors.includes('He'));
+                            
+                            return pubYearMatch && journalMatch && authorMatch;
+                          });
+                          
+                          if (matchedPub && matchedPub.doiLink) {
+                            return (
+                              <li key={idx} className="flex items-start gap-2">
+                                <span className="text-primary mt-1">•</span>
+                                <a
+                                  href={matchedPub.doiLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-muted-foreground hover:text-primary hover:underline flex items-center gap-1"
+                                >
+                                  {pub}
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              </li>
+                            );
+                          }
+                        }
+                        
+                        // 如果没有匹配到，显示普通文本
+                        return (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="text-primary mt-1">•</span>
+                            <span className="text-muted-foreground">{pub}</span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 )}

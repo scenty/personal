@@ -29,7 +29,7 @@ export const sysuStudents: Student[] = [
     degree: "硕士",
     status: "current",
     researchTopic: "海洋智能预报和三维重建",
-    publications: ["He et al. (2024) Ocean-Land-Atmosphere Research"],
+    publications: ["He et al. (2026) Ocean-Land-Atmosphere Research"],
     awards: ["第三届人工智能海洋学论坛最佳海报奖"],
     bio: "研究方向为人工智能方法在海洋科学中的应用。"
   },
