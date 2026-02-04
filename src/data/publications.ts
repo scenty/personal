@@ -122,19 +122,36 @@ export const publications: Publication[] = [
   },
   {
     id: "yang-2024-stoten",
-    authors: "Yang, G., Wang, Q., Feng, J., He, L., Li, R., Lu, W.*, Liao, E., Lai, Z.",
+    authors: "杨光宇，王启硕，冯家成，何乐驰，李荣祖，卢文芳*，廖恩惠，来志刚",
+    authorsEn: "Yang, G., Wang, Q., Feng, J., He, L., Li, R., Lu, W.*, Liao, E., Lai, Z.",
     year: 2024,
     title: "Can Three-dimensional Nitrate Structure be Reconstructed from Surface Information with Artificial Intelligence? – A Proof-of-concept Study",
     journal: "Science of The Total Environment",
+    volume: "933",
+    pages: "171365",
     doi: "10.1016/j.scitotenv.2024.171365",
     doiLink: "https://doi.org/10.1016/j.scitotenv.2024.171365",
     isFirstAuthor: false,
     isCorrespondingAuthor: true,
+    firstAuthorId: "yang-guangyu",
     quartile: "Q1",
     impactFactor: 9.8,
-    abstract: "本研究探索了利用人工智能方法从海面信息重建海洋三维硝酸盐结构的可行性，为海洋营养盐观测提供了新的技术途径。",
-    keywords: ["nitrate reconstruction", "artificial intelligence", "ocean nutrients", "remote sensing"],
-    highlights: ["本文一作为本科生", "研究得到中大海洋科学学院和中大教务部报道"],
+    abstract: "海洋营养盐（如硝酸盐）的垂直分布结构对于理解海洋生物地球化学循环和生态系统动态至关重要。然而，传统的观测方法成本高昂且空间覆盖有限，难以获得大范围的三维营养盐分布。本研究探索了利用人工智能方法从海面信息重建海洋三维硝酸盐结构的可行性。通过结合海表温度、盐度、叶绿素等遥感观测数据和机器学习模型，本研究证明了从海面信息推断次表层硝酸盐垂直分布的可能性。这一概念验证研究为海洋营养盐观测提供了新的技术途径，有望降低观测成本并提高空间覆盖范围。",
+    abstractEn: "The vertical distribution structure of ocean nutrients (such as nitrate) is crucial for understanding marine biogeochemical cycles and ecosystem dynamics. However, traditional observation methods are costly and have limited spatial coverage, making it difficult to obtain large-scale three-dimensional nutrient distributions. This study explores the feasibility of reconstructing three-dimensional nitrate structures in the ocean from surface information using artificial intelligence methods. By combining remote sensing observations such as sea surface temperature, salinity, and chlorophyll with machine learning models, this study demonstrates the possibility of inferring subsurface nitrate vertical distributions from surface information. This proof-of-concept study provides a new technical approach for ocean nutrient observations, potentially reducing observation costs and improving spatial coverage.",
+    keywords: ["硝酸盐重建", "人工智能", "海洋营养盐", "遥感", "三维结构"],
+    keywordsEn: ["nitrate reconstruction", "artificial intelligence", "ocean nutrients", "remote sensing", "three-dimensional structure"],
+    highlights: [
+      "探索了利用人工智能从海面信息重建海洋三维硝酸盐结构的可行性",
+      "为海洋营养盐观测提供了新的技术途径，有望降低观测成本并提高空间覆盖",
+      "本文第一作者为本科生，体现了本科生科研创新能力",
+      "研究得到中大海洋科学学院和中大教务部报道"
+    ],
+    highlightsEn: [
+      "Explored the feasibility of reconstructing three-dimensional nitrate structures in the ocean from surface information using artificial intelligence",
+      "Provided a new technical approach for ocean nutrient observations, potentially reducing observation costs and improving spatial coverage",
+      "First author is an undergraduate student, demonstrating undergraduate research innovation capability",
+      "Research was reported by Sun Yat-sen University School of Marine Sciences and Academic Affairs Office"
+    ],
     newsCoverage: [
       { title: "中大海洋科学学院报道", link: "https://marine.sysu.edu.cn/article/9954" },
       { title: "中大教务部报道", link: "" }

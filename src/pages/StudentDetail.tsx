@@ -94,7 +94,7 @@ const StudentDetail = () => {
                     <ul className="space-y-2">
                       {student.publications.map((pub, idx) => {
                         // 尝试匹配论文并添加链接
-                        // 匹配格式: "He et al. (2026) Ocean-Land-Atmosphere Research"
+                        // 匹配格式: "He et al. (2026) Ocean-Land-Atmosphere Research" 或 "Yang et al. (2024) Science of The Total Environment"
                         const match = pub.match(/(.+?)\s*\((\d{4})\)\s*(.+)/);
                         if (match) {
                           const [, authors, year, journal] = match;
@@ -106,10 +106,18 @@ const StudentDetail = () => {
                           const matchedPub = publications.find(p => {
                             const pubYearMatch = p.year === yearNum;
                             const journalMatch = p.journal.includes(journalName) || journalName.includes(p.journal);
-                            // 检查第一作者：He -> 何江南 或 He, J.
-                            const authorMatch = p.authors.includes(firstAuthor) || 
-                                              p.authors.includes('何江南') ||
-                                              (firstAuthor === 'He' && p.authors.includes('He'));
+                            
+                            // 优先通过 firstAuthorId 匹配（最准确）
+                            if (p.firstAuthorId === student.id) {
+                              return pubYearMatch && journalMatch;
+                            }
+                            
+                            // 检查第一作者：He -> 何江南，Yang -> 杨光宇
+                            const authorMatch = 
+                              (firstAuthor === 'He' && (p.authors.includes('何江南') || (p.authorsEn && p.authorsEn.includes('He')))) ||
+                              (firstAuthor === 'Yang' && (p.authors.includes('杨光宇') || (p.authorsEn && p.authorsEn.includes('Yang')))) ||
+                              p.authors.includes(firstAuthor) ||
+                              (p.authorsEn && p.authorsEn.includes(firstAuthor));
                             
                             return pubYearMatch && journalMatch && authorMatch;
                           });

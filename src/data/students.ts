@@ -43,8 +43,13 @@ export const sysuStudents: Student[] = [
     status: "current",
     researchTopic: "Neural Wave Model",
     publications: ["Yang et al. (2024) Science of The Total Environment"],
-    awards: ["省级大创项目优秀结题"],
-    bio: "本科大创团队成员，研究方向为利用人工智能方法重建海洋三维硝酸盐结构。"
+    awards: [
+      "国家奖学金",
+      "中山大学海纳百川模拟国际学术会议一等奖",
+      "第六届数字地球会议优秀口头报告",
+      "省级大创优秀结题"
+    ],
+    bio: "中大本科->硕士，研究方向为智能-动力耦合的海浪模式。"
   },
   {
     id: "zheng-yujiao",
@@ -55,7 +60,7 @@ export const sysuStudents: Student[] = [
     degree: "硕士",
     status: "current",
     researchTopic: "海洋热浪三维重建",
-    bio: "研究方向为海洋热浪三维结构的深海遥感重建。"
+    bio: "中大本科->硕士，研究方向为海洋热浪三维结构的深海遥感重建。"
   },
   {
     id: "huang-nanxiang",
@@ -66,7 +71,7 @@ export const sysuStudents: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "海洋智能预报",
-    bio: "研究方向为海洋数值模式与智能预报技术。"
+    bio: "中大本科，拟保送进入团队，研究方向为海洋数值模式与智能预报技术。"
   },
   {
     id: "zhong-xinyi",
@@ -77,7 +82,7 @@ export const sysuStudents: Student[] = [
     degree: "硕士",
     status: "current",
     researchTopic: "海浪智能降尺度",
-    bio: "研究方向为海浪智能降尺度。"
+    bio: "中国海大本科，研究方向为海浪智能降尺度。"
   },
   {
     id: "ren-hengye",
@@ -88,6 +93,7 @@ export const sysuStudents: Student[] = [
     degree: "博士",
     status: "graduated",
     researchTopic: "MJO与海洋生态系统",
+    currentPosition: "内蒙古科技大学讲师",
     publications: ["Ren et al. (2024) Progress in Oceanography"],
     bio: "研究方向为Madden-Julian振荡对南海海洋生态系统的影响。"
   },
@@ -239,7 +245,7 @@ export const sysuUndergraduates: Student[] = [
   },
   {
     id: "ma-ke",
-    name: "马克",
+    name: "马可",
     nameEn: "Ke Ma",
     institution: "sysu",
     institutionName: "中山大学",

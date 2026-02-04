@@ -77,6 +77,23 @@ const PublicationDetail = () => {
                             </>
                           );
                         }
+                        // 处理中文格式：杨光宇
+                        if (authorsText.includes('杨光宇')) {
+                          const parts = authorsText.split('杨光宇');
+                          return (
+                            <>
+                              {parts[0]}
+                              <Link 
+                                to={`/students/${publication.firstAuthorId}`}
+                                className="text-primary hover:underline inline-flex items-center gap-1"
+                              >
+                                杨光宇
+                                <ExternalLink className="w-3 h-3" />
+                              </Link>
+                              {parts[1]}
+                            </>
+                          );
+                        }
                         // 处理英文格式：He, J.
                         if (language === 'en' && authorsText.includes('He, J.')) {
                           const parts = authorsText.split('He, J.');
@@ -88,6 +105,23 @@ const PublicationDetail = () => {
                                 className="text-primary hover:underline inline-flex items-center gap-1"
                               >
                                 He, J.
+                                <ExternalLink className="w-3 h-3" />
+                              </Link>
+                              {parts[1]}
+                            </>
+                          );
+                        }
+                        // 处理英文格式：Yang, G.
+                        if (language === 'en' && authorsText.includes('Yang, G.')) {
+                          const parts = authorsText.split('Yang, G.');
+                          return (
+                            <>
+                              {parts[0]}
+                              <Link 
+                                to={`/students/${publication.firstAuthorId}`}
+                                className="text-primary hover:underline inline-flex items-center gap-1"
+                              >
+                                Yang, G.
                                 <ExternalLink className="w-3 h-3" />
                               </Link>
                               {parts[1]}
@@ -110,13 +144,6 @@ const PublicationDetail = () => {
                 <div className="flex items-center gap-2 mb-8">
                   <FileText className="w-5 h-5 text-primary" />
                   <span className="font-medium">{publication.journal}</span>
-                  {publication.volume && (
-                    <span className="text-muted-foreground">
-                      {language === 'en' ? 'Vol.' : '卷'} {publication.volume}
-                      {publication.issue && (language === 'en' ? `, Issue ${publication.issue}` : `, 第${publication.issue}期`)}
-                      {publication.pages && (language === 'en' ? `, pp. ${publication.pages}` : `, 第${publication.pages}页`)}
-                    </span>
-                  )}
                 </div>
 
                 {/* Abstract */}
