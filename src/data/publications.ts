@@ -334,7 +334,7 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2019-rse",
-    authors: "卢文芳，苏华，杨晓，严晓海",
+    authors: "卢文芳，苏华，杨欣，严晓海",
     authorsEn: "Lu, W., Su, H., Yang, X., & Yan, X.H.",
     year: 2019,
     title: "Subsurface temperature estimation from remote sensing data using a clustering-neural network method",
@@ -358,7 +358,7 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2018-sces",
-    authors: "卢文芳，罗亚威，严晓海，江毓",
+    authors: "卢文芳，罗亚威，严晓海，江毓武",
     authorsEn: "Lu, W., Luo, Y-W., Yan, X., & Jiang, Y.",
     year: 2018,
     title: "Modeling the Contribution of the Microbial Carbon Pump to Carbon Sequestration in the South China Sea",
@@ -401,7 +401,7 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2017-od",
-    authors: "卢文芳，严晓海，韩亮，江毓",
+    authors: "卢文芳，严晓海，韩璐，江毓武",
     authorsEn: "Lu, W., Yan, X-H., Han, L., & Jiang, Y.",
     year: 2017,
     title: "One-dimensional ocean model with three types of vertical velocities: a case study in the South China Sea",
@@ -421,7 +421,7 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2015-jgr",
-    authors: "卢文芳，严晓海，江毓",
+    authors: "卢文芳，严晓海，江毓武",
     authorsEn: "Lu, W., Yan, X-H., & Jiang, Y.",
     year: 2015,
     title: "Winter bloom and associated upwelling northwest of the Luzon Island: A coupled physical-biological modeling approach",
@@ -442,7 +442,7 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2013-eacfm",
-    authors: "卢文芳，江毓，林建",
+    authors: "卢文芳，江毓武，林间",
     authorsEn: "Lu, W., Jiang, Y., & Lin, J.",
     year: 2013,
     title: "Modeling Propagation of 2011 Honshu Tsunami",
