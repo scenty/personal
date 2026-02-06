@@ -275,7 +275,16 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，研究方向待补充。"
+    bio: "本科生，研究方向待补充。",
+    awards: [
+      "国家奖学金",
+      "中山大学优秀学生奖学金一等奖",
+      "中山大学优秀学生奖学金二等奖",
+      "中山大学海洋科学学院专项奖学金",
+      "全国大学生数学竞赛（非数学A类）一等奖",
+      "全国大学生数学竞赛（非数学A类）三等奖",
+      "中山大学第十届\"海纳百川\"模拟国际学术论坛最佳展报奖 Daily Three-dimensional Temperature and Salinity Reconstruction with Self-attention Deep Neural Network in Northwest Pacific"
+    ]
   },
   {
     id: "li-yuanyuan",

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { getPublicationById, publications } from '@/data';
+import { getPublicationById, publications, getStudentById } from '@/data';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const PublicationDetail = () => {
@@ -55,14 +55,27 @@ const PublicationDetail = () => {
                   {publication.firstAuthorId ? (
                     <p className="text-lg text-muted-foreground">
                       {(() => {
+                        // 获取第一作者的学生信息
+                        const firstAuthor = getStudentById(publication.firstAuthorId);
+                        if (!firstAuthor) {
+                          // 如果找不到学生信息，按原样显示
+                          return (
+                            <>
+                              {language === 'en' && publication.authorsEn 
+                                ? publication.authorsEn 
+                                : publication.authors}
+                            </>
+                          );
+                        }
+
                         // 根据语言选择作者列表
                         const authorsText = language === 'en' && publication.authorsEn 
                           ? publication.authorsEn 
                           : publication.authors;
                         
-                        // 处理中文格式的作者列表（使用"，"和"和"分隔）
-                        if (authorsText.includes('何江南')) {
-                          const parts = authorsText.split('何江南');
+                        // 处理中文格式的作者列表
+                        if (firstAuthor.name && authorsText.includes(firstAuthor.name)) {
+                          const parts = authorsText.split(firstAuthor.name);
                           return (
                             <>
                               {parts[0]}
@@ -70,64 +83,72 @@ const PublicationDetail = () => {
                                 to={`/students/${publication.firstAuthorId}`}
                                 className="text-primary hover:underline inline-flex items-center gap-1"
                               >
-                                何江南
+                                {firstAuthor.name}
                                 <ExternalLink className="w-3 h-3" />
                               </Link>
                               {parts[1]}
                             </>
                           );
                         }
-                        // 处理中文格式：杨光宇
-                        if (authorsText.includes('杨光宇')) {
-                          const parts = authorsText.split('杨光宇');
-                          return (
-                            <>
-                              {parts[0]}
-                              <Link 
-                                to={`/students/${publication.firstAuthorId}`}
-                                className="text-primary hover:underline inline-flex items-center gap-1"
-                              >
-                                杨光宇
-                                <ExternalLink className="w-3 h-3" />
-                              </Link>
-                              {parts[1]}
-                            </>
-                          );
+                        
+                        // 处理英文格式：如 "He, J." 或 "He, J" 或 "He, J.,"
+                        if (language === 'en' && firstAuthor.nameEn) {
+                          // 提取姓氏和名字首字母
+                          const nameParts = firstAuthor.nameEn.trim().split(/\s+/);
+                          if (nameParts.length >= 2) {
+                            const surname = nameParts[nameParts.length - 1];
+                            const firstNameInitial = nameParts[0].charAt(0).toUpperCase();
+                            
+                            // 尝试匹配多种格式：He, J. / He, J / He, J.,
+                            const patterns = [
+                              `${surname}, ${firstNameInitial}.`,
+                              `${surname}, ${firstNameInitial}`,
+                              `${surname}, ${firstNameInitial}.,`
+                            ];
+                            
+                            for (const pattern of patterns) {
+                              if (authorsText.includes(pattern)) {
+                                const parts = authorsText.split(pattern);
+                                // 显示格式：去掉末尾的逗号，保留句号（如果有）
+                                const displayName = pattern.endsWith(',') 
+                                  ? pattern.slice(0, -1) 
+                                  : pattern;
+                                return (
+                                  <>
+                                    {parts[0]}
+                                    <Link 
+                                      to={`/students/${publication.firstAuthorId}`}
+                                      className="text-primary hover:underline inline-flex items-center gap-1"
+                                    >
+                                      {displayName}
+                                      <ExternalLink className="w-3 h-3" />
+                                    </Link>
+                                    {parts[1]}
+                                  </>
+                                );
+                              }
+                            }
+                            
+                            // 如果精确匹配失败，尝试只匹配姓氏（用于 "He et al." 格式）
+                            if (authorsText.includes(`${surname} et al.`)) {
+                              const parts = authorsText.split(`${surname} et al.`);
+                              return (
+                                <>
+                                  {parts[0]}
+                                  <Link 
+                                    to={`/students/${publication.firstAuthorId}`}
+                                    className="text-primary hover:underline inline-flex items-center gap-1"
+                                  >
+                                    {surname} et al.
+                                    <ExternalLink className="w-3 h-3" />
+                                  </Link>
+                                  {parts[1]}
+                                </>
+                              );
+                            }
+                          }
                         }
-                        // 处理英文格式：He, J.
-                        if (language === 'en' && authorsText.includes('He, J.')) {
-                          const parts = authorsText.split('He, J.');
-                          return (
-                            <>
-                              {parts[0]}
-                              <Link 
-                                to={`/students/${publication.firstAuthorId}`}
-                                className="text-primary hover:underline inline-flex items-center gap-1"
-                              >
-                                He, J.
-                                <ExternalLink className="w-3 h-3" />
-                              </Link>
-                              {parts[1]}
-                            </>
-                          );
-                        }
-                        // 处理英文格式：Yang, G.
-                        if (language === 'en' && authorsText.includes('Yang, G.')) {
-                          const parts = authorsText.split('Yang, G.');
-                          return (
-                            <>
-                              {parts[0]}
-                              <Link 
-                                to={`/students/${publication.firstAuthorId}`}
-                                className="text-primary hover:underline inline-flex items-center gap-1"
-                              >
-                                Yang, G.
-                                <ExternalLink className="w-3 h-3" />
-                              </Link>
-                              {parts[1]}
-                            </>
-                          );
-                        }
+                        
                         // 如果找不到匹配的作者，按原样显示
                         return <>{authorsText}</>;
                       })()}

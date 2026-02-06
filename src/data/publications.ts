@@ -107,7 +107,8 @@ export const publications: Publication[] = [
   },
   {
     id: "ren-2024-po",
-    authors: "Ren, H., Lu, W.*, Xiao, W., Zhu, Q., Xiao, C., & Lai, Z.",
+    authors: "任姮烨，卢文芳*，肖武鹏，朱庆，肖灿博，来志刚",
+    authorsEn: "Ren, H., Lu, W.*, Xiao, W., Zhu, Q., Xiao, C., & Lai, Z.",
     year: 2024,
     title: "Intraseasonal response of marine planktonic ecosystem to summertime Madden-Julian Oscillation in the South China Sea: A model study",
     journal: "Progress in Oceanography",
@@ -115,6 +116,7 @@ export const publications: Publication[] = [
     doiLink: "https://doi.org/10.1016/j.pocean.2024.103251",
     isFirstAuthor: false,
     isCorrespondingAuthor: true,
+    firstAuthorId: "ren-hengye",
     quartile: "Q1",
     impactFactor: 4.1,
     abstract: "本研究通过数值模拟探讨了南海海洋浮游生物生态系统对夏季Madden-Julian振荡的季节内响应机制。",
@@ -245,7 +247,8 @@ export const publications: Publication[] = [
   },
   {
     id: "su-2021-rse",
-    authors: "Su, H., Zhang, T., Lin, M., Lu, W.*, & Yan, X.H.*",
+    authors: "苏华，张涛，林明，卢文芳*，严晓海*",
+    authorsEn: "Su, H., Zhang, T., Lin, M., Lu, W.*, & Yan, X.H.*",
     year: 2021,
     title: "Predicting Subsurface Thermohaline Structure from Remote Sensing Data Based on Long Short-Term Memory Neural Networks",
     journal: "Remote Sensing of Environment",
@@ -256,12 +259,16 @@ export const publications: Publication[] = [
     quartile: "Q1",
     impactFactor: 9.085,
     abstract: "本研究基于长短期记忆神经网络（LSTM）从遥感数据预测海洋次表层温盐结构。",
-    keywords: ["subsurface temperature", "salinity", "LSTM", "neural network", "remote sensing"],
-    highlights: ["本文章得到IPCC第六次评估报告的引用"]
+    abstractEn: "This study predicts subsurface thermohaline structure from remote sensing data based on Long Short-Term Memory (LSTM) neural networks.",
+    keywords: ["次表层温度", "盐度", "LSTM", "神经网络", "遥感"],
+    keywordsEn: ["subsurface temperature", "salinity", "LSTM", "neural network", "remote sensing"],
+    highlights: ["本文章得到IPCC第六次评估报告的引用"],
+    highlightsEn: ["This article was cited in the IPCC Sixth Assessment Report"]
   },
   {
     id: "wang-2021-tgrs",
-    authors: "Wang, T., Yu, P., Wu, Z.L., Lu, W.*, Liu, X., Li, Q.P., & Huang, B.",
+    authors: "王天浩，余鹏，吴泽伦，卢文芳*，刘雄，李强平，黄邦钦",
+    authorsEn: "Wang, T., Yu, P., Wu, Z.L., Lu, W.*, Liu, X., Li, Q.P., & Huang, B.",
     year: 2021,
     title: "Revisiting the Intraseasonal Variability of Chlorophyll-a in the Adjacent Luzon Strait With a New Gap-Filled Remote Sensing Data Set",
     journal: "IEEE Transactions on Geoscience and Remote Sensing",
@@ -274,7 +281,9 @@ export const publications: Publication[] = [
     quartile: "Q1",
     impactFactor: 5.858,
     abstract: "本研究利用新的填补缺失遥感数据集重新审视了吕宋海峡邻近海域叶绿素a的季节内变化。",
-    keywords: ["chlorophyll-a", "Luzon Strait", "intrasseasonal variability", "gap-filling", "remote sensing"],
+    abstractEn: "This study revisits the intraseasonal variability of chlorophyll-a in the adjacent Luzon Strait with a new gap-filled remote sensing data set.",
+    keywords: ["叶绿素a", "吕宋海峡", "季节内变化", "数据填补", "遥感"],
+    keywordsEn: ["chlorophyll-a", "Luzon Strait", "intrasseasonal variability", "gap-filling", "remote sensing"],
     newsCoverage: [
       { title: "广东省海洋遥感重点实验室新闻", link: "https://mp.weixin.qq.com/s/LKrqYa7zDSSB2mCOZIzvpA" },
       { title: "福州大学数研院新闻", link: "http://adcfj.cn/sirc/adc_door/project/ResearchProgressItem?id=12" }
@@ -282,7 +291,8 @@ export const publications: Publication[] = [
   },
   {
     id: "ding-2021-ae",
-    authors: "Ding, Y., Chen, Z., Lu, W.*, & Wang, X.*",
+    authors: "丁一，陈振，卢文芳*，王新*",
+    authorsEn: "Ding, Y., Chen, Z., Lu, W.*, & Wang, X.*",
     year: 2021,
     title: "A CatBoost approach with wavelet decomposition to improve satellite-derived high-resolution PM2.5 estimates in Beijing-Tianjin-Hebei",
     journal: "Atmospheric Environment",
@@ -293,11 +303,14 @@ export const publications: Publication[] = [
     quartile: "Q2",
     impactFactor: 4.039,
     abstract: "本研究提出了结合CatBoost算法和小波分解的PM2.5遥感估算方法，应用于京津冀地区。",
-    keywords: ["PM2.5", "CatBoost", "wavelet decomposition", "air quality", "remote sensing"]
+    abstractEn: "This study proposes a CatBoost approach with wavelet decomposition to improve satellite-derived high-resolution PM2.5 estimates in Beijing-Tianjin-Hebei region.",
+    keywords: ["PM2.5", "CatBoost", "小波分解", "空气质量", "遥感"],
+    keywordsEn: ["PM2.5", "CatBoost", "wavelet decomposition", "air quality", "remote sensing"]
   },
   {
     id: "su-2020-rs-open",
-    authors: "Su, H., Zhang, H., Geng, X., Qin, T., Lu, W.*, & Yan, X-H.",
+    authors: "苏华，张浩，耿旭，秦田，卢文芳*，严晓海",
+    authorsEn: "Su, H., Zhang, H., Geng, X., Qin, T., Lu, W.*, & Yan, X-H.",
     year: 2020,
     title: "OPEN: A New Estimation of Global Ocean Heat Content for Upper 2000 Meters from Remote Sensing Data",
     journal: "Remote Sensing",
@@ -308,8 +321,11 @@ export const publications: Publication[] = [
     quartile: "Q1",
     impactFactor: 4.509,
     abstract: "本研究提出了OPEN（Ocean Projection and Extension Neural network）方法，利用遥感数据估算全球海洋0-2000米热含量。",
-    keywords: ["ocean heat content", "neural network", "remote sensing", "climate change", "OPEN"],
+    abstractEn: "This study proposes OPEN (Ocean Projection and Extension Neural network) method to estimate global ocean heat content for upper 2000 meters from remote sensing data.",
+    keywords: ["海洋热含量", "神经网络", "遥感", "气候变化", "OPEN"],
+    keywordsEn: ["ocean heat content", "neural network", "remote sensing", "climate change", "OPEN"],
     highlights: ["本文章得到IPCC第六次评估报告的引用，并在图2.26作为其中一套全球海洋热含量数据集", "得到《地球大数据支撑联合国可持续发展目标报告》的采纳"],
+    highlightsEn: ["This article was cited in the IPCC Sixth Assessment Report and included as one of the global ocean heat content datasets in Figure 2.26", "Adopted in the 'Big Earth Data in Support of the Sustainable Development Goals' report"],
     newsCoverage: [
       { title: "福州大学新闻网", link: "https://news.fzu.edu.cn/info/1011/1863.htm" }
     ],
@@ -318,7 +334,8 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2019-rse",
-    authors: "Lu, W., Su, H., Yang, X., & Yan, X.H.",
+    authors: "卢文芳，苏华，杨晓，严晓海",
+    authorsEn: "Lu, W., Su, H., Yang, X., & Yan, X.H.",
     year: 2019,
     title: "Subsurface temperature estimation from remote sensing data using a clustering-neural network method",
     journal: "Remote Sensing of Environment",
@@ -331,7 +348,9 @@ export const publications: Publication[] = [
     quartile: "Q1",
     impactFactor: 9.085,
     abstract: "本研究提出了结合聚类分析和神经网络的次表层温度估算方法。",
-    keywords: ["subsurface temperature", "clustering", "neural network", "remote sensing"],
+    abstractEn: "This study proposes a clustering-neural network method for subsurface temperature estimation from remote sensing data.",
+    keywords: ["次表层温度", "聚类分析", "神经网络", "遥感"],
+    keywordsEn: ["subsurface temperature", "clustering", "neural network", "remote sensing"],
     newsCoverage: [
       { title: "福州大学新闻网", link: "https://news.fzu.edu.cn/info/1011/4413.htm" },
       { title: "厦门大学国家重点实验室新闻", link: "https://mel.xmu.edu.cn/supervisefile.asp?id=881" }
@@ -339,7 +358,8 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2018-sces",
-    authors: "Lu, W., Luo, Y-W., Yan, X., & Jiang, Y.",
+    authors: "卢文芳，罗亚威，严晓海，江毓",
+    authorsEn: "Lu, W., Luo, Y-W., Yan, X., & Jiang, Y.",
     year: 2018,
     title: "Modeling the Contribution of the Microbial Carbon Pump to Carbon Sequestration in the South China Sea",
     journal: "Science China Earth Sciences",
@@ -352,14 +372,17 @@ export const publications: Publication[] = [
     quartile: "Q2",
     impactFactor: 3.242,
     abstract: "本研究模拟了微型生物碳泵对南海碳储量的贡献。",
-    keywords: ["microbial carbon pump", "carbon sequestration", "South China Sea", "biogeochemical modeling"],
+    abstractEn: "This study models the contribution of the Microbial Carbon Pump to carbon sequestration in the South China Sea.",
+    keywords: ["微型生物碳泵", "碳储量", "南海", "生物地球化学模拟"],
+    keywordsEn: ["microbial carbon pump", "carbon sequestration", "South China Sea", "biogeochemical modeling"],
     newsCoverage: [
       { title: "Science旗下媒体EurekAlert报道", link: "https://www.eurekalert.org/pub_releases_ml/2018-09/scp-5090318.php" }
     ]
   },
   {
     id: "lu-2018-os",
-    authors: "Lu, W., Oey, L-Y., Liao, E., Zhuang, W., & Yan, X.H.",
+    authors: "卢文芳，Oey, L-Y.，廖恩惠，庄伟，严晓海",
+    authorsEn: "Lu, W., Oey, L-Y., Liao, E., Zhuang, W., & Yan, X.H.",
     year: 2018,
     title: "Physical modulation to the biological productivity in the summer Vietnam upwelling system",
     journal: "Ocean Science",
@@ -372,11 +395,14 @@ export const publications: Publication[] = [
     quartile: "Q2",
     impactFactor: 4.0,
     abstract: "本研究探讨了夏季越南上升流系统中物理过程对生物生产力的调控作用。",
-    keywords: ["Vietnam upwelling", "biological productivity", "physical-biological coupling", "ocean modeling"]
+    abstractEn: "This study investigates the physical modulation to the biological productivity in the summer Vietnam upwelling system.",
+    keywords: ["越南上升流", "生物生产力", "物理-生物耦合", "海洋模拟"],
+    keywordsEn: ["Vietnam upwelling", "biological productivity", "physical-biological coupling", "ocean modeling"]
   },
   {
     id: "lu-2017-od",
-    authors: "Lu, W., Yan, X-H., Han, L., & Jiang, Y.",
+    authors: "卢文芳，严晓海，韩亮，江毓",
+    authorsEn: "Lu, W., Yan, X-H., Han, L., & Jiang, Y.",
     year: 2017,
     title: "One-dimensional ocean model with three types of vertical velocities: a case study in the South China Sea",
     journal: "Ocean Dynamics",
@@ -389,11 +415,14 @@ export const publications: Publication[] = [
     quartile: "Q2",
     impactFactor: 2.5,
     abstract: "本研究开发了包含三种垂直速度的一维海洋模型，并在南海进行了案例研究。",
-    keywords: ["one-dimensional model", "vertical velocity", "South China Sea", "ocean dynamics"]
+    abstractEn: "This study develops a one-dimensional ocean model with three types of vertical velocities and conducts a case study in the South China Sea.",
+    keywords: ["一维模型", "垂直速度", "南海", "海洋动力学"],
+    keywordsEn: ["one-dimensional model", "vertical velocity", "South China Sea", "ocean dynamics"]
   },
   {
     id: "lu-2015-jgr",
-    authors: "Lu, W., Yan, X-H., & Jiang, Y.",
+    authors: "卢文芳，严晓海，江毓",
+    authorsEn: "Lu, W., Yan, X-H., & Jiang, Y.",
     year: 2015,
     title: "Winter bloom and associated upwelling northwest of the Luzon Island: A coupled physical-biological modeling approach",
     journal: "Journal of Geophysical Research: Oceans",
@@ -407,11 +436,14 @@ export const publications: Publication[] = [
     quartile: "Q1",
     impactFactor: 3.559,
     abstract: "本研究采用物理-生物耦合模型方法研究了吕宋岛西北部冬季藻华及相关上升流现象。",
-    keywords: ["winter bloom", "upwelling", "Luzon Island", "coupled modeling", "phytoplankton"]
+    abstractEn: "This study investigates the winter bloom and associated upwelling northwest of the Luzon Island using a coupled physical-biological modeling approach.",
+    keywords: ["冬季藻华", "上升流", "吕宋岛", "耦合模拟", "浮游植物"],
+    keywordsEn: ["winter bloom", "upwelling", "Luzon Island", "coupled modeling", "phytoplankton"]
   },
   {
     id: "lu-2013-eacfm",
-    authors: "Lu, W., Jiang, Y., & Lin, J.",
+    authors: "卢文芳，江毓，林建",
+    authorsEn: "Lu, W., Jiang, Y., & Lin, J.",
     year: 2013,
     title: "Modeling Propagation of 2011 Honshu Tsunami",
     journal: "Engineering Applications of Computational Fluid Mechanics",
@@ -425,7 +457,9 @@ export const publications: Publication[] = [
     quartile: "Q1",
     impactFactor: 5.800,
     abstract: "本研究模拟了2011年日本本州海啸的传播过程。",
-    keywords: ["tsunami", "numerical modeling", "Honshu", "CFD", "natural disaster"]
+    abstractEn: "This study models the propagation of the 2011 Honshu Tsunami.",
+    keywords: ["海啸", "数值模拟", "本州", "计算流体力学", "自然灾害"],
+    keywordsEn: ["tsunami", "numerical modeling", "Honshu", "CFD", "natural disaster"]
   }
 ];
 

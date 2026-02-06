@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { publications, publicationsByYear, getFirstAuthorPublications, getCorrespondingAuthorPublications, getFirstOrCorrespondingAuthorPublications, getQ2AbovePublications, profile } from '@/data';
+import { publications, publicationsByYear, getFirstAuthorPublications, getCorrespondingAuthorPublications, getFirstOrCorrespondingAuthorPublications, getQ2AbovePublications } from '@/data';
 
 const Publications = () => {
   const [searchTerm, setSearchTerm] = useState('');

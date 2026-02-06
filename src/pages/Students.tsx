@@ -5,7 +5,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { fzuStudents, sysuStudents, allStudents, studentsByDegree } from '@/data';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 // 统计所有奖项总数
 const getAllAwardsCount = () => {
@@ -15,7 +14,6 @@ const getAllAwardsCount = () => {
 };
 
 const Students = () => {
-  const { language } = useLanguage();
   const totalAwardsCount = getAllAwardsCount();
   
   const StudentCard = ({ student }: { student: typeof allStudents[0] }) => {
