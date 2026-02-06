@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, GraduationCap, Database, FolderGit2, Mail, TrendingUp, Users, ExternalLink, MessageCircle, FileText, IdCard } from 'lucide-react';
+import { BookOpen, GraduationCap, Database, FolderGit2, Mail, TrendingUp, Users, ExternalLink, MessageCircle, FileText, IdCard, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import HeroCarousel from '@/components/HeroCarousel';
 import PublicationsCarousel from '@/components/PublicationsCarousel';
 import StudentsCarousel from '@/components/StudentsCarousel';
-import { profile, projects, allStudents } from '@/data';
+import { profile, projects, allStudents, getFirstOrCorrespondingAuthorPublications, getQ2AbovePublications } from '@/data';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Home = () => {
@@ -13,12 +13,12 @@ const Home = () => {
 
   const stats = [
     { 
-      value: profile.stats.firstAuthorPapers, 
+      value: getFirstOrCorrespondingAuthorPublications().length, 
       label: t('stats.papers'),
       icon: BookOpen 
     },
     { 
-      value: profile.stats.q2AbovePapers, 
+      value: getQ2AbovePublications().length, 
       label: t('stats.q2Papers'),
       icon: TrendingUp 
     },
@@ -62,6 +62,14 @@ const Home = () => {
       description: t('quickLinks.projectsDesc'),
       icon: FolderGit2,
       color: 'from-orange-500 to-red-500'
+    },
+    {
+      path: profile.social.sysu,
+      title: language === 'zh' ? '海科院个人页面' : 'SYSU Profile',
+      description: language === 'zh' ? '中山大学海洋科学学院' : 'School of Marine Sciences',
+      icon: Building2,
+      color: 'from-teal-500 to-blue-500',
+      isExternal: true
     },
   ];
 
@@ -186,7 +194,7 @@ Currently serves as a Young Editorial Board Member of the international English-
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: 'url(/images/ocean-circulation.jpg)' }}
+          style={{ backgroundImage: 'url(/images/ocean-circulation.png)' }}
         >
           <div className="absolute inset-0 bg-slate-900/80" />
         </div>
@@ -256,21 +264,39 @@ Currently serves as a Young Editorial Board Member of the international English-
               {language === 'zh' ? '快速导航' : 'Quick Navigation'}
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
             {quickLinks.map((link, index) => {
               const Icon = link.icon;
-              return (
+              const isExternal = link.isExternal || link.path.startsWith('http');
+              
+              const cardContent = (
+                <Card className="h-full hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group border-0 overflow-hidden">
+                  <div className={`h-2 bg-gradient-to-r ${link.color}`} />
+                  <CardContent className="p-5 text-center">
+                    <div className={`w-14 h-14 mx-auto mb-3 rounded-xl bg-gradient-to-br ${link.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="font-bold text-base mb-1 group-hover:text-primary transition-colors flex items-center justify-center gap-1">
+                      {link.title}
+                      {isExternal && <ExternalLink className="w-3 h-3" />}
+                    </h3>
+                    <p className="text-xs text-muted-foreground">{link.description}</p>
+                  </CardContent>
+                </Card>
+              );
+              
+              return isExternal ? (
+                <a 
+                  href={link.path} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  key={index}
+                >
+                  {cardContent}
+                </a>
+              ) : (
                 <Link to={link.path} key={index}>
-                  <Card className="h-full hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group border-0 overflow-hidden">
-                    <div className={`h-2 bg-gradient-to-r ${link.color}`} />
-                    <CardContent className="p-5 text-center">
-                      <div className={`w-14 h-14 mx-auto mb-3 rounded-xl bg-gradient-to-br ${link.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                        <Icon className="w-7 h-7 text-white" />
-                      </div>
-                      <h3 className="font-bold text-base mb-1 group-hover:text-primary transition-colors">{link.title}</h3>
-                      <p className="text-xs text-muted-foreground">{link.description}</p>
-                    </CardContent>
-                  </Card>
+                  {cardContent}
                 </Link>
               );
             })}

@@ -5,9 +5,31 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { fzuStudents, sysuStudents, allStudents, studentsByDegree } from '@/data';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+// 统计所有奖项总数
+const getAllAwardsCount = () => {
+  return allStudents.reduce((total, student) => {
+    return total + (student.awards?.length || 0);
+  }, 0);
+};
 
 const Students = () => {
-  const StudentCard = ({ student }: { student: typeof allStudents[0] }) => (
+  const { language } = useLanguage();
+  const totalAwardsCount = getAllAwardsCount();
+  
+  const StudentCard = ({ student }: { student: typeof allStudents[0] }) => {
+    // 获取第一个奖项，优先选择"国家奖学金"
+    const getFirstAward = () => {
+      if (!student.awards || student.awards.length === 0) return null;
+      const nationalScholarship = student.awards.find(a => a.includes('国家奖学金'));
+      return nationalScholarship || student.awards[0];
+    };
+    
+    const firstAward = getFirstAward();
+    const awardsCount = student.awards?.length || 0;
+    
+    return (
     <Card className="hover:shadow-lg transition-shadow h-full">
       <CardContent className="p-6">
         <div className="flex items-start justify-between mb-4">
@@ -42,19 +64,25 @@ const Students = () => {
         {student.publications && student.publications.length > 0 && (
           <div className="mb-4">
             <p className="text-xs text-muted-foreground mb-1">代表性成果</p>
-            {student.publications.map((pub, idx) => (
-              <p key={idx} className="text-sm text-foreground">{pub}</p>
-            ))}
+            {student.publications.length > 2 ? (
+              <p className="text-sm text-foreground">
+                {student.publications[0]} 等 {student.publications.length} 篇第一作者论文
+              </p>
+            ) : (
+              student.publications.map((pub, idx) => (
+                <p key={idx} className="text-sm text-foreground">{pub}</p>
+              ))
+            )}
           </div>
         )}
 
-        {student.awards && student.awards.length > 0 && (
+        {firstAward && awardsCount > 0 && (
           <div className="mb-4">
-            <div className="flex items-center gap-1 text-sm">
+            <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <Award className="w-4 h-4 text-yellow-500" />
-              {student.awards.map((award, idx) => (
-                <span key={idx} className="text-yellow-700 text-xs">{award}</span>
-              ))}
+              <span className="text-yellow-700">
+                {firstAward}{awardsCount > 1 ? ` 等 ${awardsCount} 个奖项` : ''}
+              </span>
             </div>
           </div>
         )}
@@ -66,7 +94,8 @@ const Students = () => {
         </Button>
       </CardContent>
     </Card>
-  );
+    );
+  };
 
   return (
     <div className="min-h-screen py-12">
@@ -81,7 +110,7 @@ const Students = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <Card>
             <CardContent className="pt-6">
               <div className="text-3xl font-bold text-primary">{allStudents.length}</div>
@@ -98,6 +127,12 @@ const Students = () => {
             <CardContent className="pt-6">
               <div className="text-3xl font-bold text-primary">{sysuStudents.length}</div>
               <div className="text-sm text-muted-foreground">中山大学</div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="pt-6">
+              <div className="text-3xl font-bold text-primary">{totalAwardsCount}</div>
+              <div className="text-sm text-muted-foreground">获奖总数</div>
             </CardContent>
           </Card>
         </div>

@@ -22,7 +22,8 @@ export const profile = {
   social: {
     zhihu: "https://www.zhihu.com/people/scenty",
     researchGate: "https://www.researchgate.net/profile/Wenfang_Lu",
-    orcid: "https://orcid.org/0000-0003-1303-9820"
+    orcid: "https://orcid.org/0000-0003-1303-9820",
+    sysu: "https://marine.sysu.edu.cn/teacher/8890"
   },
   awards: [
     {

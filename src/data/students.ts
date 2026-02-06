@@ -57,10 +57,11 @@ export const sysuStudents: Student[] = [
     nameEn: "Yujiao Zheng",
     institution: "sysu",
     institutionName: "中山大学",
-    degree: "硕士",
+    degree: "本科/硕士",
     status: "current",
     researchTopic: "海洋热浪三维重建",
-    bio: "中大本科->硕士，研究方向为海洋热浪三维结构的深海遥感重建。"
+    bio: "中大本科->硕士，研究方向为海洋热浪三维结构的深海遥感重建。",
+    awards: ["优秀毕业生"]
   },
   {
     id: "huang-nanxiang",
@@ -131,11 +132,22 @@ export const fzuStudents: Student[] = [
     nameEn: "Tianhao Wang",
     institution: "fzu",
     institutionName: "福州大学",
-    degree: "硕士",
+    degree: "博士",
     status: "graduated",
-    researchTopic: "海洋遥感与生态建模",
-    publications: ["Wang et al. (2022) Acta Oceanologica Sinica"],
-    bio: "研究方向为海洋遥感数据重建与海洋生态系统建模。"
+    researchTopic: "水色遥感",
+    publications: [
+      "Wang et al. (2021) IEEE Transactions on Geoscience and Remote Sensing",
+      "Wang et al. (2022) Acta Oceanologica Sinica",
+      "Wang et al. (2026) IEEE Transactions on Geoscience and Remote Sensing",
+      "Lee et al. (2024) Journal of Remote Sensing"
+    ],
+    awards: [
+      "2025中国水色大会优秀报告二等奖",
+      "上海OA专题汇报优秀报告",
+      "2021南海年会优秀展板",
+      "福州大学优秀毕业论文-毕业生"
+    ],
+    bio: "福州大学硕士，现为厦门大学李忠平团队在读博士。"
   },
   {
     id: "wang-jian",

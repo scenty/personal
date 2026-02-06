@@ -453,6 +453,18 @@ export const getCorrespondingAuthorPublications = () => {
   return publications.filter(pub => pub.isCorrespondingAuthor);
 };
 
+// 获取第一/通讯作者论文总数（去重）
+export const getFirstOrCorrespondingAuthorPublications = () => {
+  return publications.filter(pub => pub.isFirstAuthor || pub.isCorrespondingAuthor);
+};
+
+// 获取Q2以上论文（包括Q1和Q2，且是第一/通讯作者）
+export const getQ2AbovePublications = () => {
+  return getFirstOrCorrespondingAuthorPublications().filter(
+    pub => pub.quartile === 'Q1' || pub.quartile === 'Q2'
+  );
+};
+
 // 根据ID获取论文
 export const getPublicationById = (id: string): Publication | undefined => {
   return publications.find(pub => pub.id === id);

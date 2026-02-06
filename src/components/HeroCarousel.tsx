@@ -18,7 +18,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: 'images/hero-ocean.jpg',
+    image: 'images/hero-ocean.png',
     title: '探索海洋奥秘',
     titleEn: 'Explore Ocean Mysteries',
     subtitle: '人工智能驱动的海洋科学研究',
@@ -28,17 +28,17 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: 'images/hero-satellite.jpg',
-    title: '遥感海洋监测',
-    titleEn: 'Remote Sensing Ocean Monitoring',
-    subtitle: '卫星数据揭示海洋变化规律',
-    subtitleEn: 'Satellite Data Reveals Ocean Patterns',
-    cta: '查看数据产品',
-    ctaLink: '/data-products'
+    image: 'images/hero-satellite.png',
+    title: '授课人工智能海洋学',
+    titleEn: 'Teaching AI Oceanography',
+    subtitle: '探索AI与海洋科学的交叉领域',
+    subtitleEn: 'Exploring the Intersection of AI and Ocean Science',
+    cta: '访问课程网站',
+    ctaLink: 'https://scenty.github.io/AI-Oceanography-Course/'
   },
   {
     id: 3,
-    image: 'images/hero-research.jpg',
+    image: 'images/hero-research.png',
     title: '海洋数值模拟',
     titleEn: 'Ocean Numerical Modeling',
     subtitle: '计算海洋科学与海洋模型研究',
@@ -48,7 +48,7 @@ const slides: Slide[] = [
   },
   {
     id: 4,
-    image: 'images/hero-ai.jpg',
+    image: 'images/hero-ai.png',
     title: '智能海洋预报',
     titleEn: 'Intelligent Ocean Forecasting',
     subtitle: '深度学习赋能海洋环境预测',
@@ -114,13 +114,23 @@ const HeroCarousel = () => {
               <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 animate-fade-in-up animation-delay-200">
                 {language === 'zh' ? slide.subtitle : slide.subtitleEn || slide.subtitle}
               </p>
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-white text-black hover:bg-white/90 text-lg px-8 py-6 animate-fade-in-up animation-delay-400"
-              >
-                <Link to={slide.ctaLink}>{slide.cta}</Link>
-              </Button>
+              {slide.ctaLink.startsWith('http') ? (
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="bg-white text-black hover:bg-white/90 text-lg px-8 py-6 animate-fade-in-up animation-delay-400"
+                >
+                  <a href={slide.ctaLink} target="_blank" rel="noopener noreferrer">{slide.cta}</a>
+                </Button>
+              ) : (
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="bg-white text-black hover:bg-white/90 text-lg px-8 py-6 animate-fade-in-up animation-delay-400"
+                >
+                  <Link to={slide.ctaLink}>{slide.cta}</Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>

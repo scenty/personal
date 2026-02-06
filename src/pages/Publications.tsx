@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { publications, publicationsByYear, getFirstAuthorPublications, getCorrespondingAuthorPublications } from '@/data';
+import { publications, publicationsByYear, getFirstAuthorPublications, getCorrespondingAuthorPublications, getFirstOrCorrespondingAuthorPublications, getQ2AbovePublications, profile } from '@/data';
 
 const Publications = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,7 +32,7 @@ const Publications = () => {
         <div className="mb-12">
           <h1 className="text-4xl font-bold mb-4">研究成果</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
-            已发表第一/通讯作者SCI论文18篇，包括中科院二区以上论文14篇。
+            已发表第一/通讯作者SCI论文{getFirstOrCorrespondingAuthorPublications().length}篇，包括中科院二区以上论文{getQ2AbovePublications().length}篇。
             研究领域涵盖人工智能海洋学、海洋动力过程、遥感应用等。
           </p>
         </div>

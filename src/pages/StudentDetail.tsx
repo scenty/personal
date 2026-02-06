@@ -6,6 +6,35 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { getStudentById, allStudents, publications } from '@/data';
 
+// 从学生的英文名中提取姓氏和名字首字母
+const getStudentNameInitials = (nameEn: string | undefined): { surname: string; firstNameInitial: string } | null => {
+  if (!nameEn) return null;
+  const parts = nameEn.trim().split(/\s+/);
+  if (parts.length < 2) return null;
+  // 英文名格式通常是 "FirstName LastName"，最后一部分是姓氏
+  const surname = parts[parts.length - 1];
+  const firstNameInitial = parts[0].charAt(0).toUpperCase();
+  return { surname, firstNameInitial };
+};
+
+// 检查第一作者是否匹配学生（匹配姓氏和名字首字母）
+const matchFirstAuthorToStudent = (firstAuthor: string, student: typeof allStudents[0]): boolean => {
+  const studentInitials = getStudentNameInitials(student.nameEn);
+  if (!studentInitials) return false;
+  
+  // 第一作者通常是姓氏，如 "He", "Yang", "Wang"
+  const firstAuthorSurname = firstAuthor.trim();
+  
+  // 匹配姓氏（不区分大小写）
+  if (firstAuthorSurname.toLowerCase() !== studentInitials.surname.toLowerCase()) {
+    return false;
+  }
+  
+  // 如果论文中有名字首字母（如 "He, J."），也检查名字首字母
+  // 否则只匹配姓氏即可
+  return true;
+};
+
 const StudentDetail = () => {
   const { id } = useParams<{ id: string }>();
   const student = id ? getStudentById(id) : undefined;
@@ -100,43 +129,82 @@ const StudentDetail = () => {
                           const [, authors, year, journal] = match;
                           const yearNum = parseInt(year);
                           const journalName = journal.trim();
-                          const firstAuthor = authors.trim().split(' ')[0];
+                          // 提取第一作者（如 "He et al." -> "He"）
+                          const firstAuthor = authors.trim().split(/\s+/)[0].replace(',', '').replace('.', '');
                           
-                          // 查找匹配的论文：匹配年份和期刊，并且第一作者匹配
-                          const matchedPub = publications.find(p => {
-                            const pubYearMatch = p.year === yearNum;
-                            const journalMatch = p.journal.includes(journalName) || journalName.includes(p.journal);
+                          // 首先检查第一作者是否匹配当前学生
+                          const isFirstAuthorMatch = matchFirstAuthorToStudent(firstAuthor, student);
+                          
+                          if (isFirstAuthorMatch) {
+                            // 如果第一作者匹配，在所有论文中查找匹配的论文
+                            const matchedPub = publications.find(p => {
+                              // 1. 年份必须匹配
+                              if (p.year !== yearNum) return false;
+                              
+                              // 2. 期刊名称匹配：使用更宽松的匹配方式
+                              const journalLower = p.journal.toLowerCase();
+                              const journalNameLower = journalName.toLowerCase();
+                              // 提取期刊的关键部分进行匹配（去掉 "IEEE Transactions on" 等前缀）
+                              const journalKey = journalNameLower.replace(/^(ieee transactions on |journal of |acta )/i, '');
+                              const pubJournalKey = journalLower.replace(/^(ieee transactions on |journal of |acta )/i, '');
+                              const journalMatch = 
+                                journalLower.includes(journalNameLower) || 
+                                journalNameLower.includes(journalLower) ||
+                                journalKey && pubJournalKey && (journalKey.includes(pubJournalKey) || pubJournalKey.includes(journalKey));
+                              
+                              if (!journalMatch) return false;
+                              
+                              // 3. 检查论文的第一作者是否匹配
+                              let pubFirstAuthorSurname = '';
+                              
+                              // 优先使用 authorsEn
+                              if (p.authorsEn) {
+                                const pubFirstAuthor = p.authorsEn.split(',')[0].trim();
+                                pubFirstAuthorSurname = pubFirstAuthor.split(/\s+/)[0];
+                              } 
+                              // 如果有 authors 字段
+                              else if (p.authors) {
+                                // 先检查是否包含学生中文名（中文格式）
+                                if (p.authors.includes(student.name)) {
+                                  return true;
+                                }
+                                
+                                // 否则按英文格式解析
+                                const firstPart = p.authors.split(',')[0].trim();
+                                // 检查是否是英文格式（以英文字母开头）
+                                if (/^[A-Za-z]/.test(firstPart)) {
+                                  pubFirstAuthorSurname = firstPart.split(/\s+/)[0];
+                                } else {
+                                  return false;
+                                }
+                              } else {
+                                return false;
+                              }
+                              
+                              // 匹配姓氏（不区分大小写）
+                              if (pubFirstAuthorSurname) {
+                                const authorMatch = pubFirstAuthorSurname.toLowerCase() === firstAuthor.toLowerCase();
+                                return authorMatch;
+                              }
+                              
+                              return false;
+                            });
                             
-                            // 优先通过 firstAuthorId 匹配（最准确）
-                            if (p.firstAuthorId === student.id) {
-                              return pubYearMatch && journalMatch;
+                            // 如果找到匹配的论文，链接到 publications 详情页
+                            if (matchedPub && matchedPub.id) {
+                              return (
+                                <li key={idx} className="flex items-start gap-2">
+                                  <span className="text-primary mt-1">•</span>
+                                  <Link
+                                    to={`/publications/${matchedPub.id}`}
+                                    className="text-muted-foreground hover:text-primary hover:underline flex items-center gap-1"
+                                  >
+                                    {pub}
+                                    <ExternalLink className="w-3 h-3" />
+                                  </Link>
+                                </li>
+                              );
                             }
-                            
-                            // 检查第一作者：He -> 何江南，Yang -> 杨光宇
-                            const authorMatch = 
-                              (firstAuthor === 'He' && (p.authors.includes('何江南') || (p.authorsEn && p.authorsEn.includes('He')))) ||
-                              (firstAuthor === 'Yang' && (p.authors.includes('杨光宇') || (p.authorsEn && p.authorsEn.includes('Yang')))) ||
-                              p.authors.includes(firstAuthor) ||
-                              (p.authorsEn && p.authorsEn.includes(firstAuthor));
-                            
-                            return pubYearMatch && journalMatch && authorMatch;
-                          });
-                          
-                          if (matchedPub && matchedPub.doiLink) {
-                            return (
-                              <li key={idx} className="flex items-start gap-2">
-                                <span className="text-primary mt-1">•</span>
-                                <a
-                                  href={matchedPub.doiLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-muted-foreground hover:text-primary hover:underline flex items-center gap-1"
-                                >
-                                  {pub}
-                                  <ExternalLink className="w-3 h-3" />
-                                </a>
-                              </li>
-                            );
                           }
                         }
                         
