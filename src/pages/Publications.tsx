@@ -12,6 +12,14 @@ const Publications = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState<'all' | 'first' | 'corresponding'>('all');
 
+  // 判断是否为通讯作者（基于作者字段中的星号标记）
+  const isCorrespondingAuthor = (pub: typeof publications[0]) => {
+    const authors = pub.authors || '';
+    const authorsEn = pub.authorsEn || '';
+    // 检查中文或英文作者字段中是否包含星号标记
+    return authors.includes('卢文芳*') || authors.includes('Lu, W.*') || authorsEn.includes('Lu, W.*');
+  };
+
   const filteredPublications = publications.filter(pub => {
     const matchesSearch = 
       pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -19,7 +27,7 @@ const Publications = () => {
       pub.journal.toLowerCase().includes(searchTerm.toLowerCase());
     
     if (filter === 'first') return matchesSearch && pub.isFirstAuthor;
-    if (filter === 'corresponding') return matchesSearch && pub.isCorrespondingAuthor;
+    if (filter === 'corresponding') return matchesSearch && isCorrespondingAuthor(pub);
     return matchesSearch;
   });
 
@@ -41,7 +49,7 @@ const Publications = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card>
             <CardContent className="pt-6">
-              <div className="text-3xl font-bold text-primary">{publications.length}</div>
+              <div className="text-3xl font-bold text-primary">{getFirstAuthorPublications().length + getCorrespondingAuthorPublications().length}</div>
               <div className="text-sm text-muted-foreground">代表性论文</div>
             </CardContent>
           </Card>
@@ -115,7 +123,7 @@ const Publications = () => {
                         {pub.isFirstAuthor && (
                           <Badge variant="secondary" className="text-xs">第一作者</Badge>
                         )}
-                        {pub.isCorrespondingAuthor && pub.isFirstAuthor === false && (
+                        {isCorrespondingAuthor(pub) && pub.isFirstAuthor === false && (
                           <Badge variant="secondary" className="text-xs">通讯作者</Badge>
                         )}
                       </div>

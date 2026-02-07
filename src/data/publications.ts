@@ -191,7 +191,7 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2022-rs-bloom",
-    authors: "Lu, W., Gao, X., Wu, Z., Wang, T., Lin, S., Xiao, C., & Lai, Z.",
+    authors: "Lu, W., Gao, X., Wu, Z., Wang, T., Lin, S., Xiao, C., & Lai, Z.*",
     year: 2022,
     title: "Framework to Extract Extreme Phytoplankton Bloom Events with Remote Sensing Datasets: A Case Study",
     journal: "Remote Sensing",
@@ -214,7 +214,7 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2022-jgr",
-    authors: "Lu, W., Wang, J., Jiang, Y.W., Chen, Z., Wu, W., Yang, L., & Liu, Y.",
+    authors: "Lu, W., Wang, J., Jiang, Y.W., Chen, Z., Wu, W., Yang, L., & Liu, Y.*",
     year: 2022,
     title: "Data-Driven Method with Numerical Model: A Combining Framework for Predicting Subtropical River Plumes",
     journal: "Journal of Geophysical Research: Oceans",
@@ -291,7 +291,7 @@ export const publications: Publication[] = [
   },
   {
     id: "ding-2021-ae",
-    authors: "丁一，陈振，卢文芳*，王新*",
+    authors: "丁宇，陈佐旗，卢文芳*，王小钦*",
     authorsEn: "Ding, Y., Chen, Z., Lu, W.*, & Wang, X.*",
     year: 2021,
     title: "A CatBoost approach with wavelet decomposition to improve satellite-derived high-resolution PM2.5 estimates in Beijing-Tianjin-Hebei",
@@ -309,7 +309,7 @@ export const publications: Publication[] = [
   },
   {
     id: "su-2020-rs-open",
-    authors: "苏华，张浩，耿旭，秦田，卢文芳*，严晓海",
+    authors: "苏华，张浩杰，耿旭朴，秦天，卢文芳*，严晓海",
     authorsEn: "Su, H., Zhang, H., Geng, X., Qin, T., Lu, W.*, & Yan, X-H.",
     year: 2020,
     title: "OPEN: A New Estimation of Global Ocean Heat Content for Upper 2000 Meters from Remote Sensing Data",
@@ -358,8 +358,8 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2018-sces",
-    authors: "卢文芳，罗亚威，严晓海，江毓武",
-    authorsEn: "Lu, W., Luo, Y-W., Yan, X., & Jiang, Y.",
+    authors: "卢文芳，罗亚威，严晓海，江毓武*",
+    authorsEn: "Lu, W., Luo, Y-W., Yan, X., & Jiang, Y.*",
     year: 2018,
     title: "Modeling the Contribution of the Microbial Carbon Pump to Carbon Sequestration in the South China Sea",
     journal: "Science China Earth Sciences",
@@ -381,8 +381,8 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2018-os",
-    authors: "卢文芳，Oey, L-Y.，廖恩惠，庄伟，严晓海",
-    authorsEn: "Lu, W., Oey, L-Y., Liao, E., Zhuang, W., & Yan, X.H.",
+    authors: "卢文芳，Oey, L-Y.，廖恩惠，庄伟，严晓海，江毓武",
+    authorsEn: "Lu, W., Oey, L-Y., Liao, E., Zhuang, W., Yan, X.H., & Jiang, Y.*",
     year: 2018,
     title: "Physical modulation to the biological productivity in the summer Vietnam upwelling system",
     journal: "Ocean Science",
@@ -401,8 +401,8 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2017-od",
-    authors: "卢文芳，严晓海，韩璐，江毓武",
-    authorsEn: "Lu, W., Yan, X-H., Han, L., & Jiang, Y.",
+    authors: "卢文芳，严晓海，韩璐，江毓武*",
+    authorsEn: "Lu, W., Yan, X-H., Han, L., & Jiang, Y.*",
     year: 2017,
     title: "One-dimensional ocean model with three types of vertical velocities: a case study in the South China Sea",
     journal: "Ocean Dynamics",
@@ -421,8 +421,8 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2015-jgr",
-    authors: "卢文芳，严晓海，江毓武",
-    authorsEn: "Lu, W., Yan, X-H., & Jiang, Y.",
+    authors: "卢文芳，严晓海，江毓武*",
+    authorsEn: "Lu, W., Yan, X-H., & Jiang, Y.*",
     year: 2015,
     title: "Winter bloom and associated upwelling northwest of the Luzon Island: A coupled physical-biological modeling approach",
     journal: "Journal of Geophysical Research: Oceans",
@@ -442,8 +442,8 @@ export const publications: Publication[] = [
   },
   {
     id: "lu-2013-eacfm",
-    authors: "卢文芳，江毓武，林间",
-    authorsEn: "Lu, W., Jiang, Y., & Lin, J.",
+    authors: "卢文芳，江毓武*，林间",
+    authorsEn: "Lu, W., Jiang, Y.*, & Lin, J.",
     year: 2013,
     title: "Modeling Propagation of 2011 Honshu Tsunami",
     journal: "Engineering Applications of Computational Fluid Mechanics",
@@ -482,14 +482,27 @@ export const getFirstAuthorPublications = () => {
   return publications.filter(pub => pub.isFirstAuthor);
 };
 
-// 获取通讯作者论文
+// 获取通讯作者论文（基于作者字段中的星号标记，共同通讯只算一次）
 export const getCorrespondingAuthorPublications = () => {
-  return publications.filter(pub => pub.isCorrespondingAuthor);
+  return publications.filter(pub => {
+    const authors = pub.authors || '';
+    const authorsEn = pub.authorsEn || '';
+    // 检查中文或英文作者字段中是否包含星号标记
+    return authors.includes('卢文芳*') || authors.includes('Lu, W.*') || authorsEn.includes('Lu, W.*');
+  });
+};
+
+// 判断是否为通讯作者（基于作者字段中的星号标记）
+const isCorrespondingAuthorByMark = (pub: Publication) => {
+  const authors = pub.authors || '';
+  const authorsEn = pub.authorsEn || '';
+  // 检查中文或英文作者字段中是否包含星号标记
+  return authors.includes('卢文芳*') || authors.includes('Lu, W.*') || authorsEn.includes('Lu, W.*');
 };
 
 // 获取第一/通讯作者论文总数（去重）
 export const getFirstOrCorrespondingAuthorPublications = () => {
-  return publications.filter(pub => pub.isFirstAuthor || pub.isCorrespondingAuthor);
+  return publications.filter(pub => pub.isFirstAuthor || isCorrespondingAuthorByMark(pub));
 };
 
 // 获取Q2以上论文（包括Q1和Q2，且是第一/通讯作者）

@@ -194,7 +194,7 @@ Currently serves as a Young Editorial Board Member of the international English-
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: 'url(/images/ocean-circulation.png)' }}
+          style={{ backgroundImage: 'url(images/ocean-circulation.png)' }}
         >
           <div className="absolute inset-0 bg-slate-900/80" />
         </div>
