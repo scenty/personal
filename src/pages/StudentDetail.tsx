@@ -261,14 +261,24 @@ const StudentDetail = () => {
                         }
                         
                         // 单个链接的情况
-                        const awardText = award.title;
-                        const awardLink = award.link;
+                        if ('link' in award) {
+                          const awardText = award.title;
+                          const awardLink = award.link;
+                          return (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="text-yellow-500 mt-1">★</span>
+                              <a href={awardLink} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary underline">
+                                {awardText}
+                              </a>
+                            </li>
+                          );
+                        }
+                        
+                        // 如果没有链接，只显示标题
                         return (
                           <li key={idx} className="flex items-start gap-2">
                             <span className="text-yellow-500 mt-1">★</span>
-                            <a href={awardLink} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary underline">
-                              {awardText}
-                            </a>
+                            <span className="text-muted-foreground">{award.title}</span>
                           </li>
                         );
                       })}
