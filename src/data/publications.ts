@@ -271,8 +271,8 @@ export const publications: Publication[] = [
   },
   {
     id: "wang-2021-tgrs",
-    authors: "王天浩，余鹏，吴泽伦，卢文芳*，刘雄，李强平，黄邦钦",
-    authorsEn: "Wang, T., Yu, P., Wu, Z.L., Lu, W.*, Liu, X., Li, Q.P., & Huang, B.",
+    authors: "王天浩，于鹏，吴泽伦，卢文芳*，柳欣，李芊，黄邦钦",
+    authorsEn: "Wang, T., Yu, P., Wu, Z.L., Lu, W.*, Liu, X., Li, Q., & Huang, B.",
     year: 2021,
     title: "Revisiting the Intraseasonal Variability of Chlorophyll-a in the Adjacent Luzon Strait With a New Gap-Filled Remote Sensing Data Set",
     journal: "IEEE Transactions on Geoscience and Remote Sensing",

@@ -11,7 +11,7 @@ export interface Student {
   photo?: string;
   email?: string;
   publications?: string[];
-  awards?: string[];
+  awards?: (string | { title: string; link: string } | { title: string; links: { text: string; link: string }[] })[];
   status: "current" | "graduated"; // 在读/已毕业
   graduationYear?: number;
   currentPosition?: string;
@@ -209,7 +209,7 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，研究方向待补充。"
+    bio: "本科生，报送至香港科技大学。"
   },
   {
     id: "feng-jiacheng",
@@ -220,7 +220,7 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，研究方向待补充。"
+    bio: "本科生，现为海科院研究生。"
   },
   {
     id: "wang-qishuo",
@@ -231,7 +231,7 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，研究方向待补充。"
+    bio: "本科生，保研至中大人工只能学院。"
   },
   {
     id: "li-rongzu",
@@ -242,7 +242,7 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，研究方向待补充。"
+    bio: "本科生，报送至中大数学学院。"
   },
   {
     id: "ding-zhaoxuan",
@@ -253,7 +253,7 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，研究方向待补充。"
+    bio: "本科生，报送至北大。"
   },
   {
     id: "ma-ke",
@@ -274,7 +274,7 @@ export const sysuUndergraduates: Student[] = [
     institutionName: "中山大学",
     degree: "本科",
     status: "current",
-    researchTopic: "待补充大创项目或毕业设计题目",
+    researchTopic: "三维热浪重建",
     bio: "本科生，研究方向待补充。",
     awards: [
       "国家奖学金",
@@ -283,7 +283,13 @@ export const sysuUndergraduates: Student[] = [
       "中山大学海洋科学学院专项奖学金",
       "全国大学生数学竞赛（非数学A类）一等奖",
       "全国大学生数学竞赛（非数学A类）三等奖",
-      "中山大学第十届\"海纳百川\"模拟国际学术论坛最佳展报奖 Daily Three-dimensional Temperature and Salinity Reconstruction with Self-attention Deep Neural Network in Northwest Pacific"
+      {
+        title: "中山大学第十届\"海纳百川\"模拟国际学术论坛最佳展报奖",
+        links: [
+          { text: "获奖报道", link: "https://mp.weixin.qq.com/s/aY6I91RprCywWGBa08EELQ" },
+          { text: "展报内容", link: "https://mp.weixin.qq.com/s/OcWz4hqYrTGeKnq4ZbWhig" }
+        ]
+      }
     ]
   },
   {
@@ -294,8 +300,8 @@ export const sysuUndergraduates: Student[] = [
     institutionName: "中山大学",
     degree: "本科",
     status: "current",
-    researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，研究方向待补充。"
+    researchTopic: "海洋智能体开发",
+    bio: "海洋科学本科，物海班班长"
   },
   {
     id: "liu-xiongyu",
@@ -305,8 +311,30 @@ export const sysuUndergraduates: Student[] = [
     institutionName: "中山大学",
     degree: "本科",
     status: "current",
-    researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，研究方向待补充。"
+    researchTopic: "智能逆模型",
+    bio: "海洋科学本科。"
+  },
+  {
+    id: "huang-siming",
+    name: "黄思铭",
+    nameEn: "Siming Huang",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "物理海洋",
+    bio: "24级拔尖班本科生，物理海洋方向，学生会主席团"
+  },
+  {
+    id: "sun-haochen",
+    name: "孙浩宸",
+    nameEn: "Haochen Sun",
+    institution: "sysu",
+    institutionName: "中山大学",
+    degree: "本科",
+    status: "current",
+    researchTopic: "物理海洋",
+    bio: "2024级物理海洋本科生。"
   }
 ];
 

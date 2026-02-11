@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, GraduationCap, Database, FolderGit2, Mail, TrendingUp, Users, ExternalLink, MessageCircle, FileText, IdCard, Building2 } from 'lucide-react';
+import { BookOpen, GraduationCap, Database, FolderGit2, Mail, TrendingUp, Users, ExternalLink, MessageCircle, FileText, IdCard, Building2, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import HeroCarousel from '@/components/HeroCarousel';
@@ -244,6 +244,12 @@ Currently serves as a Young Editorial Board Member of the international English-
                   <BookOpen className="mr-2 w-4 h-4" /> 
                   {language === 'zh' ? '联系我' : 'Contact Me'}
                 </Link>
+              </Button>
+              <Button asChild className="bg-white text-slate-900 hover:bg-white/90">
+                <a href="/Wenfang-CV-2025.pdf" download="Wenfang-CV-2025.pdf">
+                  <Download className="mr-2 w-4 h-4" /> 
+                  {language === 'zh' ? '个人简历' : 'My CV'}
+                </a>
               </Button>
             </div>
           </div>

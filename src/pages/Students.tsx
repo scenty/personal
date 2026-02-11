@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { fzuStudents, sysuStudents, allStudents, studentsByDegree } from '@/data';
+import { fzuStudents, sysuStudents, sysuUndergraduates, allStudents, studentsByDegree } from '@/data';
 
 // 统计所有奖项总数
 const getAllAwardsCount = () => {
@@ -20,8 +20,18 @@ const Students = () => {
     // 获取第一个奖项，优先选择"国家奖学金"
     const getFirstAward = () => {
       if (!student.awards || student.awards.length === 0) return null;
-      const nationalScholarship = student.awards.find(a => a.includes('国家奖学金'));
-      return nationalScholarship || student.awards[0];
+      const nationalScholarship = student.awards.find(a => {
+        if (typeof a === 'string') return a.includes('国家奖学金');
+        if ('links' in a) return a.title.includes('国家奖学金');
+        return a.title.includes('国家奖学金');
+      });
+      if (nationalScholarship) {
+        if (typeof nationalScholarship === 'string') return nationalScholarship;
+        return nationalScholarship.title;
+      }
+      const firstAward = student.awards[0];
+      if (typeof firstAward === 'string') return firstAward;
+      return firstAward.title;
     };
     
     const firstAward = getFirstAward();
@@ -123,7 +133,7 @@ const Students = () => {
           </Card>
           <Card>
             <CardContent className="pt-6">
-              <div className="text-3xl font-bold text-primary">{sysuStudents.length}</div>
+              <div className="text-3xl font-bold text-primary">{sysuStudents.length + sysuUndergraduates.length}</div>
               <div className="text-sm text-muted-foreground">中山大学</div>
             </CardContent>
           </Card>
@@ -184,7 +194,7 @@ const Students = () => {
               </Card>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sysuStudents.map((student) => (
+              {[...sysuStudents, ...sysuUndergraduates].map((student) => (
                 <StudentCard key={student.id} student={student} />
               ))}
             </div>

@@ -28,7 +28,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: 'images/hero-satellite.png',
+    image: 'images/hero-AIO.jpg',
     title: '授课人工智能海洋学',
     titleEn: 'Teaching AI Oceanography',
     subtitle: '探索AI与海洋科学的交叉领域',

@@ -227,12 +227,51 @@ const StudentDetail = () => {
                       <Award className="w-5 h-5 text-yellow-500" /> 获奖情况
                     </h2>
                     <ul className="space-y-2">
-                      {student.awards.map((award, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="text-yellow-500 mt-1">★</span>
-                          <span className="text-muted-foreground">{award}</span>
-                        </li>
-                      ))}
+                      {student.awards.map((award, idx) => {
+                        if (typeof award === 'string') {
+                          return (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="text-yellow-500 mt-1">★</span>
+                              <span className="text-muted-foreground">{award}</span>
+                            </li>
+                          );
+                        }
+                        
+                        if ('links' in award && Array.isArray(award.links)) {
+                          // 多个链接的情况
+                          return (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="text-yellow-500 mt-1">★</span>
+                              <div className="flex flex-wrap items-center gap-2">
+                                <span className="text-muted-foreground">{award.title}:</span>
+                                {award.links.map((linkItem, linkIdx) => (
+                                  <a 
+                                    key={linkIdx}
+                                    href={linkItem.link} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="text-muted-foreground hover:text-primary underline"
+                                  >
+                                    {linkItem.text}
+                                  </a>
+                                ))}
+                              </div>
+                            </li>
+                          );
+                        }
+                        
+                        // 单个链接的情况
+                        const awardText = award.title;
+                        const awardLink = award.link;
+                        return (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="text-yellow-500 mt-1">★</span>
+                            <a href={awardLink} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary underline">
+                              {awardText}
+                            </a>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 )}
