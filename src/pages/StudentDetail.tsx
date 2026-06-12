@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, GraduationCap, Mail, BookOpen, Award, Building2, ExternalLink } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Mail, BookOpen, Award, Building2, ExternalLink, NotebookPen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -146,7 +146,9 @@ const StudentDetail = () => {
                 {/* Bio */}
                 {student.bio && (
                   <div className="mb-6">
-                    <h2 className="text-xl font-semibold mb-3">个人简介</h2>
+                    <h2 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                      <NotebookPen className="w-5 h-5 text-primary" /> 个人简介
+                    </h2>
                     <p className="text-muted-foreground leading-relaxed">{student.bio}</p>
                   </div>
                 )}

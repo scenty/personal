@@ -17,6 +17,7 @@ export interface Publication {
   isFirstAuthor: boolean;
   isCorrespondingAuthor: boolean;
   quartile?: string;
+  isCasZone2Above?: boolean; // 中科院二区及以上，未标注时回退至 JCR Q1/Q2 判断
   impactFactor?: number;
   abstract?: string;
   abstractEn?: string; // 英文摘要
@@ -81,6 +82,7 @@ export const publications: Publication[] = [
     isCorrespondingAuthor: true,
     firstAuthorId: "he-jiangnan",
     quartile: "Q1",
+    isCasZone2Above: false,
     abstract: "及时准确的海平面异常（SLA）预报对于监测海洋环境和指导海岸管理至关重要。利用多卫星高度计产品可以有效满足这些预报需求。本研究报告了一个基于人工智能的SLA预报模型，专门针对北太平洋，使用高度计产品和先前应用的基于Transformer的网络（即Earthformer）来实现短期（<7天）和中长期（7至30天）预报。在基线性能的基础上，当考虑优化的训练策略时，中长期预测精度可以显著提高。两种创新的训练策略包括：将预测目标改为SLA时间趋势（以解决SLA的缓慢变化），以及通过滚动和多步训练来弥合训练-预报差距（仅训练下一天，而预报更长时间范围）。因此，正式训练的模型Multistep-Earthformer超越了持续性预报（在1至30个预测提前期的测试中，均方根误差降低21%至58%）和最先进的数值产品GLO12v4（在1至10个预测提前期的预报中，均方根误差降低10%至77%）。结果突出了Multistep-Earthformer在提供准确的短期至中长期SLA预报方面的强大能力。此外，采用的两种训练策略是模型无关的，具有增强各种地球科学预测任务的潜力。",
     abstractEn: "Timely and accurate sea level anomaly (SLA) forecasts are essential for monitoring the ocean environment and guiding coastal management. Utilizing multi-satellite altimetry products is effective for meeting these forecast demands. Here, we report an artificial intelligence-based SLA forecast model tailored for the North Pacific Ocean using altimetry products and a previously applied transformer-based network (i.e., Earthformer) to achieve short-range (<7d) and medium-range (7 to 30 d) forecasts. Building upon the high baseline performance, when optimized training strategies are considered, medium-range prediction accuracy can be markedly improved. The 2 innovative training strategies include changing the prediction target to the SLA temporal tendency (to address the slow variation of the SLA) and bridging the training-forecast gap (training only for the next day, while forecasting for longer horizons) through rolling and multi-step training. Consequently, the formally trained model Multistep-Earthformer surpassed the persistence forecast (21% to 58% root mean square error reduction in the test over 1 to 30 prediction lead days) and state-of-the-art numerical product GLO12v4 (10% to 77% root mean square error reduction in the forecast over 1 to 10 prediction lead days). The results highlight the strong capability of Multistep-Earthformer in delivering accurate short- to medium-range SLA forecasts. Moreover, the 2 training strategies employed are model-agnostic and hold potential for enhancing various geoscientific prediction tasks.",
     keywords: ["sea level anomaly", "forecast", "Earthformer", "North Pacific", "AI training strategies", "transformer", "deep learning"],
@@ -224,6 +226,7 @@ export const publications: Publication[] = [
     isCorrespondingAuthor: true,
     firstAuthorId: "wang-tianhao",
     quartile: "Q2",
+    isCasZone2Above: false,
     impactFactor: 1.8,
     abstract: "本研究基于遥感重建数据分析了南海叶绿素a的长期变化趋势，发现2005-2019年间呈现下降趋势。",
     keywords: ["chlorophyll-a", "South China Sea", "remote sensing", "long-term trend"]
@@ -435,6 +438,7 @@ export const publications: Publication[] = [
     isFirstAuthor: true,
     isCorrespondingAuthor: true,
     quartile: "Q2",
+    isCasZone2Above: false,
     impactFactor: 4.0,
     abstract: "本研究探讨了夏季越南上升流系统中物理过程对生物生产力的调控作用。",
     abstractEn: "This study investigates the physical modulation to the biological productivity in the summer Vietnam upwelling system.",
@@ -455,6 +459,7 @@ export const publications: Publication[] = [
     isFirstAuthor: true,
     isCorrespondingAuthor: true,
     quartile: "Q2",
+    isCasZone2Above: false,
     impactFactor: 2.5,
     abstract: "本研究开发了包含三种垂直速度的一维海洋模型，并在南海进行了案例研究。",
     abstractEn: "This study develops a one-dimensional ocean model with three types of vertical velocities and conducts a case study in the South China Sea.",
@@ -547,11 +552,12 @@ export const getFirstOrCorrespondingAuthorPublications = () => {
   return publications.filter(pub => pub.isFirstAuthor || isCorrespondingAuthorByMark(pub));
 };
 
-// 获取Q2以上论文（包括Q1和Q2，且是第一/通讯作者）
+// 获取中科院二区以上论文（第一/通讯作者）
 export const getQ2AbovePublications = () => {
-  return getFirstOrCorrespondingAuthorPublications().filter(
-    pub => pub.quartile === 'Q1' || pub.quartile === 'Q2'
-  );
+  return getFirstOrCorrespondingAuthorPublications().filter(pub => {
+    if (pub.isCasZone2Above !== undefined) return pub.isCasZone2Above;
+    return pub.quartile === 'Q1' || pub.quartile === 'Q2';
+  });
 };
 
 // 根据ID获取论文

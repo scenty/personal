@@ -41,7 +41,7 @@ export const profile = {
   ],
   stats: {
     firstAuthorPapers: 20,
-    q2AbovePapers: 14,
+    q2AbovePapers: 16,
     hIndex: ""
   },
   roles: [
