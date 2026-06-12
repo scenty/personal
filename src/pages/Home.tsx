@@ -121,20 +121,23 @@ const Home = () => {
         'Global Climate Change'
       ];
 
+  const paperCount = getFirstOrCorrespondingAuthorPublications().length;
+  const q2Count = getQ2AbovePublications().length;
+
   // 更新后的个人简介（简短版）
   const bioText = language === 'zh' 
     ? `卢文芳，1989年出生，福建泉州人，中山大学“百人计划”、福建省高层次人才C类，现任海洋动力过程与气候教研室（系）副主任，珠江口海洋生态教育部野外观测站副站长。
 	
-曾获海科院2025年“我心目中的良师”称号、亚洲大洋洲地球科学学会（AOGS）2016年年会海洋学分会最佳海报奖、国家公派奖学金、博士研究生国家奖学金等多项奖励。知乎海洋、海洋科学领域优秀回答者。目前已发表第一/通讯作者SCI论文18篇，包括中科院二区以上论文14篇。主持国家自然基金青年基金、重点研发子任务、中国博士后基金、广东省/福建省科技厅自然基金、南海所开放课题等科研项目。
+曾获海科院2025年“我心目中的良师”称号、第三届全国海洋学教学大赛三等奖、亚洲大洋洲地球科学学会（AOGS）2016年年会海洋学分会最佳海报奖、国家公派奖学金、博士研究生国家奖学金等多项奖励。知乎海洋、海洋科学领域优秀回答者。目前已发表第一/通讯作者SCI论文${paperCount}篇，包括中科院二区以上论文${q2Count}篇。主持国家自然基金青年基金、重点研发子任务、中国博士后基金、广东省/福建省科技厅自然基金、南海所开放课题等科研项目。
 
-担任国际英文期刊Ocean-Land-Atmosphere Research（OLAR）青年编委、Remote Sensing期刊客座编辑、中国海洋学会人工智能海洋学专业委员会委员、GRL/JGR/TGRS/RS等数十种国际期刊审稿人。`
+担任第五届人工智能海洋学论坛科学委员会委员、国际英文期刊Ocean-Land-Atmosphere Research（OLAR）青年编委、Remote Sensing期刊客座编辑、中国海洋学会人工智能海洋学专业委员会委员、GRL/JGR/TGRS/RS等数十种国际期刊审稿人。`
     : `Born in 1989, from Quanzhou, Fujian Province. Selected for Sun Yat-sen University’s “Hundred Talents Program” and recognized as a Fujian Provincial High-Level Talent (Category C). Currently serves as Deputy Director of the Teaching and Research Section (Department) of Ocean Dynamics and Climate, and Deputy Director of the Ministry of Education Pearl River Estuary Marine Ecology Field Observation Station.
 
-Honors and awards include the 2025 “Teacher I Admire Most” title from the Institute of Oceanography, the Best Poster Award (Oceanography Section) at the 2016 Annual Meeting of the Asia Oceania Geosciences Society (AOGS), the National Government-Sponsored Scholarship, and the National Scholarship for Doctoral Students, among others. Recognized as an outstanding contributor in the fields of oceans and marine science on Zhihu.
+Honors and awards include the 2025 “Teacher I Admire Most” title from the Institute of Oceanography, the Third Prize in the 3rd National Oceanography Teaching Competition, the Best Poster Award (Oceanography Section) at the 2016 Annual Meeting of the Asia Oceania Geosciences Society (AOGS), the National Government-Sponsored Scholarship, and the National Scholarship for Doctoral Students, among others. Recognized as an outstanding contributor in the fields of oceans and marine science on Zhihu.
 
-To date, has published 18 SCI papers as first or corresponding author, including 14 papers in CAS Zone II journals or above. Has led or participated as PI in projects funded by the National Natural Science Foundation of China (Young Scientists Fund), sub-tasks of National Key R&D Programs, the China Postdoctoral Science Foundation, Natural Science Foundations of Guangdong and Fujian Provinces, and open research programs of the South China Sea Institute of Oceanology.
+To date, has published ${paperCount} SCI papers as first or corresponding author, including ${q2Count} papers in CAS Zone II journals or above. Has led or participated as PI in projects funded by the National Natural Science Foundation of China (Young Scientists Fund), sub-tasks of National Key R&D Programs, the China Postdoctoral Science Foundation, Natural Science Foundations of Guangdong and Fujian Provinces, and open research programs of the South China Sea Institute of Oceanology.
 
-Currently serves as a Young Editorial Board Member of the international English-language journal Ocean–Land–Atmosphere Research (OLAR), Guest Editor of Remote Sensing, a member of the Professional Committee on Artificial Intelligence Oceanography of the Chinese Society of Oceanography, and a reviewer for dozens of international journals including GRL, JGR, TGRS, and RS.`;
+Currently serves as a Scientific Committee Member of the 5th Artificial Intelligence Oceanography Forum, Young Editorial Board Member of the international English-language journal Ocean–Land–Atmosphere Research (OLAR), Guest Editor of Remote Sensing, a member of the Professional Committee on Artificial Intelligence Oceanography of the Chinese Society of Oceanography, and a reviewer for dozens of international journals including GRL, JGR, TGRS, and RS.`;
 
   return (
     <div className="min-h-screen">

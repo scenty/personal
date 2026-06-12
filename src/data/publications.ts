@@ -32,6 +32,41 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    id: "wang-2026-grs",
+    authors: "王天浩，卢文芳，李忠平，余小龙，商少凌，林供",
+    authorsEn: "Wang, T., Lu, W., Lee, Z., Yu, X., Shang, S., & Lin, G.",
+    year: 2026,
+    title: "Reconstructing remote sensing reflectance from MODIS-Aqua for enhanced ocean color applications",
+    journal: "GIScience & Remote Sensing",
+    volume: "63",
+    issue: "1",
+    pages: "2681367",
+    doi: "10.1080/15481603.2026.2681367",
+    doiLink: "https://doi.org/10.1080/15481603.2026.2681367",
+    pdfLink: "https://www.tandfonline.com/doi/pdf/10.1080/15481603.2026.2681367",
+    isFirstAuthor: true,
+    isCorrespondingAuthor: false,
+    firstAuthorId: "wang-tianhao",
+    quartile: "Q1",
+    abstract: "卫星海洋水色产品常因云污染、太阳耀斑和传感器限制而存在大量数据缺失，制约了长期环境监测。本研究采用离散余弦变换惩罚最小二乘法（DCT-PLS），对2010–2020年南海MODIS-Aqua逐日遥感反射率（Rrs）进行光谱一致的重建。重建Rrs与现场观测高度吻合（多数波段R²>0.70），有效卫星–现场匹配点增加四倍以上。由重建Rrs反演的叶绿素a精度优于直接重建叶绿素a（MAPD由49.1%降至36.4%），并提升了数据稀疏海域的长期趋势检测能力。结果表明，重建无缺失Rrs数据集不仅弥补数据损失，还可支撑一致的下游生物光学产品生成。",
+    abstractEn: "Satellite-derived ocean color products are frequently affected by substantial data gaps due to cloud contamination, sun glint, and sensor-related limitations, posing a major challenge for long-term environmental monitoring. To address this, most existing gap-filling efforts have focused on reconstructing inverted variables including chlorophyll-a concentration (CHL) and sea surface temperature. However, this practice is limited by the inflexibility of reconstructing each variable separately. Since CHL and other bio-optical variables are derived from the remote sensing reflectance (Rrs) spectrum, reconstructing Rrs offers a more general solution. In this study, we propose a spectrally-consistent reconstruction of Rrs using the Discrete Cosine Transform with Penalized Least Squares (DCT-PLS) method, applied to MODIS-Aqua daily data over the South China Sea (SCS) for the period of 2010–2020. The reconstructed Rrs dataset shows high agreement with in-situ measurements (R2 > 0.70 for most bands) and expands the number of valid satellite–in-situ matchups by more than four times, especially in persistently cloudy offshore areas. Compared with direct CHL reconstruction (RMSD = 0.63, MAPD = 49.1%), CHL retrieved from reconstructed Rrs shows improved accuracy (RMSD = 0.50, MAPD = 36.4%) based on validation with more than 400 in-situ samples. The reconstructed Rrs also enhances long-term trend detectability and signal-to-noise ratios in data-sparse regions. Furthermore, derived bio-optical parameters (e.g. phytoplankton absorption, detrital and gelbstoff absorption, and diffuse attenuation coefficients) exhibit consistent trends, reinforcing the reliability of the reconstructed Rrs. Our results demonstrate that reconstructing gap-free Rrs datasets not only address data loss but also support the generation of consistent downstream products, enabling reliable long-term monitoring in data-sparse marine environments.",
+    keywords: ["遥感反射率", "数据重建", "DCT-PLS", "MODIS", "南海", "海洋水色"],
+    keywordsEn: ["remote sensing reflectance", "gap-filling", "DCT-PLS", "MODIS", "South China Sea", "ocean color"],
+    highlights: [
+      "提出基于DCT-PLS的MODIS-Aqua Rrs光谱一致重建方法",
+      "有效卫星–现场匹配点增加四倍以上，尤其改善持续多云近海区域的数据覆盖",
+      "由重建Rrs反演叶绿素a的精度优于直接重建叶绿素a",
+      "重建Rrs可支撑多种生物光学参数的一致反演与长期趋势分析"
+    ],
+    highlightsEn: [
+      "Proposed a spectrally-consistent DCT-PLS reconstruction method for MODIS-Aqua Rrs",
+      "Expanded valid satellite–in-situ matchups by more than four times, especially in persistently cloudy offshore areas",
+      "CHL retrieved from reconstructed Rrs outperformed direct CHL reconstruction",
+      "Reconstructed Rrs supports consistent retrieval of bio-optical parameters and long-term trend analysis"
+    ],
+    dataLink: "https://doi.org/10.5281/zenodo.18084640"
+  },
+  {
     id: "he-2026-olar",
     authors: "何江南，卢文芳*，刘勇，杨光宇，Jo Young-Heon，来志刚",
     authorsEn: "He, J., Lu, W.*, Liu, Y., Yang, G., Jo, Y.-H., & Lai, Z.",
@@ -69,7 +104,8 @@ export const publications: Publication[] = [
       }
     ],
     newsCoverage: [
-      { title: "公众号报道", link: "https://mp.weixin.qq.com/s/WAtv69cG5ugXWJJDgyHv7w" }
+      { title: "公众号报道", link: "https://mp.weixin.qq.com/s/WAtv69cG5ugXWJJDgyHv7w" },
+      { title: "EurekAlert! 科学新闻", link: "https://www.eurekalert.org/news-releases/1117961" }
     ]
   },
   {
@@ -186,6 +222,7 @@ export const publications: Publication[] = [
     doiLink: "http://www.aosocean.com/article/doi/10.1007/s13131-022-2097-y",
     isFirstAuthor: false,
     isCorrespondingAuthor: true,
+    firstAuthorId: "wang-tianhao",
     quartile: "Q2",
     impactFactor: 1.8,
     abstract: "本研究基于遥感重建数据分析了南海叶绿素a的长期变化趋势，发现2005-2019年间呈现下降趋势。",
@@ -282,6 +319,7 @@ export const publications: Publication[] = [
     doiLink: "https://doi.org/10.1109/tgrs.2021.3067646",
     isFirstAuthor: false,
     isCorrespondingAuthor: true,
+    firstAuthorId: "wang-tianhao",
     quartile: "Q1",
     impactFactor: 5.858,
     abstract: "本研究利用新的填补缺失遥感数据集重新审视了吕宋海峡邻近海域叶绿素a的季节内变化。",

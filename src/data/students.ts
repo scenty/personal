@@ -9,6 +9,7 @@ export interface Student {
   year?: number; // 入学年份
   researchTopic?: string;
   photo?: string;
+  photoOriginal?: string;
   email?: string;
   publications?: string[];
   awards?: (string | { title: string; link: string } | { title: string; links: { text: string; link: string }[] })[];
@@ -28,6 +29,8 @@ export const sysuStudents: Student[] = [
     institutionName: "中山大学",
     degree: "硕士",
     status: "current",
+    photo: "images/zelda_style_图.jpg",
+    photoOriginal: "images/原图.jpg",
     researchTopic: "海洋智能预报和三维重建",
     publications: ["He et al. (2026) Ocean-Land-Atmosphere Research"],
     awards: ["第三届人工智能海洋学论坛最佳海报奖"],
@@ -132,13 +135,16 @@ export const fzuStudents: Student[] = [
     nameEn: "Tianhao Wang",
     institution: "fzu",
     institutionName: "福州大学",
-    degree: "博士",
+    degree: "硕士/博士",
     status: "graduated",
+    graduationYear: 2026,
     researchTopic: "水色遥感",
+    currentPosition: "南京信息工程大学博士后",
     publications: [
+      "Wang et al. (2026) GIScience & Remote Sensing",
+      "Wang et al. (2026) IEEE Transactions on Geoscience and Remote Sensing",
       "Wang et al. (2021) IEEE Transactions on Geoscience and Remote Sensing",
       "Wang et al. (2022) Acta Oceanologica Sinica",
-      "Wang et al. (2026) IEEE Transactions on Geoscience and Remote Sensing",
       "Lee et al. (2024) Journal of Remote Sensing"
     ],
     awards: [
@@ -147,7 +153,7 @@ export const fzuStudents: Student[] = [
       "2021南海年会优秀展板",
       "福州大学优秀毕业论文-毕业生"
     ],
-    bio: "福州大学硕士，现为厦门大学李忠平团队在读博士。"
+    bio: "福州大学硕士，厦门大学博士（2026年6月毕业），现为南京信息工程大学博士后。研究方向为水色遥感与海洋卫星数据重建。"
   },
   {
     id: "wang-jian",

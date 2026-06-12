@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, GraduationCap, Mail, BookOpen, Award, Building2, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -5,6 +6,42 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { getStudentById, allStudents, publications } from '@/data';
+
+const GraduationPhoto = ({
+  photo,
+  photoOriginal,
+  alt,
+}: {
+  photo: string;
+  photoOriginal?: string;
+  alt: string;
+}) => {
+  const [showOriginal, setShowOriginal] = useState(false);
+
+  if (!photoOriginal) {
+    return <img src={photo} alt={alt} className="block h-auto w-full max-w-full rounded-lg" />;
+  }
+
+  return (
+    <div
+      className="relative inline-block max-w-full cursor-pointer rounded-lg"
+      onMouseEnter={() => setShowOriginal(true)}
+      onMouseLeave={() => setShowOriginal(false)}
+      onClick={() => setShowOriginal((v) => !v)}
+    >
+      <img
+        src={photo}
+        alt={alt}
+        className={`block h-auto w-full max-w-full rounded-lg transition-opacity duration-300 ${showOriginal ? 'opacity-0' : 'opacity-100'}`}
+      />
+      <img
+        src={photoOriginal}
+        alt={`${alt}（原图）`}
+        className={`absolute left-0 top-0 block h-auto w-full max-w-full rounded-lg transition-opacity duration-300 ${showOriginal ? 'opacity-100' : 'opacity-0'}`}
+      />
+    </div>
+  );
+};
 
 // 从学生的英文名中提取姓氏和名字首字母
 const getStudentNameInitials = (nameEn: string | undefined): { surname: string; firstNameInitial: string } | null => {
@@ -222,7 +259,7 @@ const StudentDetail = () => {
 
                 {/* Awards */}
                 {student.awards && student.awards.length > 0 && (
-                  <div>
+                  <div className="mb-6">
                     <h2 className="text-xl font-semibold mb-3 flex items-center gap-2">
                       <Award className="w-5 h-5 text-yellow-500" /> 获奖情况
                     </h2>
@@ -283,6 +320,22 @@ const StudentDetail = () => {
                         );
                       })}
                     </ul>
+                  </div>
+                )}
+
+                {student.photo && (
+                  <div>
+                    <h2 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                      <GraduationCap className="w-5 h-5 text-primary" /> 毕业照
+                    </h2>
+                    <div className="flex flex-col items-center">
+                      <GraduationPhoto
+                        photo={student.photo}
+                        photoOriginal={student.photoOriginal}
+                        alt={`${student.name}毕业照`}
+                      />
+                      <p className="mt-2 text-center text-sm text-muted-foreground">2026年5月17日完成答辩，祝贺江南！</p>
+                    </div>
                   </div>
                 )}
               </CardContent>
