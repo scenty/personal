@@ -95,7 +95,7 @@ personal/
 
 | 路由 | 页面文件 | 说明 |
 |------|----------|------|
-| `/#/` | `Home.tsx` | 个人简介、学术统计、轮播、快捷入口 |
+| `/#/` | `Home.tsx` | 个人简介、学术统计、轮播、快捷入口；代表性奖励为 3+2 卡片布局 |
 | `/#/publications` | `Publications.tsx` | 按年份分组的论文列表 |
 | `/#/publications/:id` | `PublicationDetail.tsx` | 单篇论文详情、相关链接、媒体报道 |
 | `/#/students` | `Students.tsx` | 学生团队（按学校/学位分类） |
@@ -107,7 +107,7 @@ personal/
 ## 数据文件说明
 
 ### `profile.ts`
-个人姓名、单位、联系方式、社交链接、荣誉、研究兴趣、教育经历及简介文案。
+个人姓名、单位、联系方式、社交链接、荣誉、研究兴趣、教育经历及简介文案。荣誉含 OLAR 优秀青年编委等；首页简介（`Home.tsx` 中 `bioText`）需与此处同步维护。
 
 ### `publications.ts`
 - 每篇论文含作者、期刊、DOI、摘要、亮点、图表、新闻链接等
@@ -139,11 +139,13 @@ personal/
 
 ```bash
 npm install
-npm run dev      # 开发：http://localhost:5173
+npm run dev      # 开发：http://127.0.0.1:5173（vite.config 已固定绑定 IPv4）
 npm run build    # 生产构建 → dist/
 npm run preview  # 预览构建结果
 npm run lint     # ESLint 检查
 ```
+
+> 若出现 `ERR_CONNECTION_REFUSED`（访问 127.0.0.1:5173），先确认 `npm run dev` 仍在运行；本仓库已配置 `server.host: '127.0.0.1'`，避免仅监听 IPv6 `::1` 导致 IPv4 连接被拒绝。
 
 ## 内容维护指南
 
@@ -154,7 +156,7 @@ npm run lint     # ESLint 检查
 编辑 `src/data/students.ts`。毕业照图片放入 `public/images/`，配置 `photo` 与 `photoOriginal` 字段。
 
 ### 更新个人简历
-将 PDF 放入 `public/Wenfang-CV-2025.pdf`（或同步修改 `Home.tsx` 中的下载链接）。
+将 PDF 放入 `public/Wenfang-CV-2025.pdf`（或同步修改 `Home.tsx` 中的下载链接）。链接须用相对路径（如 `Wenfang-CV-2025.pdf`），勿用以 `/` 开头的绝对路径，否则在 GitHub Pages 子路径（`/personal/`）下会 404。
 
 ### 添加静态图片
 放入 `public/images/`，页面中以 `images/文件名` 引用（相对路径，兼容 GitHub Pages）。
