@@ -1,5 +1,25 @@
 # Agent 工作记录
 
+## 2026-07-20：加入夜间模式（按时段默认 + 右上角切换）
+
+### 说明
+README 曾写明暗主题，但 `ThemeProvider` 默认锁死 `light`，导航栏也无切换入口，夜间模式实际未启用。
+
+### 处理
+1. `theme-provider.tsx`：无本地偏好时按本地时间 19:00–06:59 默认夜间，否则日间；提供 `toggleTheme`
+2. `index.html` 内联脚本首屏前写入 class，避免主题闪烁
+3. `Navbar` 右上角增加月亮/太阳一键切换（移动端菜单同步）
+4. 首页与主要页面硬编码浅色区块补充 `dark:` 样式
+
+### 相关文件
+- `src/components/ui/theme-provider.tsx`
+- `src/components/Navbar.tsx`
+- `index.html` / `src/App.tsx` / `src/index.css`
+- `src/pages/Home.tsx` 等页面与轮播组件
+- `README.md`
+
+---
+
 ## 2026-07-20：修复 GitHub Pages 简历 PDF 无法下载
 
 ### 问题

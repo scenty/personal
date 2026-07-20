@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, GraduationCap, BookOpen, Database, FolderGit2, Mail, Home, Globe } from 'lucide-react';
+import { Menu, GraduationCap, BookOpen, Database, FolderGit2, Mail, Home, Globe, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTheme } from '@/components/ui/theme-provider';
 
 const navItems = [
   { path: '/', labelKey: 'nav.home', icon: Home },
@@ -18,6 +19,7 @@ const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   const isActive = (path: string) => {
     if (path === '/') {
@@ -68,6 +70,18 @@ const Navbar = () => {
 
           {/* Right Side */}
           <div className="flex items-center gap-2">
+            {/* Theme Switch */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="text-white/80 hover:text-white hover:bg-white/10"
+              aria-label={theme === 'dark' ? String(t('theme.toLight')) : String(t('theme.toDark'))}
+              title={theme === 'dark' ? String(t('theme.toLight')) : String(t('theme.toDark'))}
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </Button>
+
             {/* Language Switch */}
             <Button
               variant="ghost"
@@ -107,7 +121,18 @@ const Navbar = () => {
                       </Link>
                     );
                   })}
-                  <div className="pt-4 border-t border-white/10">
+                  <div className="pt-4 border-t border-white/10 space-y-2">
+                    <Button
+                      variant="ghost"
+                      onClick={() => {
+                        toggleTheme();
+                        setIsOpen(false);
+                      }}
+                      className="w-full text-white/80 hover:text-white hover:bg-white/10 flex items-center justify-center gap-2"
+                    >
+                      {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                      <span>{theme === 'dark' ? t('theme.toLight') : t('theme.toDark')}</span>
+                    </Button>
                     <Button
                       variant="ghost"
                       onClick={() => {

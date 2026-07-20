@@ -67,6 +67,10 @@ const translations = {
     // Language Switch
     'lang.switch': 'EN',
     'lang.current': '中文',
+
+    // Theme Switch
+    'theme.toDark': '夜间模式',
+    'theme.toLight': '日间模式',
     
     // Publication Detail
     'pubDetail.back': '返回论文列表',
@@ -141,6 +145,10 @@ const translations = {
     // Language Switch
     'lang.switch': '中',
     'lang.current': 'English',
+
+    // Theme Switch
+    'theme.toDark': 'Dark mode',
+    'theme.toLight': 'Light mode',
     
     // Publication Detail
     'pubDetail.back': 'Back to Publications',

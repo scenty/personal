@@ -181,10 +181,10 @@ const Students = () => {
 
           <TabsContent value="sysu">
             <div className="mb-6">
-              <Card className="bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200">
+              <Card className="bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200 dark:from-blue-950/40 dark:to-cyan-950/40 dark:border-blue-800">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3">
-                    <Building2 className="w-8 h-8 text-blue-600" />
+                    <Building2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                     <div>
                       <h3 className="text-lg font-semibold">中山大学海洋科学学院</h3>
                       <p className="text-sm text-muted-foreground">计算海洋科学与海洋模型研究团队</p>
@@ -202,10 +202,10 @@ const Students = () => {
 
           <TabsContent value="fzu">
             <div className="mb-6">
-              <Card className="bg-gradient-to-r from-red-50 to-orange-50 border-red-200">
+              <Card className="bg-gradient-to-r from-red-50 to-orange-50 border-red-200 dark:from-red-950/40 dark:to-orange-950/40 dark:border-red-800">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3">
-                    <Building2 className="w-8 h-8 text-red-600" />
+                    <Building2 className="w-8 h-8 text-red-600 dark:text-red-400" />
                     <div>
                       <h3 className="text-lg font-semibold">数字中国研究院（福建）</h3>
                       <p className="text-sm text-muted-foreground">外聘导师合作项目</p>

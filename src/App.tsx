@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+    <ThemeProvider storageKey="vite-ui-theme">
       <LanguageProvider>
         <HashRouter>
           <Routes>

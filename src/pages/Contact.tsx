@@ -106,7 +106,7 @@ const Contact = () => {
 
           {/* Institution Info */}
           <div className="space-y-6">
-            <Card className="bg-gradient-to-br from-blue-50 to-cyan-50">
+            <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/40 dark:to-cyan-950/40">
               <CardHeader>
                 <CardTitle>所属机构</CardTitle>
               </CardHeader>

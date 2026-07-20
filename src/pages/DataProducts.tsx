@@ -120,8 +120,8 @@ const DataProducts = () => {
               <Card key={idx}>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-16 h-20 bg-gradient-to-br from-amber-100 to-orange-100 rounded flex items-center justify-center flex-shrink-0">
-                      <BookOpen className="w-8 h-8 text-amber-600" />
+                    <div className="w-16 h-20 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-950/50 dark:to-orange-950/50 rounded flex items-center justify-center flex-shrink-0">
+                      <BookOpen className="w-8 h-8 text-amber-600 dark:text-amber-400" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold mb-2">{book.chapter}</h3>
@@ -149,10 +149,10 @@ const DataProducts = () => {
 
         {/* Citation Note */}
         <div className="mt-12">
-          <Card className="bg-blue-50 border-blue-200">
+          <Card className="bg-blue-50 border-blue-200 dark:bg-blue-950/40 dark:border-blue-800">
             <CardContent className="p-6">
-              <h3 className="text-lg font-semibold mb-3 text-blue-900">使用说明</h3>
-              <p className="text-blue-800 text-sm leading-relaxed">
+              <h3 className="text-lg font-semibold mb-3 text-blue-900 dark:text-blue-100">使用说明</h3>
+              <p className="text-blue-800 dark:text-blue-200 text-sm leading-relaxed">
                 使用本网站提供的数据产品时，请在发表的研究成果中引用相应的论文。
                 这不仅是对作者工作的认可，也有助于数据的持续更新和维护。
                 如有任何问题或建议，欢迎通过联系方式与我交流。

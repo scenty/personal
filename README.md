@@ -26,6 +26,7 @@
 | `src/pages/` | 路由页面，负责布局与数据展示逻辑 |
 | `src/components/` | 可复用 UI 模块（轮播、导航、页脚等） |
 | `src/contexts/` | 全局状态（中英文切换） |
+| `src/components/ui/theme-provider.tsx` | 明暗主题（按时段默认 + 手动切换） |
 | `public/` | 静态资源，构建时原样复制到 `dist/` |
 
 **路由：** 使用 `HashRouter`（URL 形如 `/#/publications`），配合 `vite.config.ts` 中 `base: './'`，适配 GitHub Pages 子路径部署。
@@ -53,12 +54,12 @@ personal/
 │   ├── index.css               # Tailwind 全局样式
 │   ├── components/
 │   │   ├── Layout.tsx          # 页面骨架（Navbar + Outlet + Footer）
-│   │   ├── Navbar.tsx          # 顶部导航
+│   │   ├── Navbar.tsx          # 顶部导航（含语言 / 夜间模式切换）
 │   │   ├── Footer.tsx          # 页脚
 │   │   ├── HeroCarousel.tsx    # 首页大图轮播
 │   │   ├── PublicationsCarousel.tsx  # 首页论文轮播
 │   │   ├── StudentsCarousel.tsx      # 首页学生轮播
-│   │   └── ui/                 # shadcn/ui 基础组件（Button、Card 等）
+│   │   └── ui/                 # shadcn/ui 基础组件（含 theme-provider）
 │   ├── contexts/
 │   │   └── LanguageContext.tsx # 中英文切换与翻译文案
 │   ├── data/                   # ★ 网站内容数据（主要维护入口）
@@ -132,8 +133,14 @@ personal/
 - **样式**：Tailwind CSS 3 + shadcn/ui（Radix UI）
 - **轮播**：Embla Carousel
 - **图标**：Lucide React
-- **主题**：next-themes（明暗模式）
+- **主题**：自研 ThemeProvider（按访问时段默认明暗，右上角一键切换，偏好写入 localStorage）
 - **部署**：GitHub Actions → GitHub Pages
+
+## 主题（夜间模式）
+
+- **默认**：本地时间 **19:00–06:59** 为夜间模式，其余为日间模式；`index.html` 内联脚本在首屏渲染前写入 `html` 的 `dark`/`light` class，避免闪烁。
+- **手动**：导航栏右上角月亮/太阳按钮（移动端菜单内同步提供）可一键切换；选择后写入 `localStorage`（键名 `vite-ui-theme`），下次访问优先使用手动偏好。
+- **样式**：Tailwind `darkMode: class` + `src/index.css` 中的 CSS 变量；页面区块对硬编码浅色背景补了 `dark:` 变体。
 
 ## 快速开始
 

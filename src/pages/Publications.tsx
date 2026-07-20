@@ -137,7 +137,7 @@ const Publications = () => {
                       {pub.highlights && (
                         <div className="mt-2 flex flex-wrap gap-2">
                           {pub.highlights.map((highlight, idx) => (
-                            <span key={idx} className="text-xs bg-yellow-50 text-yellow-700 px-2 py-1 rounded">
+                            <span key={idx} className="text-xs bg-yellow-50 text-yellow-700 dark:bg-yellow-950/50 dark:text-yellow-300 px-2 py-1 rounded">
                               {highlight}
                             </span>
                           ))}

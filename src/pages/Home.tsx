@@ -146,7 +146,7 @@ Currently serves as a Scientific Committee Member of the 5th Artificial Intellig
       <HeroCarousel />
 
       {/* Research Interests */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white dark:bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-3">{t('research.title')}</h2>
@@ -158,7 +158,7 @@ Currently serves as a Scientific Committee Member of the 5th Artificial Intellig
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {researchInterests.map((interest, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all hover:-translate-y-1 border-0 bg-gradient-to-br from-gray-50 to-white">
+              <Card key={index} className="text-center hover:shadow-lg transition-all hover:-translate-y-1 border-0 bg-gradient-to-br from-gray-50 to-white dark:from-muted dark:to-card">
                 <CardContent className="p-5">
                   <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center text-white text-sm font-bold">
                     {index + 1}
@@ -172,13 +172,13 @@ Currently serves as a Scientific Committee Member of the 5th Artificial Intellig
       </section>
 
       {/* Stats Section */}
-      <section className="py-14 bg-gray-50">
+      <section className="py-14 bg-gray-50 dark:bg-muted/40">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow border-0 bg-white">
+                <Card key={index} className="text-center hover:shadow-lg transition-shadow border-0 bg-white dark:bg-card">
                   <CardContent className="pt-5 pb-5">
                     <div className="w-11 h-11 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary" />
@@ -265,7 +265,7 @@ Currently serves as a Scientific Committee Member of the 5th Artificial Intellig
       <StudentsCarousel />
 
       {/* Quick Links */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-muted/40 dark:to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-3">
@@ -313,7 +313,7 @@ Currently serves as a Scientific Committee Member of the 5th Artificial Intellig
       </section>
 
       {/* Social Links - 友情链接 */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-muted/40">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-3">

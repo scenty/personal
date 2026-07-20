@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>卢文芳 - 中山大学海洋科学学院</title>
+    <script>
+      (function () {
+        var key = "vite-ui-theme";
+        var stored = localStorage.getItem(key);
+        var theme =
+          stored === "dark" || stored === "light"
+            ? stored
+            : new Date().getHours() >= 19 || new Date().getHours() < 7
+              ? "dark"
+              : "light";
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
