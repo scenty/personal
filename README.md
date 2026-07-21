@@ -14,7 +14,7 @@
                     └── Layout（导航栏 + 页脚）
                           └── pages/*（各页面）
                                 ├── 读取 src/data/* 静态数据
-                                ├── 调用 publications.ts 中的统计函数
+                                ├── 调用 publications.ts / news.ts 中的统计与聚合函数
                                 └── 组合 components/* 展示模块
 ```
 
@@ -22,7 +22,7 @@
 
 | 层次 | 职责 |
 |------|------|
-| `src/data/` | 唯一内容源：个人信息、论文、学生、项目、数据产品 |
+| `src/data/` | 唯一内容源：个人信息、论文、学生、项目、数据产品、动态 |
 | `src/pages/` | 路由页面，负责布局与数据展示逻辑 |
 | `src/components/` | 可复用 UI 模块（轮播、导航、页脚等） |
 | `src/contexts/` | 全局状态（中英文切换） |
@@ -31,149 +31,132 @@
 
 **路由：** 使用 `HashRouter`（URL 形如 `/#/publications`），配合 `vite.config.ts` 中 `base: './'`，适配 GitHub Pages 子路径部署。
 
-**统计数字：** 首页论文数量由 `getFirstOrCorrespondingAuthorPublications()`、`getQ2AbovePublications()` 等函数从 `publications.ts` 动态计算，无需手写计数。
+**统计数字：** 首页论文数量由 `getFirstOrCorrespondingAuthorPublications()`、`getQ2AbovePublications()` 等函数从 `publications.ts` 动态计算；简介中 `{paperCount}`/`{q2Count}` 占位符由页面替换。
 
 ## 文件树
 
 ```
 personal/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # GitHub Pages 自动部署
-├── public/                     # 静态资源（不经过打包处理）
-│   ├── Wenfang-CV-2025.pdf     # 个人简历 PDF
-│   └── images/                 # 图片资源
-│       ├── hero-*.png/jpg      # 首页轮播图
-│       ├── he-2026-olar-figure2.png
-│       ├── zelda_style_图.jpg  # 学生毕业照（风格化）
-│       └── 原图.jpg            # 学生毕业照（原图）
+├── .github/workflows/deploy.yml
+├── public/
+│   ├── Wenfang-CV-2025.pdf
+│   └── images/
 ├── src/
-│   ├── main.tsx                # React 入口
-│   ├── App.tsx                 # 根组件：路由、主题、语言 Provider
-│   ├── App.css
-│   ├── index.css               # Tailwind 全局样式
+│   ├── main.tsx / App.tsx / index.css
 │   ├── components/
-│   │   ├── Layout.tsx          # 页面骨架（Navbar + Outlet + Footer）
-│   │   ├── Navbar.tsx          # 顶部导航（含语言 / 夜间模式切换）
-│   │   ├── Footer.tsx          # 页脚
-│   │   ├── HeroCarousel.tsx    # 首页大图轮播
-│   │   ├── PublicationsCarousel.tsx  # 首页论文轮播
-│   │   ├── StudentsCarousel.tsx      # 首页学生轮播
-│   │   └── ui/                 # shadcn/ui 基础组件（含 theme-provider）
-│   ├── contexts/
-│   │   └── LanguageContext.tsx # 中英文切换与翻译文案
-│   ├── data/                   # ★ 网站内容数据（主要维护入口）
-│   │   ├── index.ts            # 统一导出
-│   │   ├── profile.ts          # 个人基本信息、简介、荣誉
-│   │   ├── publications.ts     # 论文列表与统计函数
-│   │   ├── students.ts         # 学生信息（中大/福大/本科生）
-│   │   ├── projects.ts         # 科研项目
-│   │   └── dataProducts.ts     # 数据产品与著作
+│   │   ├── Layout.tsx / Navbar.tsx / Footer.tsx
+│   │   ├── HeroCarousel.tsx / PublicationsCarousel.tsx / StudentsCarousel.tsx
+│   │   └── ui/
+│   ├── contexts/LanguageContext.tsx
+│   ├── data/
+│   │   ├── profile.ts          # 个人简介、荣誉、教育、教学、社交（唯一源）
+│   │   ├── publications.ts     # 论文与统计
+│   │   ├── students.ts         # 学生团队
+│   │   ├── projects.ts         # 项目（含周期、相关论文 ID）
+│   │   ├── dataProducts.ts     # 数据产品与专著
+│   │   ├── news.ts             # 手动动态 + 论文媒体报道聚合
+│   │   └── index.ts
 │   ├── pages/
-│   │   ├── Home.tsx            # 首页
-│   │   ├── Publications.tsx    # 论文列表
-│   │   ├── PublicationDetail.tsx # 论文详情
-│   │   ├── Students.tsx        # 学生团队
-│   │   ├── StudentDetail.tsx   # 学生详情
-│   │   ├── Projects.tsx        # 科研项目
-│   │   ├── DataProducts.tsx    # 数据产品
-│   │   └── Contact.tsx         # 联系方式
-│   ├── hooks/
-│   │   └── use-mobile.ts
-│   └── lib/
-│       └── utils.ts            # 工具函数（cn 等）
-├── index.html
-├── vite.config.ts              # Vite 配置（base: './'）
-├── tailwind.config.js
-├── tsconfig.json
-├── package.json
+│   │   ├── Home.tsx
+│   │   ├── Publications.tsx / PublicationDetail.tsx
+│   │   ├── Students.tsx / StudentDetail.tsx
+│   │   ├── Teaching.tsx        # 教学课程
+│   │   ├── News.tsx            # 动态聚合
+│   │   ├── Projects.tsx / DataProducts.tsx / Contact.tsx
+│   ├── hooks/ / lib/
+├── index.html                  # SEO：description、OG、Person JSON-LD
+├── vite.config.ts
 └── README.md
 ```
 
-> 构建产物输出至 `dist/`；`node_modules/` 为依赖目录，不纳入版本管理说明。
-
 ## 页面与路由
+
+顶部导航：**首页 · 研究成果 · 学生团队 · 科研项目 · 联系方式**。教学 / 动态 / 数据产品仍可通过首页快捷入口或直接 URL 访问。
 
 | 路由 | 页面文件 | 说明 |
 |------|----------|------|
-| `/#/` | `Home.tsx` | 个人简介、学术统计、轮播、快捷入口；代表性奖励为 3+2 卡片布局 |
-| `/#/publications` | `Publications.tsx` | 按年份分组的论文列表 |
-| `/#/publications/:id` | `PublicationDetail.tsx` | 单篇论文详情、相关链接、媒体报道 |
-| `/#/students` | `Students.tsx` | 学生团队（按学校/学位分类） |
-| `/#/students/:id` | `StudentDetail.tsx` | 学生详情、成果、获奖、毕业照 |
-| `/#/projects` | `Projects.tsx` | 主持/参与的科研项目 |
-| `/#/data-products` | `DataProducts.tsx` | 开源数据产品与著作 |
-| `/#/contact` | `Contact.tsx` | 联系方式 |
+| `/#/` | `Home.tsx` | 简介（读 profile）、教育/任职、统计、轮播、动态预览、快捷入口 |
+| `/#/publications` | `Publications.tsx` | 论文列表（中英） |
+| `/#/publications/:id` | `PublicationDetail.tsx` | 详情；复制引用 / BibTeX |
+| `/#/students` | `Students.tsx` | 学生团队 |
+| `/#/students/:id` | `StudentDetail.tsx` | 学生详情 |
+| `/#/teaching` | `Teaching.tsx` | 课程与教学荣誉（不在顶栏） |
+| `/#/news` | `News.tsx` | 媒体报道与站内动态（不在顶栏） |
+| `/#/projects` | `Projects.tsx` | 科研项目（周期 + 相关论文） |
+| `/#/data-products` | `DataProducts.tsx` | 数据产品；`paperId` 站内链到论文（不在顶栏） |
+| `/#/contact` | `Contact.tsx` | 联系方式与学术外链（含 Scholar、学院页） |
 
 ## 数据文件说明
 
 ### `profile.ts`
-个人姓名、单位、联系方式、社交链接、荣誉、研究兴趣、教育经历及简介文案。荣誉含 OLAR 优秀青年编委等；首页简介（`Home.tsx` 中 `bioText`）需与此处同步维护。
+姓名、单位、联系方式、社交（知乎 / ResearchGate / ORCID / Scholar / 学院页）、荣誉、`awards`（首页 3+2）、`education`、`roles`、`teaching`、`bio`/`bioEn`（含 `{paperCount}`/`{q2Count}`）。**首页与 Contact 均以此为唯一内容源。**
 
 ### `publications.ts`
-- 每篇论文含作者、期刊、DOI、摘要、亮点、图表、新闻链接等
-- `isFirstAuthor` / `isCorrespondingAuthor`：第一/通讯作者标记
-- `isCasZone2Above`：中科院二区及以上标记（优先于 JCR `quartile` 用于统计）
-- `firstAuthorId`：关联学生详情页（如 `he-jiangnan`）
-- 统计函数：`getFirstOrCorrespondingAuthorPublications()`、`getQ2AbovePublications()` 等
+论文结构化列表；详情页支持 DOI/PDF/数据/代码、亮点、图表、媒体报道；侧边栏可复制引用与 BibTeX。
 
-### `students.ts`
-- 三类学生：`sysuStudents`（中大研究生）、`fzuStudents`（福大研究生）、`sysuUndergraduates`（本科生）
-- 支持 `photo` / `photoOriginal`（毕业照悬停/点击切换）
-- `status`: `"current"` | `"graduated"`
+### `news.ts` / `syncedNews.json`
+- `manualNews`：手动动态
+- `syncedNews.json`：学院官网 + 公众号检索结果（**全文**匹配「卢文芳」，不要求标题含名）
+- `getAllNews()`：手动 → 同步结果 → 论文 `newsCoverage`，去重后**按时间从新到旧**；首页取前 5 条
 
-### `projects.ts` / `dataProducts.ts`
-科研项目与数据产品的结构化列表。
+更新同步数据：
+
+```bash
+npm run sync-news   # 写入 src/data/syncedNews.json，再提交即可上线
+```
+
+> 微信公众号无开放 API，脚本经搜狗检索，可能触发验证码；学院官网 `/search/all?keys=` 更稳定。静态站无法在访客浏览器里实时爬公众号。
+
+### `students.ts` / `projects.ts` / `dataProducts.ts`
+学生（含课题）、项目（`duration`、`relatedPublicationIds`）、数据产品（`paperId` 内链）与专著下载。
 
 ## 技术栈
 
-- **框架**：React 19 + TypeScript
-- **构建**：Vite 7
-- **路由**：React Router DOM 7（HashRouter）
-- **样式**：Tailwind CSS 3 + shadcn/ui（Radix UI）
-- **轮播**：Embla Carousel
-- **图标**：Lucide React
-- **主题**：自研 ThemeProvider（按访问时段默认明暗，右上角一键切换，偏好写入 localStorage）
-- **部署**：GitHub Actions → GitHub Pages
+- React 19 + TypeScript + Vite 7
+- React Router DOM 7（HashRouter）
+- Tailwind CSS 3 + shadcn/ui
+- Embla Carousel / Lucide React
+- ThemeProvider（时段默认明暗 + 手动切换）
+- GitHub Actions → GitHub Pages
 
 ## 主题（夜间模式）
 
-- **默认**：本地时间 **19:00–06:59** 为夜间模式，其余为日间模式；`index.html` 内联脚本在首屏渲染前写入 `html` 的 `dark`/`light` class，避免闪烁。
-- **手动**：导航栏右上角月亮/太阳按钮（移动端菜单内同步提供）可一键切换；选择后写入 `localStorage`（键名 `vite-ui-theme`），下次访问优先使用手动偏好。
-- **样式**：Tailwind `darkMode: class` + `src/index.css` 中的 CSS 变量；页面区块对硬编码浅色背景补了 `dark:` 变体。
+- 默认：本地时间 **19:00–06:59** 夜间，其余日间；`index.html` 内联脚本防闪烁
+- 手动：导航栏月亮/太阳按钮；偏好键 `vite-ui-theme`
 
 ## 快速开始
 
 ```bash
 npm install
-npm run dev      # 开发：http://127.0.0.1:5173（vite.config 已固定绑定 IPv4）
-npm run build    # 生产构建 → dist/
-npm run preview  # 预览构建结果
-npm run lint     # ESLint 检查
+npm run dev      # http://127.0.0.1:5173
+npm run build
+npm run preview
+npm run lint
 ```
-
-> 若出现 `ERR_CONNECTION_REFUSED`（访问 127.0.0.1:5173），先确认 `npm run dev` 仍在运行；本仓库已配置 `server.host: '127.0.0.1'`，避免仅监听 IPv6 `::1` 导致 IPv4 连接被拒绝。
 
 ## 内容维护指南
 
 ### 添加论文
-编辑 `src/data/publications.ts`，在 `publications` 数组头部插入新条目。首页统计会自动更新；若中科院分区未达二区，设置 `isCasZone2Above: false`。
+编辑 `src/data/publications.ts` 数组头部。若有媒体报道，填 `newsCoverage`，会自动出现在动态页。
 
-### 更新学生信息
-编辑 `src/data/students.ts`。毕业照图片放入 `public/images/`，配置 `photo` 与 `photoOriginal` 字段。
+### 更新简介 / 奖励 / 教学
+只改 `src/data/profile.ts`（勿在 `Home.tsx` 再写一份 bio）。
+
+### 添加站内动态
+编辑 `src/data/news.ts` 的 `manualNews`。
+
+### 更新学生 / 项目 / 数据产品
+分别编辑对应 `src/data/*` 文件。数据产品填 `paperId` 即可站内跳转论文详情。
 
 ### 更新个人简历
-将 PDF 放入 `public/Wenfang-CV-2025.pdf`（或同步修改 `Home.tsx` 中的下载链接）。链接须用相对路径（如 `Wenfang-CV-2025.pdf`），勿用以 `/` 开头的绝对路径，否则在 GitHub Pages 子路径（`/personal/`）下会 404。
+PDF 放入 `public/Wenfang-CV-2025.pdf`；链接须用相对路径。
 
-### 添加静态图片
-放入 `public/images/`，页面中以 `images/文件名` 引用（相对路径，兼容 GitHub Pages）。
-
-### 多语言
-`LanguageContext.tsx` 管理全局语言；各页面通过 `useLanguage()` 的 `t()` 获取翻译，部分文案在组件内按 `language === 'zh'` 分支编写。
+### Google Scholar
+`profile.social.scholar` 指向个人 Citations 主页：`https://scholar.google.com/citations?user=5HyaDhsAAAAJ&hl=zh-CN`。
 
 ## 部署
 
-推送至 `main` 分支后，`.github/workflows/deploy.yml` 自动执行 `npm ci && npm run build`，将 `dist/` 发布到 GitHub Pages。
+推送 `main` 后，`.github/workflows/deploy.yml` 自动构建并发布到 GitHub Pages。
 
 ## 联系方式
 

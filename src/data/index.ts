@@ -4,8 +4,10 @@ export { default as publications, publicationsByYear, getLatestPublications, get
 export { default as students, allStudents, fzuStudents, sysuStudents, sysuUndergraduates, getStudentById, studentsByInstitution, studentsByDegree } from './students';
 export { default as projects, projectsByStatus, projectsByRole } from './projects';
 export { default as dataProducts, books } from './dataProducts';
+export { default as manualNews, getAllNews, getPublicationNews, getSyncedNews, getSyncedNewsUpdatedAt } from './news';
 
 export type { Publication } from './publications';
 export type { Student } from './students';
 export type { Project } from './projects';
 export type { DataProduct } from './dataProducts';
+export type { NewsItem } from './news';

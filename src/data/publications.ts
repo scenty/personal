@@ -307,7 +307,8 @@ export const publications: Publication[] = [
     keywords: ["次表层温度", "盐度", "LSTM", "神经网络", "遥感"],
     keywordsEn: ["subsurface temperature", "salinity", "LSTM", "neural network", "remote sensing"],
     highlights: ["本文章得到IPCC第六次评估报告的引用"],
-    highlightsEn: ["This article was cited in the IPCC Sixth Assessment Report"]
+    highlightsEn: ["This article was cited in the IPCC Sixth Assessment Report"],
+    dataLink: "https://www.scidb.cn/en/detail?dataSetId=636322132f92407b84dda14821c18329"
   },
   {
     id: "wang-2021-tgrs",
@@ -329,6 +330,8 @@ export const publications: Publication[] = [
     abstractEn: "This study revisits the intraseasonal variability of chlorophyll-a in the adjacent Luzon Strait with a new gap-filled remote sensing data set.",
     keywords: ["叶绿素a", "吕宋海峡", "季节内变化", "数据填补", "遥感"],
     keywordsEn: ["chlorophyll-a", "Luzon Strait", "intrasseasonal variability", "gap-filling", "remote sensing"],
+    dataLink: "https://www.scidb.cn/en/detail?dataSetId=1387ffe83af54f0fb574d60e97b206b2",
+    codeLink: "https://github.com/Yotill/SCS_CHL_2005-2019",
     newsCoverage: [
       { title: "广东省海洋遥感重点实验室新闻", link: "https://mp.weixin.qq.com/s/LKrqYa7zDSSB2mCOZIzvpA" },
       { title: "福州大学数研院新闻", link: "http://adcfj.cn/sirc/adc_door/project/ResearchProgressItem?id=12" }
@@ -374,8 +377,9 @@ export const publications: Publication[] = [
     newsCoverage: [
       { title: "福州大学新闻网", link: "https://news.fzu.edu.cn/info/1011/1863.htm" }
     ],
-    dataLink: "https://doi.org/10.5281/zenodo.xxxxx",
-    codeLink: "https://github.com/xxxx/open"
+    dataLink: "https://www.scidb.cn/en/detail?dataSetId=8f8a64729f2b44229052dfdf20fcbbe3",
+    codeLink: "https://github.com/scenty/OPEN-OHC",
+    pdfLink: "https://www.mdpi.com/2072-4292/12/14/2294/pdf"
   },
   {
     id: "lu-2019-rse",

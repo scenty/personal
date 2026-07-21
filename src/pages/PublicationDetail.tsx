@@ -1,30 +1,72 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, FileText, Database, Code, Newspaper } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowLeft, ExternalLink, FileText, Database, Code, Newspaper, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { getPublicationById, publications, getStudentById } from '@/data';
+import { getPublicationById, publications, getStudentById, type Publication } from '@/data';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+function buildCitation(publication: Publication): string {
+  const authors = publication.authorsEn || publication.authors;
+  let text = `${authors} (${publication.year}). ${publication.title}. ${publication.journal}`;
+  if (publication.volume) text += `, ${publication.volume}`;
+  if (publication.issue) text += `(${publication.issue})`;
+  if (publication.pages) text += `, ${publication.pages}`;
+  text += `. https://doi.org/${publication.doi}`;
+  return text;
+}
+
+function buildBibtex(publication: Publication): string {
+  const authors = (publication.authorsEn || publication.authors)
+    .replace(/\*/g, '')
+    .replace(/，/g, ' and ')
+    .replace(/,/g, ' and ')
+    .replace(/\s+and\s+and\s+/g, ' and ');
+  const key = publication.id.replace(/-/g, '');
+  const lines = [
+    `@article{${key},`,
+    `  title = {${publication.title}},`,
+    `  author = {${authors}},`,
+    `  journal = {${publication.journal}},`,
+    `  year = {${publication.year}},`,
+  ];
+  if (publication.volume) lines.push(`  volume = {${publication.volume}},`);
+  if (publication.issue) lines.push(`  number = {${publication.issue}},`);
+  if (publication.pages) lines.push(`  pages = {${publication.pages}},`);
+  lines.push(`  doi = {${publication.doi}}`);
+  lines.push(`}`);
+  return lines.join('\n');
+}
 
 const PublicationDetail = () => {
   const { id } = useParams<{ id: string }>();
   const publication = id ? getPublicationById(id) : undefined;
   const { language, t } = useLanguage();
+  const [copied, setCopied] = useState<'citation' | 'bibtex' | null>(null);
 
   if (!publication) {
     return <Navigate to="/publications" replace />;
   }
 
-  // 获取相关论文（同一年份或同期刊）
   const relatedPubs = publications
     .filter(pub => pub.id !== publication.id && (pub.year === publication.year || pub.journal === publication.journal))
     .slice(0, 3);
 
+  const citationText = buildCitation(publication);
+  const bibtexText = buildBibtex(publication);
+
+  const copyText = (text: string, kind: 'citation' | 'bibtex') => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(kind);
+      setTimeout(() => setCopied(null), 2000);
+    });
+  };
+
   return (
     <div className="min-h-screen py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Back Button */}
         <Button asChild variant="ghost" className="mb-6">
           <Link to="/publications">
             <ArrowLeft className="mr-2 w-4 h-4" /> {t('pubDetail.back')}
@@ -32,11 +74,9 @@ const PublicationDetail = () => {
         </Button>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
           <div className="lg:col-span-2">
             <Card>
               <CardContent className="p-8">
-                {/* Header */}
                 <div className="flex items-center gap-2 mb-4">
                   <Badge className="text-lg px-3 py-1">{publication.year}</Badge>
                   {publication.quartile && (
@@ -55,31 +95,27 @@ const PublicationDetail = () => {
                   {publication.firstAuthorId ? (
                     <p className="text-lg text-muted-foreground">
                       {(() => {
-                        // 获取第一作者的学生信息
                         const firstAuthor = getStudentById(publication.firstAuthorId);
                         if (!firstAuthor) {
-                          // 如果找不到学生信息，按原样显示
                           return (
                             <>
-                              {language === 'en' && publication.authorsEn 
-                                ? publication.authorsEn 
+                              {language === 'en' && publication.authorsEn
+                                ? publication.authorsEn
                                 : publication.authors}
                             </>
                           );
                         }
 
-                        // 根据语言选择作者列表
-                        const authorsText = language === 'en' && publication.authorsEn 
-                          ? publication.authorsEn 
+                        const authorsText = language === 'en' && publication.authorsEn
+                          ? publication.authorsEn
                           : publication.authors;
-                        
-                        // 处理中文格式的作者列表
+
                         if (firstAuthor.name && authorsText.includes(firstAuthor.name)) {
                           const parts = authorsText.split(firstAuthor.name);
                           return (
                             <>
                               {parts[0]}
-                              <Link 
+                              <Link
                                 to={`/students/${publication.firstAuthorId}`}
                                 className="text-primary hover:underline inline-flex items-center gap-1"
                               >
@@ -90,33 +126,28 @@ const PublicationDetail = () => {
                             </>
                           );
                         }
-                        
-                        // 处理英文格式：如 "He, J." 或 "He, J" 或 "He, J.,"
+
                         if (language === 'en' && firstAuthor.nameEn) {
-                          // 提取姓氏和名字首字母
                           const nameParts = firstAuthor.nameEn.trim().split(/\s+/);
                           if (nameParts.length >= 2) {
                             const surname = nameParts[nameParts.length - 1];
                             const firstNameInitial = nameParts[0].charAt(0).toUpperCase();
-                            
-                            // 尝试匹配多种格式：He, J. / He, J / He, J.,
                             const patterns = [
                               `${surname}, ${firstNameInitial}.`,
                               `${surname}, ${firstNameInitial}`,
                               `${surname}, ${firstNameInitial}.,`
                             ];
-                            
+
                             for (const pattern of patterns) {
                               if (authorsText.includes(pattern)) {
                                 const parts = authorsText.split(pattern);
-                                // 显示格式：去掉末尾的逗号，保留句号（如果有）
-                                const displayName = pattern.endsWith(',') 
-                                  ? pattern.slice(0, -1) 
+                                const displayName = pattern.endsWith(',')
+                                  ? pattern.slice(0, -1)
                                   : pattern;
                                 return (
                                   <>
                                     {parts[0]}
-                                    <Link 
+                                    <Link
                                       to={`/students/${publication.firstAuthorId}`}
                                       className="text-primary hover:underline inline-flex items-center gap-1"
                                     >
@@ -128,14 +159,13 @@ const PublicationDetail = () => {
                                 );
                               }
                             }
-                            
-                            // 如果精确匹配失败，尝试只匹配姓氏（用于 "He et al." 格式）
+
                             if (authorsText.includes(`${surname} et al.`)) {
                               const parts = authorsText.split(`${surname} et al.`);
                               return (
                                 <>
                                   {parts[0]}
-                                  <Link 
+                                  <Link
                                     to={`/students/${publication.firstAuthorId}`}
                                     className="text-primary hover:underline inline-flex items-center gap-1"
                                   >
@@ -148,15 +178,14 @@ const PublicationDetail = () => {
                             }
                           }
                         }
-                        
-                        // 如果找不到匹配的作者，按原样显示
+
                         return <>{authorsText}</>;
                       })()}
                     </p>
                   ) : (
                     <p className="text-lg text-muted-foreground">
-                      {language === 'en' && publication.authorsEn 
-                        ? publication.authorsEn 
+                      {language === 'en' && publication.authorsEn
+                        ? publication.authorsEn
                         : publication.authors}
                     </p>
                   )}
@@ -167,13 +196,12 @@ const PublicationDetail = () => {
                   <span className="font-medium">{publication.journal}</span>
                 </div>
 
-                {/* Abstract */}
                 {(publication.abstract || publication.abstractEn) && (
                   <div className="mb-8">
                     <h2 className="text-xl font-semibold mb-3">{t('pubDetail.abstract')}</h2>
                     <p className="text-muted-foreground leading-relaxed">
-                      {language === 'en' && publication.abstractEn 
-                        ? publication.abstractEn 
+                      {language === 'en' && publication.abstractEn
+                        ? publication.abstractEn
                         : publication.abstract}
                     </p>
                   </div>
@@ -181,13 +209,12 @@ const PublicationDetail = () => {
 
                 <Separator className="my-6" />
 
-                {/* Keywords */}
                 {(publication.keywords || publication.keywordsEn) && (
                   <div className="mb-6">
                     <h2 className="text-lg font-semibold mb-3">{t('pubDetail.keywords')}</h2>
                     <div className="flex flex-wrap gap-2">
-                      {(language === 'en' && publication.keywordsEn 
-                        ? publication.keywordsEn 
+                      {(language === 'en' && publication.keywordsEn
+                        ? publication.keywordsEn
                         : publication.keywords || []).map((keyword, idx) => (
                         <Badge key={idx} variant="outline" className="text-sm">
                           {keyword}
@@ -197,13 +224,12 @@ const PublicationDetail = () => {
                   </div>
                 )}
 
-                {/* Highlights */}
                 {(publication.highlights || publication.highlightsEn) && (
                   <div className="mb-6">
                     <h2 className="text-lg font-semibold mb-3">{t('pubDetail.highlights')}</h2>
                     <ul className="space-y-2">
-                      {(language === 'en' && publication.highlightsEn 
-                        ? publication.highlightsEn 
+                      {(language === 'en' && publication.highlightsEn
+                        ? publication.highlightsEn
                         : publication.highlights || []).map((highlight, idx) => (
                         <li key={idx} className="flex items-start gap-2">
                           <span className="text-yellow-500 mt-1">★</span>
@@ -214,15 +240,14 @@ const PublicationDetail = () => {
                   </div>
                 )}
 
-                {/* Figures */}
                 {publication.figures && (
                   <div className="mb-6">
                     <h2 className="text-lg font-semibold mb-3">{t('pubDetail.figures')}</h2>
                     <div className="space-y-6">
                       {publication.figures.map((figure, idx) => (
                         <div key={idx} className="border rounded-lg overflow-hidden">
-                          <img 
-                            src={figure.image} 
+                          <img
+                            src={figure.image}
                             alt={figure.caption}
                             className="w-full h-auto"
                             onError={(e) => {
@@ -231,8 +256,8 @@ const PublicationDetail = () => {
                           />
                           <div className="p-4 bg-muted">
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              {language === 'en' && figure.captionEn 
-                                ? figure.captionEn 
+                              {language === 'en' && figure.captionEn
+                                ? figure.captionEn
                                 : figure.caption}
                             </p>
                           </div>
@@ -242,7 +267,6 @@ const PublicationDetail = () => {
                   </div>
                 )}
 
-                {/* News Coverage */}
                 {publication.newsCoverage && (
                   <div className="mb-6">
                     <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
@@ -251,9 +275,9 @@ const PublicationDetail = () => {
                     <ul className="space-y-2">
                       {publication.newsCoverage.map((news, idx) => (
                         <li key={idx}>
-                          <a 
-                            href={news.link} 
-                            target="_blank" 
+                          <a
+                            href={news.link}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-primary hover:underline flex items-center gap-1"
                           >
@@ -268,9 +292,7 @@ const PublicationDetail = () => {
             </Card>
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
-            {/* Links */}
             <Card>
               <CardHeader>
                 <CardTitle>{t('pubDetail.relatedLinks')}</CardTitle>
@@ -307,23 +329,44 @@ const PublicationDetail = () => {
               </CardContent>
             </Card>
 
-            {/* Citation Info */}
             <Card>
               <CardHeader>
                 <CardTitle>{t('pubDetail.citation')}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="space-y-3">
                 <div className="bg-muted p-4 rounded-lg text-sm font-mono break-all">
-                  {(publication.authorsEn || publication.authors)} ({publication.year}). {publication.title}. <em>{publication.journal}</em>
-                  {publication.volume && `, ${publication.volume}`}
-                  {publication.issue && `(${publication.issue})`}
-                  {publication.pages && `, ${publication.pages}`}
-                  . https://doi.org/{publication.doi}
+                  {citationText}
                 </div>
+                <div className="flex flex-col gap-2">
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => copyText(citationText, 'citation')}
+                  >
+                    {copied === 'citation' ? (
+                      <><Check className="mr-2 w-4 h-4" /> {t('pubDetail.copied')}</>
+                    ) : (
+                      <><Copy className="mr-2 w-4 h-4" /> {t('pubDetail.copyCitation')}</>
+                    )}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => copyText(bibtexText, 'bibtex')}
+                  >
+                    {copied === 'bibtex' ? (
+                      <><Check className="mr-2 w-4 h-4" /> {t('pubDetail.copied')}</>
+                    ) : (
+                      <><Copy className="mr-2 w-4 h-4" /> {t('pubDetail.copyBibtex')}</>
+                    )}
+                  </Button>
+                </div>
+                <pre className="bg-muted p-3 rounded-lg text-xs font-mono overflow-x-auto whitespace-pre-wrap">
+                  {bibtexText}
+                </pre>
               </CardContent>
             </Card>
 
-            {/* Related Publications */}
             {relatedPubs.length > 0 && (
               <Card>
                 <CardHeader>

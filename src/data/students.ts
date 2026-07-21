@@ -215,7 +215,7 @@ export const sysuUndergraduates: Student[] = [
     institutionName: "中山大学",
     degree: "本科",
     status: "current",
-    researchTopic: "待补充大创项目或毕业设计题目",
+    researchTopic: "本科科研训练（保研香港科技大学）",
     bio: "本科生，报送至香港科技大学。"
   },
   {
@@ -226,7 +226,7 @@ export const sysuUndergraduates: Student[] = [
     institutionName: "中山大学",
     degree: "本科",
     status: "current",
-    researchTopic: "待补充大创项目或毕业设计题目",
+    researchTopic: "海洋科学研究训练",
     bio: "本科生，现为海科院研究生。"
   },
   {
@@ -237,8 +237,8 @@ export const sysuUndergraduates: Student[] = [
     institutionName: "中山大学",
     degree: "本科",
     status: "current",
-    researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，保研至中大人工只能学院。"
+    researchTopic: "人工智能交叉科研训练",
+    bio: "本科生，保研至中大人工智能学院。"
   },
   {
     id: "li-rongzu",
@@ -248,7 +248,7 @@ export const sysuUndergraduates: Student[] = [
     institutionName: "中山大学",
     degree: "本科",
     status: "current",
-    researchTopic: "待补充大创项目或毕业设计题目",
+    researchTopic: "数学与海洋交叉科研训练",
     bio: "本科生，报送至中大数学学院。"
   },
   {
@@ -259,8 +259,8 @@ export const sysuUndergraduates: Student[] = [
     institutionName: "中山大学",
     degree: "本科",
     status: "current",
-    researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，报送至北大。"
+    researchTopic: "本科科研训练（保研北京大学）",
+    bio: "本科生，报送至北京大学。"
   },
   {
     id: "ma-ke",
@@ -270,8 +270,8 @@ export const sysuUndergraduates: Student[] = [
     institutionName: "中山大学",
     degree: "本科",
     status: "current",
-    researchTopic: "待补充大创项目或毕业设计题目",
-    bio: "本科生，研究方向待补充。"
+    researchTopic: "本科科研训练",
+    bio: "本科生，参与课题组科研训练。"
   },
   {
     id: "fang-xihong",
@@ -282,7 +282,7 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "三维热浪重建",
-    bio: "本科生，研究方向待补充。",
+    bio: "本科生，研究方向为海洋热浪三维重建与可解释人工智能。",
     awards: [
       "国家奖学金",
       "中山大学优秀学生奖学金一等奖",

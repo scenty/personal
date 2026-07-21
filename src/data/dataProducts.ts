@@ -97,7 +97,7 @@ export const books = [
     pages: "125-145",
     publisher: "Springer Nature Singapore",
     location: "Singapore",
-    downloadLink: ""
+    downloadLink: "https://link.springer.com/book/10.1007/978-981-19-6222-6"
   },
   {
     chapter: "AI-Based Subsurface Thermohaline Structure Retrieval from Remote Sensing Observations",
@@ -107,7 +107,7 @@ export const books = [
     pages: "105-123",
     publisher: "Springer Nature Singapore",
     location: "Singapore",
-    downloadLink: ""
+    downloadLink: "https://link.springer.com/book/10.1007/978-981-19-6222-6"
   }
 ];
 

@@ -10,6 +10,8 @@ import StudentDetail from '@/pages/StudentDetail';
 import DataProducts from '@/pages/DataProducts';
 import Projects from '@/pages/Projects';
 import Contact from '@/pages/Contact';
+import Teaching from '@/pages/Teaching';
+import News from '@/pages/News';
 import './App.css';
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
               <Route path="publications/:id" element={<PublicationDetail />} />
               <Route path="students" element={<Students />} />
               <Route path="students/:id" element={<StudentDetail />} />
+              <Route path="teaching" element={<Teaching />} />
+              <Route path="news" element={<News />} />
               <Route path="data-products" element={<DataProducts />} />
               <Route path="projects" element={<Projects />} />
               <Route path="contact" element={<Contact />} />

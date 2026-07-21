@@ -1,5 +1,29 @@
 # Agent 工作记录
 
+## 2026-07-21：青年教师站展示更新（全日合并）
+
+### 内容与功能
+- **Profile 唯一源**：简介/奖励读 `profile.ts`；首页展示教育经历、学术任职（后去掉「人才计划」列，3+2 奖励保留）
+- **新页面**：`/#/teaching`、`/#/news`；论文详情支持复制引用/BibTeX；数据产品 `paperId` 站内链；项目补周期与相关论文；学生待补充字段清理
+- **动态同步**：`npm run sync-news` 全文检索学院官网（`/search/all?keys=卢文芳`）+ 搜狗微信；写入 `syncedNews.json`；`getAllNews()` 按时间新→旧，首页取最新 5 条
+- **外链/SEO**：Google Scholar → `citations?user=5HyaDhsAAAAJ`；Contact/Footer 外链补齐；`index.html` OG + Person JSON-LD；多页 i18n
+- **TS**：移除已弃用 `baseUrl`
+
+### 界面收束
+- 顶栏去掉教学/动态/数据产品（页面仍可由首页快捷入口访问）
+- 简介区按钮仅保留「联系我」「个人简历」
+
+### 主要文件
+`src/data/*`、`src/pages/*`、`Navbar`/`Footer`、`LanguageContext`、`App.tsx`、`index.html`、`scripts/sync-news.mjs`、`tsconfig*.json`、`README.md`
+
+### 后续（可选）
+项目精确经费；本科生更细课题/照片；定期 `npm run sync-news` 后提交 JSON
+
+### 补充（同日）
+录入公众号动态：[海科院新闻 | 我院助力国产期刊 OLAR 高质量发展](https://mp.weixin.qq.com/s/HYDal3DNTqrgERsFQE2bzw)（2026-07-21），写入 `syncedNews.json` 与 `sync-news` 种子。
+
+---
+
 ## 2026-07-20：加入夜间模式（按时段默认 + 右上角切换）
 
 ### 说明

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, GraduationCap, BookOpen, Database, FolderGit2, Mail, Home, Globe, Moon, Sun } from 'lucide-react';
+import { Menu, GraduationCap, BookOpen, FolderGit2, Mail, Home, Globe, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -10,7 +10,6 @@ const navItems = [
   { path: '/', labelKey: 'nav.home', icon: Home },
   { path: '/publications', labelKey: 'nav.publications', icon: BookOpen },
   { path: '/students', labelKey: 'nav.students', icon: GraduationCap },
-  { path: '/data-products', labelKey: 'nav.dataProducts', icon: Database },
   { path: '/projects', labelKey: 'nav.projects', icon: FolderGit2 },
   { path: '/contact', labelKey: 'nav.contact', icon: Mail },
 ];

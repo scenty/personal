@@ -7,25 +7,32 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { publications, publicationsByYear, getFirstAuthorPublications, getCorrespondingAuthorPublications, getFirstOrCorrespondingAuthorPublications, getQ2AbovePublications } from '@/data';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Publications = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState<'all' | 'first' | 'corresponding'>('all');
+  const { language, t } = useLanguage();
 
-  // 判断是否为通讯作者（基于作者字段中的星号标记）
+  const paperCount = getFirstOrCorrespondingAuthorPublications().length;
+  const q2Count = getQ2AbovePublications().length;
+  const pageDesc = String(t('publications.pageDesc'))
+    .replace('{paperCount}', String(paperCount))
+    .replace('{q2Count}', String(q2Count));
+
   const isCorrespondingAuthor = (pub: typeof publications[0]) => {
     const authors = pub.authors || '';
     const authorsEn = pub.authorsEn || '';
-    // 检查中文或英文作者字段中是否包含星号标记
     return authors.includes('卢文芳*') || authors.includes('Lu, W.*') || authorsEn.includes('Lu, W.*');
   };
 
   const filteredPublications = publications.filter(pub => {
-    const matchesSearch = 
+    const matchesSearch =
       pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       pub.authors.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (pub.authorsEn || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
       pub.journal.toLowerCase().includes(searchTerm.toLowerCase());
-    
+
     if (filter === 'first') return matchesSearch && pub.isFirstAuthor;
     if (filter === 'corresponding') return matchesSearch && isCorrespondingAuthor(pub);
     return matchesSearch;
@@ -36,42 +43,38 @@ const Publications = () => {
   return (
     <div className="min-h-screen py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">研究成果</h1>
-          <p className="text-lg text-muted-foreground max-w-3xl">
-            已发表第一/通讯作者SCI论文{getFirstOrCorrespondingAuthorPublications().length}篇，包括中科院二区以上论文{getQ2AbovePublications().length}篇。
-            研究领域涵盖人工智能海洋学、海洋动力过程、遥感应用等。
-          </p>
+          <h1 className="text-4xl font-bold mb-4">{t('publications.pageTitle')}</h1>
+          <p className="text-lg text-muted-foreground max-w-3xl">{pageDesc}</p>
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card>
             <CardContent className="pt-6">
-              <div className="text-3xl font-bold text-primary">{getFirstAuthorPublications().length + getCorrespondingAuthorPublications().length}</div>
-              <div className="text-sm text-muted-foreground">代表性论文</div>
+              <div className="text-3xl font-bold text-primary">
+                {getFirstAuthorPublications().length + getCorrespondingAuthorPublications().length}
+              </div>
+              <div className="text-sm text-muted-foreground">{t('publications.statRep')}</div>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-3xl font-bold text-primary">{getFirstAuthorPublications().length}</div>
-              <div className="text-sm text-muted-foreground">第一作者论文</div>
+              <div className="text-sm text-muted-foreground">{t('publications.statFirst')}</div>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
               <div className="text-3xl font-bold text-primary">{getCorrespondingAuthorPublications().length}</div>
-              <div className="text-sm text-muted-foreground">通讯作者论文</div>
+              <div className="text-sm text-muted-foreground">{t('publications.statCorr')}</div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Search and Filter */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <div className="flex-1">
             <Input
-              placeholder="搜索论文标题、作者或期刊..."
+              placeholder={String(t('publications.search'))}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full"
@@ -83,30 +86,29 @@ const Publications = () => {
               onClick={() => setFilter('all')}
               size="sm"
             >
-              全部
+              {t('publications.filterAll')}
             </Button>
             <Button
               variant={filter === 'first' ? 'default' : 'outline'}
               onClick={() => setFilter('first')}
               size="sm"
             >
-              第一作者
+              {t('publications.firstAuthor')}
             </Button>
             <Button
               variant={filter === 'corresponding' ? 'default' : 'outline'}
               onClick={() => setFilter('corresponding')}
               size="sm"
             >
-              通讯作者
+              {t('publications.correspondingAuthor')}
             </Button>
           </div>
         </div>
 
-        {/* Publications List */}
         <Tabs defaultValue="list" className="w-full">
           <TabsList className="mb-6">
-            <TabsTrigger value="list">列表视图</TabsTrigger>
-            <TabsTrigger value="year">按年份</TabsTrigger>
+            <TabsTrigger value="list">{t('publications.viewList')}</TabsTrigger>
+            <TabsTrigger value="year">{t('publications.viewYear')}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="list" className="space-y-4">
@@ -121,10 +123,10 @@ const Publications = () => {
                           <Badge variant="outline">{pub.quartile}</Badge>
                         )}
                         {pub.isFirstAuthor && (
-                          <Badge variant="secondary" className="text-xs">第一作者</Badge>
+                          <Badge variant="secondary" className="text-xs">{t('publications.firstAuthor')}</Badge>
                         )}
                         {isCorrespondingAuthor(pub) && pub.isFirstAuthor === false && (
-                          <Badge variant="secondary" className="text-xs">通讯作者</Badge>
+                          <Badge variant="secondary" className="text-xs">{t('publications.correspondingAuthor')}</Badge>
                         )}
                       </div>
                       <h3 className="text-lg font-semibold mb-2">
@@ -132,11 +134,22 @@ const Publications = () => {
                           {pub.title}
                         </Link>
                       </h3>
-                      <p className="text-sm text-muted-foreground mb-2">{pub.authors}</p>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        {language === 'en' && pub.authorsEn ? pub.authorsEn : pub.authors}
+                      </p>
                       <p className="text-sm font-medium text-foreground">{pub.journal}</p>
-                      {pub.highlights && (
+                      {pub.highlights && language === 'zh' && (
                         <div className="mt-2 flex flex-wrap gap-2">
                           {pub.highlights.map((highlight, idx) => (
+                            <span key={idx} className="text-xs bg-yellow-50 text-yellow-700 dark:bg-yellow-950/50 dark:text-yellow-300 px-2 py-1 rounded">
+                              {highlight}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      {pub.highlightsEn && language === 'en' && (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          {pub.highlightsEn.map((highlight, idx) => (
                             <span key={idx} className="text-xs bg-yellow-50 text-yellow-700 dark:bg-yellow-950/50 dark:text-yellow-300 px-2 py-1 rounded">
                               {highlight}
                             </span>
@@ -147,7 +160,7 @@ const Publications = () => {
                     <div className="flex items-center gap-2">
                       <Button asChild variant="outline" size="sm">
                         <Link to={`/publications/${pub.id}`}>
-                          详情 <ArrowRight className="ml-1 w-4 h-4" />
+                          {t('publications.detail')} <ArrowRight className="ml-1 w-4 h-4" />
                         </Link>
                       </Button>
                       {pub.doiLink && (
@@ -184,7 +197,9 @@ const Publications = () => {
                                   {pub.title}
                                 </Link>
                               </h4>
-                              <p className="text-sm text-muted-foreground">{pub.authors}</p>
+                              <p className="text-sm text-muted-foreground">
+                                {language === 'en' && pub.authorsEn ? pub.authorsEn : pub.authors}
+                              </p>
                               <p className="text-sm">{pub.journal}</p>
                             </div>
                             <Button asChild variant="ghost" size="sm">
