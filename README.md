@@ -137,7 +137,9 @@ npm run lint
 ## 内容维护指南
 
 ### 添加论文
-编辑 `src/data/publications.ts` 数组头部。若有媒体报道，填 `newsCoverage`，会自动出现在动态页。
+编辑 `src/data/publications.ts` 数组头部；学生一作填 `firstAuthorId`，并在 `students.ts` 对应学生的 `publications` 列表追加引用串。若有媒体报道，填 `newsCoverage`，会自动出现在动态页。
+
+近期已录入：He et al. (2026) *Journal of Marine Systems*；Yang et al. (2026) *Ocean Engineering*（双通讯，分别绑 `he-jiangnan` / `yang-guangyu`；已补关键词与亮点）。
 
 ### 更新简介 / 奖励 / 教学
 只改 `src/data/profile.ts`（勿在 `Home.tsx` 再写一份 bio）。

@@ -33,7 +33,10 @@ export const sysuStudents: Student[] = [
     photo: "images/zelda_style_图.jpg",
     photoOriginal: "images/原图.jpg",
     researchTopic: "海洋智能预报和三维重建",
-    publications: ["He et al. (2026) Ocean-Land-Atmosphere Research"],
+    publications: [
+      "He et al. (2026) Journal of Marine Systems",
+      "He et al. (2026) Ocean-Land-Atmosphere Research"
+    ],
     awards: ["第三届人工智能海洋学论坛最佳海报奖"],
     bio: "研究方向为人工智能方法在海洋科学中的应用。"
   },
@@ -46,7 +49,10 @@ export const sysuStudents: Student[] = [
     degree: "本科/硕士",
     status: "current",
     researchTopic: "Neural Wave Model",
-    publications: ["Yang et al. (2024) Science of The Total Environment"],
+    publications: [
+      "Yang et al. (2026) Ocean Engineering",
+      "Yang et al. (2024) Science of The Total Environment"
+    ],
     awards: [
       "国家奖学金",
       "中山大学海纳百川模拟国际学术会议一等奖",

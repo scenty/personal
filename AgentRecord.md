@@ -1,5 +1,29 @@
 # Agent 工作记录
 
+## 2026-08-20：为 JMS / OE 两篇新文补充关键词与亮点
+
+### 处理
+依据桌面 PDF 全文：关键词取自 ARTICLE INFO；亮点据摘要与 Conclusion 提炼（中英各 4 条），写入 `yang-2026-oe`、`he-2026-jms`。
+
+### 相关文件
+`src/data/publications.ts`、`AgentRecord.md`
+
+---
+
+## 2026-08-20：补充何江南 JMS、杨光宇 Ocean Engineering 两篇最新论文
+
+### 处理
+1. `publications.ts` 数组头部新增：
+   - `yang-2026-oe`：Ocean Engineering 366:127556，DOI `10.1016/j.oceaneng.2026.127556`；通讯卢文芳*、董昌明*；中科院一区；IF 5.5；Zenodo + NeuralWave-Mini
+   - `he-2026-jms`：Journal of Marine Systems 257:104278，DOI `10.1016/j.jmarsys.2026.104278`；通讯卢文芳*、来志刚*；中科院三区（`isCasZone2Above: false`）；IF 2.5；Zenodo 代码/数据
+2. `students.ts`：何江南、杨光宇 `publications` 分别追加对应引用串，并保留原有条目
+3. 按确认：不写摘要；中文作者用张丽、郭东浩、蒋浩宇、陈大可
+
+### 相关文件
+`src/data/publications.ts`、`src/data/students.ts`、`README.md`
+
+---
+
 ## 2026-07-21：青年教师站展示更新（全日合并）
 
 ### 内容与功能

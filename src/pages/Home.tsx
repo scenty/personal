@@ -279,9 +279,6 @@ const Home = () => {
                   </li>
                 ))}
               </ul>
-              <p className="text-sm text-muted-foreground mt-6">
-                {language === 'zh' ? profile.fieldStation : profile.fieldStationEn}
-              </p>
             </div>
           </div>
         </div>

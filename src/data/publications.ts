@@ -33,6 +33,74 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    id: "yang-2026-oe",
+    authors: "杨光宇，卢文芳*，蒋浩宇，王栋，何江南，董昌明*，陈大可",
+    authorsEn: "Yang, G., Lu, W.*, Jiang, H., Wang, D., He, J., Dong, C.*, & Chen, D.",
+    year: 2026,
+    title: "Hybrid numerical-AI modeling of directional wave spectra on an idealized one-dimensional nearshore slope",
+    journal: "Ocean Engineering",
+    volume: "366",
+    pages: "127556",
+    doi: "10.1016/j.oceaneng.2026.127556",
+    doiLink: "https://doi.org/10.1016/j.oceaneng.2026.127556",
+    isFirstAuthor: false,
+    isCorrespondingAuthor: true,
+    firstAuthorId: "yang-guangyu",
+    quartile: "Q1",
+    isCasZone2Above: true,
+    impactFactor: 5.5,
+    keywords: ["神经海浪模式", "混合模式", "可微编程", "少样本学习", "近岸海浪预报", "物理嵌入神经网络"],
+    keywordsEn: ["Neural wave model", "Hybrid model", "Differentiable programming", "Data-limited learning", "Nearshore wave forecasting", "Physics-embedded neural network"],
+    highlights: [
+      "提出可微混合框架 Neural Wave Model，耦合波谱物理核心与神经网络参数化",
+      "少样本条件下仅用 bulk 波参数，有效波高误差较纯数据驱动网络降低超 84%",
+      "嵌入波作用守恒方程，提升多步预报稳定性，并可用粗输入重建完整方向谱",
+      "概念验证表明可微混合建模是物理约束波谱模拟的可行方向"
+    ],
+    highlightsEn: [
+      "Proposed a fully differentiable hybrid Neural Wave Model coupling a wave-spectrum physics core with neural parameterizations",
+      "In data-limited experiments using only bulk wave parameters, reduced significant wave height error by over 84% versus pure data-driven networks",
+      "Embedding the wave-action balance equation improves multi-step forecast stability and enables directional-spectrum reconstruction from coarse inputs",
+      "Proof-of-concept results indicate differentiable hybrid modeling as a promising path for physically constrained wave-spectrum simulation"
+    ],
+    dataLink: "https://doi.org/10.5281/zenodo.16533479",
+    codeLink: "https://github.com/GaryYang77/NeuralWave-Mini"
+  },
+  {
+    id: "he-2026-jms",
+    authors: "何江南，姜佑捷，卢文芳*，张丽，郭东浩，肖灿博，来志刚*",
+    authorsEn: "He, J., Jiang, Y., Lu, W.*, Zhang, L., Guo, D., Xiao, C., & Lai, Z.*",
+    year: 2026,
+    title: "Climate projection of near-future water quality in a typical estuary system based on an explainable machine learning method",
+    journal: "Journal of Marine Systems",
+    volume: "257",
+    pages: "104278",
+    doi: "10.1016/j.jmarsys.2026.104278",
+    doiLink: "https://doi.org/10.1016/j.jmarsys.2026.104278",
+    isFirstAuthor: false,
+    isCorrespondingAuthor: true,
+    firstAuthorId: "he-jiangnan",
+    quartile: "Q2",
+    isCasZone2Above: false,
+    impactFactor: 2.5,
+    keywords: ["水质", "珠江口", "多源数据", "迁移学习", "模型可解释性"],
+    keywordsEn: ["Water quality", "Pearl River Estuary", "Multiple source data", "Transfer learning", "Model interpretation"],
+    highlights: [
+      "构建可解释机器学习框架，预测珠江口近未来水质与优良水质覆盖率 Aq",
+      "采用数值模式预训练 + 现场观测微调的迁移学习，IN/RP 预测精度达 86.8%/80.76%",
+      "结合气候降尺度预估，2023–2029 年 Aq 总体改善后于 2030 回落",
+      "用 SHAP 解析关键驱动因子，支撑分区差异化的河口环境管理"
+    ],
+    highlightsEn: [
+      "Developed an explainable ML framework to project near-future water quality and good-quality coverage (Aq) in the Pearl River Estuary",
+      "Transfer learning with numerical pre-training and in-situ fine-tuning achieved 86.8%/80.76% accuracy for IN/RP prediction",
+      "Climate downscaling projects Aq improvement from 2023 to 2029, followed by a decline in 2030",
+      "SHAP analysis identifies key drivers and supports spatially differentiated estuarine management"
+    ],
+    dataLink: "https://doi.org/10.5281/zenodo.15671291",
+    codeLink: "https://doi.org/10.5281/zenodo.15671291"
+  },
+  {
     id: "wang-2026-grs",
     authors: "王天浩，卢文芳，李忠平，余小龙，商少凌，林供",
     authorsEn: "Wang, T., Lu, W., Lee, Z., Yu, X., Shang, S., & Lin, G.",
