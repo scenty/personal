@@ -116,7 +116,7 @@ function parseDateKey(text?: string): number {
     return Number(iso[1]) * 10000 + Number(iso[2]) * 100 + Number(iso[3]);
   }
 
-  const yearOnly = s.match(/\b(20\d{2}|19\d{2})\b/);
+  const yearOnly = s.match(/(?:^|\D)(20\d{2}|19\d{2})(?:\D|$)/);
   if (yearOnly) {
     return Number(yearOnly[1]) * 10000;
   }

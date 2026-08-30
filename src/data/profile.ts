@@ -130,14 +130,14 @@ export const profile = {
   // 简介中 {paperCount}/{q2Count} 由页面用实时统计替换
   bio: `卢文芳，1989年出生，福建泉州人，中山大学"百人计划"、福建省高层次人才C类，现任海洋动力过程与气候教研室（系）副主任，珠江口海洋生态教育部野外观测站副站长。
 
-曾获海科院2025年"我心目中的良师"称号、OLAR优秀青年编委、第三届全国海洋学教学大赛三等奖、亚洲大洋洲地球科学学会（AOGS）2016年年会海洋学分会最佳海报奖、国家公派奖学金、博士研究生国家奖学金等多项奖励。知乎海洋、海洋科学领域优秀回答者。目前已发表第一/通讯作者SCI论文{paperCount}篇，包括中科院二区以上论文{q2Count}篇。主持国家自然基金青年基金、重点研发子任务、中国博士后基金、广东省/福建省科技厅自然基金、南海所开放课题等科研项目。
+曾获海科院2025年"我心目中的良师"称号、OLAR优秀青年编委、第三届全国海洋学教学大赛三等奖、亚洲大洋洲地球科学学会（AOGS）2016年年会海洋学分会最佳海报奖、国家公派奖学金、博士研究生国家奖学金等多项奖励。知乎海洋、海洋科学领域优秀回答者。目前已发表第一/通讯作者SCI论文{paperCount}篇，包括中科院二区以上论文{q2Count}篇。主持国家自然基金面上项目/青年基金、重点研发子任务、中国博士后基金、广东省/福建省科技厅自然基金、南海所开放课题等科研项目。
 
 担任第五届人工智能海洋学论坛科学委员会委员、国际英文期刊Ocean-Land-Atmosphere Research（OLAR）青年编委、Remote Sensing期刊客座编辑、中国海洋学会人工智能海洋学专业委员会委员、中国太平洋学会海洋大数据与高性能计算分会委员、NC/GRL/JGR/TGRS/RS等数十种国际期刊审稿人。研究兴趣广泛，指导的研究生获国家奖学金、校级优秀硕士学位论文、中山大学"博英汇学术沙龙"二等奖等奖励。`,
   bioEn: `Born in 1989, from Quanzhou, Fujian. Selected for Sun Yat-sen University's "Hundred Talents Program" and Fujian Provincial High-Level Talent (Category C). Currently Deputy Director of the Department of Ocean Dynamics and Climate, and Deputy Director of the Ministry of Education Pearl River Estuary Marine Ecology Field Observation Station.
 
 Honors include the 2025 "Teacher I Admire Most" award, Outstanding Young Editorial Board Member of OLAR, Third Prize in the 3rd National Oceanography Teaching Competition, Best Poster Award (Oceanography) at AOGS 2016, National Government-Sponsored Scholarship, and National Scholarship for Doctoral Students. Recognized as a top contributor in ocean science on Zhihu.
 
-To date, has published {paperCount} SCI papers as first or corresponding author, including {q2Count} papers in CAS Zone II journals or above. Has led projects funded by NSFC (Young Scientists Fund), National Key R&D Program sub-tasks, China Postdoctoral Science Foundation, Guangdong/Fujian NSF, and open programs of the South China Sea Institute of Oceanology.
+To date, has published {paperCount} SCI papers as first or corresponding author, including {q2Count} papers in CAS Zone II journals or above. Has led projects funded by NSFC (General Program and Young Scientists Fund), National Key R&D Program sub-tasks, China Postdoctoral Science Foundation, Guangdong/Fujian NSF, and open programs of the South China Sea Institute of Oceanology.
 
 Serves on the Scientific Committee of the 5th AI Oceanography Forum; Young Editorial Board of OLAR; Guest Editor of Remote Sensing; member of the AI Oceanography Committee of the Chinese Society for Oceanology; member of the Marine Big Data & HPC Branch of the China Pacific Society; and reviewer for NC, GRL, JGR, TGRS, RS and many other journals.`
 };

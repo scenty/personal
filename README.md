@@ -105,10 +105,12 @@ personal/
 npm run sync-news   # 写入 src/data/syncedNews.json，再提交即可上线
 ```
 
-> 微信公众号无开放 API，脚本经搜狗检索，可能触发验证码；学院官网 `/search/all?keys=` 更稳定。静态站无法在访客浏览器里实时爬公众号。
+> 微信公众号无开放 API，脚本经搜狗检索（最多 3 页），解开跳转链为 `mp.weixin.qq.com`，并写入发布日期；可能触发验证码。学院官网 `/search/all?keys=` 更稳定。静态站无法在访客浏览器里实时爬公众号。
+>
+> 搜狗解出的签名链可能随时间失效。重要稿件的稳定短链请写入 `scripts/sync-news.mjs` 的 `SEED_NEWS`（与同标题自动结果去重，种子优先）。首页动态只展示按时间排序后的前 5 条。
 
 ### `students.ts` / `projects.ts` / `dataProducts.ts`
-学生（含课题）、项目（`duration`、`relatedPublicationIds`）、数据产品（`paperId` 内链）与专著下载。
+学生（含课题）、项目（`duration`、`relatedPublicationIds`）、数据产品（`paperId` 内链）与专著下载。最新主持项目含国家自然科学基金面上项目（2027–2030，南海三维温盐流智能预报-重建中的物理约束与可解释性）。
 
 ## 技术栈
 
@@ -139,7 +141,7 @@ npm run lint
 ### 添加论文
 编辑 `src/data/publications.ts` 数组头部；学生一作填 `firstAuthorId`，并在 `students.ts` 对应学生的 `publications` 列表追加引用串。若有媒体报道，填 `newsCoverage`，会自动出现在动态页。
 
-近期已录入：He et al. (2026) *Journal of Marine Systems*；Yang et al. (2026) *Ocean Engineering*（双通讯，分别绑 `he-jiangnan` / `yang-guangyu`；已补关键词与亮点）。
+近期已录入：He et al. (2026) *Journal of Marine Systems*；Yang et al. (2026) *Ocean Engineering*（双通讯，分别绑 `he-jiangnan` / `yang-guangyu`；已补关键词、亮点、NWM 框架图与公众号报道）。
 
 ### 更新简介 / 奖励 / 教学
 只改 `src/data/profile.ts`（勿在 `Home.tsx` 再写一份 bio）。

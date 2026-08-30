@@ -64,7 +64,26 @@ export const publications: Publication[] = [
       "Proof-of-concept results indicate differentiable hybrid modeling as a promising path for physically constrained wave-spectrum simulation"
     ],
     dataLink: "https://doi.org/10.5281/zenodo.16533479",
-    codeLink: "https://github.com/GaryYang77/NeuralWave-Mini"
+    codeLink: "https://github.com/GaryYang77/NeuralWave-Mini",
+    figures: [
+      {
+        image: "images/yang-2026-oe-figure1.png",
+        caption:
+          "神经波浪模型（NWM）的人工智能与数值模式混合框架。波作用量谱 Nt 经谱内/空间动力传播得到 Dt，神经网络根据状态与强迫 Ft 预测源汇项 St，时间积分得到下一时刻方向谱及有效波高、波向等 bulk 参数。",
+        captionEn:
+          "Hybrid AI–numerical framework of the Neural Wave Model (NWM). Wave action spectrum Nt is dynamically propagated (intra-spectral and spatial) to Dt; a neural network predicts source–sink terms St from the state and forcings Ft; time integration yields the next-step directional spectrum and bulk wave parameters.",
+      },
+    ],
+    newsCoverage: [
+      {
+        title: "海洋知圈报道",
+        link: "https://mp.weixin.qq.com/s?src=11&timestamp=1788101814&ver=6936&signature=w8yyHrgYe3i3YGz9nEwZe*MeJoy-608k8MjpM8eH6YlQ7OjeevR8kOXoeHWKKFQpmqBXVtBTpgp9Q31IyXDa*sCJ0YHvhmqae8jYABT*D-lPRtDLcIVFsKtE3Xp0NXAJ&new=1",
+      },
+      {
+        title: "观海临风报道",
+        link: "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=hk4f0DtN4qpRTMxoZYt*r4qmufSgnHjm0RglSfm6usRPVkFSHKA5MKiS8qi0rkVb2VGaf0euDqyCFFuhzDc89*CtA8Vw7T-DBuhTvKdLV3SblZmmmgM-U-kQt7NLwkW4&new=1",
+      },
+    ],
   },
   {
     id: "he-2026-jms",

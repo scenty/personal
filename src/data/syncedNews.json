@@ -1,8 +1,20 @@
 {
-  "updatedAt": "2026-08-20T11:44:20.337Z",
+  "updatedAt": "2026-08-30T14:57:01.705Z",
   "keyword": "卢文芳",
-  "note": "学院官网使用 /search/all?keys= 全文检索，并核对正文含关键词（不要求标题含名）。微信无官方 API，经搜狗检索（可能风控）。",
+  "note": "学院官网使用 /search/all?keys= 全文检索并核对正文。微信经搜狗检索后解析 mp.weixin.qq.com 原文链接与发布日期（可能风控）。",
   "items": [
+    {
+      "id": "wx-mcc2026-award",
+      "title": "喜报丨我院学子在MCC2026海洋计算挑战赛中获得佳绩",
+      "titleEn": "SMS News | Students awarded at MCC 2026 Ocean Computing Challenge",
+      "date": "2026-08-29",
+      "link": "https://mp.weixin.qq.com/s/rqgsJDsYVHudRCTd5uOLQw",
+      "source": "中山大学海洋科学",
+      "sourceEn": "SYSU Marine Sciences (WeChat)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "第四届海洋智能计算大会暨海洋计算挑战赛（MCC 2026）全国总决赛在成都举行。卢文芳副教授指导“不吃压力”队获海浪奖（三等奖）。"
+    },
     {
       "id": "wx-olar-forum-20260721",
       "title": "海科院新闻 | 我院助力国产期刊 OLAR 高质量发展",
@@ -70,6 +82,7 @@
     {
       "id": "sysu-article10722",
       "title": "海科院新闻 | 深化校际协同，赋能智海融合——我院教师赴厦门大学交流人工智能课程建设经验",
+      "date": "2026-02-02",
       "link": "https://marine.sysu.edu.cn/article/10722",
       "source": "中山大学海洋科学学院",
       "sourceEn": "School of Marine Sciences, SYSU",
@@ -80,6 +93,7 @@
     {
       "id": "sysu-article10727",
       "title": "海科院新闻 | 澳大利亚新南威尔士大学王小华教授来访我院交流座谈",
+      "date": "2026-03-02",
       "link": "https://marine.sysu.edu.cn/article/10727",
       "source": "中山大学海洋科学学院",
       "sourceEn": "School of Marine Sciences, SYSU",
@@ -90,6 +104,7 @@
     {
       "id": "sysu-article10316",
       "title": "“海纳百川，博采众长”——第九届“海纳百川”模拟国际学术论坛成功举行",
+      "date": "2024-12-08",
       "link": "https://marine.sysu.edu.cn/article/10316",
       "source": "中山大学海洋科学学院",
       "sourceEn": "School of Marine Sciences, SYSU",
@@ -110,6 +125,7 @@
     {
       "id": "sysu-article10543",
       "title": "海洋科学学院关于公布2025年9月“大学生创新创业训练计划项目”院级培育课题名单的通知",
+      "date": "2025-09-30",
       "link": "https://marine.sysu.edu.cn/article/10543",
       "source": "中山大学海洋科学学院",
       "sourceEn": "School of Marine Sciences, SYSU",
@@ -150,6 +166,7 @@
     {
       "id": "sysu-article10705",
       "title": "海科院新闻 | 第十届“海纳百川”模拟国际学术论坛顺利举办",
+      "date": "2025-12-21",
       "link": "https://marine.sysu.edu.cn/article/10705",
       "source": "中山大学海洋科学学院",
       "sourceEn": "School of Marine Sciences, SYSU",
@@ -158,94 +175,235 @@
       "snippet": "2025年12月21日，第十届“海纳百川”模拟国际学术论坛在珠海校区海琴四号楼举办。学院院长王东晓教授、副院长赵俊教授、党委副书记黄鑫、孙晓乐教授、高志增副教授、陈伟副教授、于威副教授、张弯弯副研究员出席了开幕式。来自南方海洋科学与工程广东省实验室（珠海）、澳门大学科技学院、中山大学海洋科学学院、海洋工程与技术学院和大气科学学院等多个单位的150余名老师和学生参加了论坛。开幕式上，王东晓教授向为论坛倾注心力的师生表达了诚挚的谢意，并对所有与会者表示热烈的欢迎。他鼓励同学们把握论坛契机，积极展示与交流，锻炼学术表达与思辨能力，将个人科研与国家发展紧密相连。开幕式与会人员合影孙晓乐教授应邀作题为“"
     },
     {
-      "id": "wx-5Lit5bGx5aSn5a2m5rW35rSLIOez",
-      "title": "中山大学海洋 系统 科学 开放年会(2023)&ldquo;海洋动力过程与气候&rdquo;分会场",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9Z5kmqbyMmWTjB_oJWVJ-mKnJUIYDRdsoO8agO4T_WazaeUPCtnykgY2CIHK1g0amY5PChhwdenLPL0uMS9SmhY6O98I8N8xAxsUUgY42D7zy-_KMWFG0nHDgpfSebkOckXoxHD9_dDj3lbQ14VgGmH7xyq3lzg5JyHu7_OZQ4QVAe0f8bRARvQ..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
+      "id": "wx-5Y2X5Lqs5L-h5oGv5bel56iL5aSn",
+      "title": "南京信息工程大学海洋科学学院董昌明教授团队联合中山大学卢文芳副教授团队,在人工智能与数值模式混合的智能模型研究方面取得创新性突破",
+      "date": "2026-08-24",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=lGnxYPQGf6bq9DaSG7NQz5g43mUWM9qDSAkYF4SUf9sJ51vD3mTkh7wHPTW13GUoz6wDoElRMmlWnANNXd*Jjd9Pg3HtdeXuzd-AzqcysYkaHfwHfuJJHUxj6RoOxzHO&new=1",
+      "source": "happy科研",
       "sourceEn": "WeChat (Sogou search)",
       "type": "media",
-      "channel": "wechat"
+      "channel": "wechat",
+      "snippet": "近日,南京信息工程大学海洋科学学院董昌明教授团队联合中山大学卢文芳副教授团队,在人工智能与数值模式混合的智能模型研究方..."
+    },
+    {
+      "id": "wx-5Lit5bGx5aSn5a2m5rW35rSL57O7",
+      "title": "中山大学海洋系统科学开放年会(2023)“海洋动力过程与气候”分会场",
+      "date": "2023-12-24",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOmPNQwkfeTXtdFXtjQo79kcMIl*U0eWNPZ4GVWzia5t9qGMfkWTt4kKytdCvm--s-dmCVIdXEwlkt7eFs7jMFOl&new=1",
+      "source": "中山大学海洋科学",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "的倪钦彪详细介绍了冷反气旋涡和暖气旋涡的形成机制第二场报告由中山大学海洋科学学院卢文芳副教授、叶雷平助理教授主持,自然..."
     },
     {
       "id": "wx-5rW36Zmi56eR56CU5Yqo5oCBKDYz",
-      "title": "海院科研动态(63)| 来志刚教授研究团队构建 海洋 藻华事件系统性提取分析的技术框架",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9Z5kmqbyMmWTjB_oJWVJ-mKnJUIYDRdsoO8agO4T_WazaeUPCtnykgdY_D5jA0sWChm30L3WW8NKuoM_icgNQWGwCtzgQ4OXfKRqoonwmgw5i7Y5VdBAGPnhIUa9apEn10vl2dL9jB9cvQDH9gQQ0DNw5IV7ZCwSyrm1gjmqOfMLs46dn8Efgxg..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
+      "title": "海院科研动态(63)| 来志刚教授研究团队构建海洋藻华事件系统性提取分析的技术框架",
+      "date": "2022-08-24",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOlsomZ*jn9MeGRfwfe2uBuzdp*068rf0afT-WCjke3D6TDg7IsnNKusJVK-OG8Y7DO6ZiSWQEmGlEEHxmpsuaYv&new=1",
+      "source": "中山大学海洋科学",
       "sourceEn": "WeChat (Sogou search)",
       "type": "media",
-      "channel": "wechat"
+      "channel": "wechat",
+      "snippet": "观测揭示台风导致的近惯性波能量传至深海海底END来源:海洋科学学院编辑:黄菲初审:卢文芳、林奇琦、曾瑛审核:邹世春、廖喜..."
     },
     {
       "id": "wx-TFRP5Zu95a626YeN54K55a6e6aqM",
       "title": "LTO国家重点实验室学术报告2022-6",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9Q9yoIjO5s8g_jNE6riaXgGHuHS-rIkmx-G6rq0yytHDYOg-pGpVP0ayyiqweegMwsPdwupTiirGcRR-VfjfwoWOk0sMllkLqUWffPKcjPu6y4EKN2WEHXhoTOuBvC40pz2ntmOdcDV4hmRSdhmPSKiw-TcgmoZlumjzZaoe51D3uL0unUdKkuw..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
+      "date": "2022-04-11",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=*2QWSO1d6xoY6WCgdce26nUnrzZ5O2ScD99KQ9eMHnNZ-eWL59c0LyuK9yWzdKXrzBPzVNUKMR0X2VIRYzP*jV5YGujsdbtMUMQN6LYwGUrWAWEsaSQhq7tSPy*Ydagp&new=1",
+      "source": "热带海洋环境国家重点实验室",
       "sourceEn": "WeChat (Sogou search)",
       "type": "media",
-      "channel": "wechat"
+      "channel": "wechat",
+      "snippet": "芳中山大学海洋科学学院副教授报告人简介卢文芳,中山大学海洋科学学院副教授,“百人计划”引进人才、福建省高层次人才C类...."
     },
     {
       "id": "wx-5a2m5pyv6aKE5ZGKIHwg5Lq65bel",
-      "title": "学术预告 | 人工智能 海洋 学 - Where Are We and Where Are We Going?",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9Vsml4LQm-g8OFyIo-_qmKrNFqEAgXcPEi7Gq0vx-alla5oWxiyyiasa01yL1BRZF7aL1Vsyck60UMvTu1a2UjfVH3SAhUJMkrgDgTlQ3sL2y8J1q1jbl45IhTjwwPyqhP7vGagF3FH8pcPtx3gm7UUrLHhBX28dOOGJDM14YIvC00NVofL2iDw..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
+      "title": "学术预告 | 人工智能海洋学 - Where Are We and Where Are We Going?",
+      "date": "2022-12-16",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=PG4NRc0uXOdtuZV1dslAVR2qbxwp0khYHMdlfkKdy*pr*w1I3HWZXp1ZJ2L0UM-y-h1*JaSssatosqvDJkuCsLqn7WhgCDL-uIQYGihpptcsJsBiw1zO-r2rAnrGLZA*&new=1",
+      "source": "南方海洋实验室",
       "sourceEn": "WeChat (Sogou search)",
       "type": "media",
-      "channel": "wechat"
+      "channel": "wechat",
+      "snippet": "4主持人:卢文芳 副教授(中山大学海洋科学学院)nfhy原创文章,如需转载请注明出处文案:南方海洋实验室图片:南方海洋实验室..."
     },
     {
-      "id": "wx-5rW35rSL56eR5a2mIOWtpumZoiDm",
-      "title": "海洋科学 学院 本科生团队在中科院一区期刊上发表研究成果",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9JSWs27ikXS1snzVlIeawcFNmDdd1wPasW9-DT8uDIqPYhXejWkZkSbxFAwnB5Xt8u8GU45dJbt1OI6UnlWoqehLQI0hT14lPA6vkRdUP-xqiUkkFdY6vNwmKbliRZzey9LcqrtGivvBcSgrI0LdVmu-c_ScoZkrdiouGDLaaZbiq3X8EKMKOIA..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
+      "id": "wx-5Zyo5Lit5aSnLOi_meS6m-acrOen",
+      "title": "在中大,这些本科生发了论文!",
+      "date": "2024-05-03",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=TqY4E1bJEzuB*jgegFrTZmV7MYkmAkjQyX-huhvt0UlDuuS6tCGtFBJPLI44nha5j49zyjndMlvltbuwdZbnaV8i6Xs2lmrdsMy4kb83f6K-eGpbCCKeRvwrRJpczB4e&new=1",
+      "source": "中大学工",
       "sourceEn": "WeChat (Sogou search)",
       "type": "media",
-      "channel": "wechat"
-    },
-    {
-      "id": "wx-5ZyoIOS4reWkpyAs6L-Z5Lqb5pys",
-      "title": "在 中大 ,这些本科生发了论文!",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9ecAJB3X-D_LXscmlw9Zmuzvd3yZdQTTMWh9Fv5B9dAgT5OU2DStV5WsxrSmNAkTsbe02hZartCtBIwNDDY0WeSoLezJJAsE1TX2RhIT6M-f7rZkTCMznYvSv9qD2_1MTCYNlzn9EjLK-lPjcTSf1RdsNqe7s_Tk8KVNpt4RjZPpFH6In5Ei3zg..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
-      "sourceEn": "WeChat (Sogou search)",
-      "type": "media",
-      "channel": "wechat"
-    },
-    {
-      "id": "wx-56eR56CU5Yqo5oCBIHwg5oiR5a6e",
-      "title": "科研动态 | 我实验室深海生命与生态过程创新团队首次构建 海洋 藻华事件系统性提取分析的技术框架",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9Vsml4LQm-g8OFyIo-_qmKrNFqEAgXcPEi7Gq0vx-alla5oWxiyyiajk1gfBSnp5zpR5yZbVAtT6ZUYYfsAefiTzf_T2hqzinNoauVpyhO3RHrfHvEmp64tWn5rr9Lv5oBNGMK6G6ZEAfIoa4Ny409-wOBIlNtSkcjrbmy9ddDHi54z_tGSZTqA..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
-      "sourceEn": "WeChat (Sogou search)",
-      "type": "media",
-      "channel": "wechat"
+      "channel": "wechat",
+      "snippet": "壹·中山大学海洋科学学院本科生大创团队杨光宇(第一作者)、... 该大创项目指导老师和论文通讯作者为卢文芳副教授,该论文还得..."
     },
     {
       "id": "wx-5Lit54-g56eR5oqA55y8IHwg5rC0",
-      "title": "中珠科技眼 | 水中的&ldquo;沙尘暴&rdquo;&mdash;&mdash;有害藻华",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9wk_5fPj5i7ODXouxUSxLCR--fSMw2GZsgPG1sQ14iZYbhYkhu8Q9hodyICM91pDGpZs2uwRDOT-xR-SbiHN5YHQc4u7fNtl331rHlGGpA9iMT43euQrALdOLMDzj0ArMZygdhIeqUaqo5clfhNKnaELMJF6k_lKfH2XbBVVLYo_drgozfSg6bw..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
+      "title": "中珠科技眼 | 水中的“沙尘暴”——有害藻华",
+      "date": "2022-10-05",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=WMd923LQHV*ho8Oxc*EiRslSyVdp-SqioAvxw0Bcm0ICRpI9IP3TLOSqnryaXtTenOhOMmScrWirZhgtmfvBgwstQ47gjF*7bRjaO6NMmvbeGwJRuDODTyT4nJRPGySo&new=1",
+      "source": "中山大学图书馆",
       "sourceEn": "WeChat (Sogou search)",
       "type": "media",
-      "channel": "wechat"
+      "channel": "wechat",
+      "snippet": "// 南方海洋科学与工程广东省实验室(珠海)深海生命与生态过程创新团队卢文芳副教授提出海洋藻华事件提取分析的技术框架,以南..."
+    },
+    {
+      "id": "wx-6JGj5piM5piO5pWZ5o6I5Zui6Zif",
+      "title": "董昌明教授团队联合中山大学卢文芳副教授团队在人工智能与数值模式混合的海浪智能模型方面取得创新性突破",
+      "date": "2026-08-22",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=hk4f0DtN4qpRTMxoZYt*r4qmufSgnHjm0RglSfm6usRPVkFSHKA5MKiS8qi0rkVb2VGaf0euDqyCFFuhzDc89*CtA8Vw7T-DBuhTvKdLV3SblZmmmgM-U-kQt7NLwkW4&new=1",
+      "source": "观海临风",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "近日,南京信息工程大学海洋科学学院董昌明教授团队联合中山大学卢文芳副教授团队,在人工智能与数值模式混合的智能模型研究方..."
+    },
+    {
+      "id": "wx-5rW3wrfnoJTlrabmnK8gfCDpooTl",
+      "title": "海·研学术 | 预告:Dynamical Decomposition of Multiscale Oceanic Motions",
+      "date": "2023-04-10",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOk250B0snKKD2Ni4D5sS1Sfvm2ci*QTZDflDY2BdydQozxQQkyWYUwhRmNnRbgBP8INRUdoV8hyik9*Lu0tVTdv&new=1",
+      "source": "中山大学海洋科学",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "博士后(南方海洋科学与工程广东省实验室(珠海))主持人卢文芳 副教授(中山大学海洋科学学院)报告内容简介:Oceanic flows ..."
+    },
+    {
+      "id": "wx-5rW3wrfnoJTlrabmnK8gfCDorrLl",
+      "title": "海·研学术 | 讲座预告:李晓峰-人工智能海洋学 - Where Are We and Where Are We Going?",
+      "date": "2022-12-15",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOl4kd5AUErNhzIyQ1z*h3teBRpeCJ1hXAQ32-PHi01unhCcS32s45GXhXRV5S2277f90AaQjdgDRtac*brstJPa&new=1",
+      "source": "中山大学海洋科学",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "研究员(中国科学院海洋研究所)主持人 卢文芳 副教授(中山大学海洋科学学院)报告内容简介人工智能是新一轮科技革命和产业变..."
+    },
+    {
+      "id": "wx-5rW36Zmi5paw6L-b5Lq65omNKDEy",
+      "title": "海院新进人才(123)|秦孝伟博士后,海洋生物养殖与环境研究团队",
+      "date": "2022-01-15",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOmro3ZeWeRsMd86dSsvktYhJAVMFWST50Erj-AUHY27iTheMbDkw44KBF5Mp6KYMzeo6n5aH-it6-QHKN8BzRrf&new=1",
+      "source": "中山大学海洋科学",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "于2022年1月正式加入中山大学海洋科学学院.秦孝伟2021年8月... 卢文芳副教授,计算海洋科学与海洋数模研究团队海院新进人才(..."
+    },
+    {
+      "id": "wx-5rW36Zmi5paw6L-b5Lq65omNKDEy",
+      "title": "海院新进人才(124)| 王园园博士后,海洋生物养殖与环境研究团队",
+      "date": "2022-02-18",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOkubgnomKclxds4kTdq64iS2dfm67o*W8xvr7WZd0S7SS0F3nGCcAallrGHKe4MdbQS3ZZvOHmr21yL4DqCmYzF&new=1",
+      "source": "中山大学海洋科学",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "于2022年2月正式加入中山大学海洋科学学院. ... 卢文芳副教授,计算海洋科学与海洋数模研究团队海院新进人才(..."
+    },
+    {
+      "id": "wx-5rW36Zmi5paw6L-b5Lq65omNKDEy",
+      "title": "海院新进人才(125)| 李嵩博士后,海洋微型生物与物质循环研究团队",
+      "date": "2022-03-04",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOksruWRIg-BoQ9MAbKOC4jNA1Ao2Th0ZX8IhV2aqHrqimabhIKeeJCy9ryBrX6eAO9uERhM*gZmlNvSsGqqxnjz&new=1",
+      "source": "中山大学海洋科学",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "于2022年3月正式加入中山大学海洋科学学院. 李嵩于2022年1月... 卢文芳副教授,计算海洋科学与海洋数模研究团队编辑:何文韬初..."
+    },
+    {
+      "id": "wx-4oCc5rex6JOd4oCd5ouU5bCW54-t",
+      "title": "“深蓝”拔尖班 | 听师兄师姐说",
+      "date": "2026-08-22",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOkH-0RPgFNsXogtXZNmBz3-hFc7A9szdzGvhZ5mvg7tmoceDjHFU9GmpcuAnYYtSvbTt8begBhbpuHXVDtZIVo3&new=1",
+      "source": "中山大学海洋科学",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "担任大学生创新创业训练计划省级项目《面向次表层海洋热浪研究的三维智能重建》负责人,在卢文芳老师指导下推进项目研究.项目..."
+    },
+    {
+      "id": "wx-5oiR6Zmi5pys56eR55Sf5Zui6Zif",
+      "title": "我院本科生团队在中科院一区Top期刊上发表基于人工智能方法的海水三维硝酸盐重建研究成果",
+      "date": "2024-03-15",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOld4ZlgK4*EVN6CnL-KKPkpZTPggXflaxYWIByBnvjdH-sE8Ajfq9bnkZ0M5NTfensJeOuGgfKgC5qcRczA3SCY&new=1",
+      "source": "中山大学海洋科学",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "该大创项目指导老师和论文通讯作者为卢文芳副教授,该论文还得到了中山大学来志刚教授和上海交通大学廖恩惠副教授的指导.期刊..."
+    },
+    {
+      "id": "wx-5rW356eR6Zmi5paw6Ze7IHwg5oiR",
+      "title": "海科院新闻 | 我院举办2024年3-4月教职工集体生日会",
+      "date": "2024-05-07",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOnvtyufTcowwUXfChEViIsrUrDOcX0mzaQPLJe6NQi4s1ga0juDEivixiGKdN-6Cp1M8ELhzJ1zp*V3jgsfXcCo&new=1",
+      "source": "中山大学海洋科学",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "海洋科学学院分工会在海琴3号A202“教职工小家”举办了2024年... 为卢文芳副教授,4月“幸运寿星”为曾智老师,“幸运寿星”将..."
     },
     {
       "id": "wx-56ys5Y2B5bGK5rW35bOh5Lik5bK4",
-      "title": "第十届海峡两岸 海洋 环境监测与预报技术研讨会第二轮通知",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9dMgHD2u4DVu64cTDvMEQsRPPOUlFjCYF_UnTFmLitdMkBPo_g25YgXWCdXJKU-S6wTTCFJv0Tewf8w02_eC_WJ7bdlDa5agxbZNnd9girkR_y9_5OGw3JHwEOukA4QKFMXCvfph8KqnI4tNiU68YETsqkaWNjHeQzlI3Jx9ZcJbm0CtGSSkZQQ..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
+      "title": "第十届海峡两岸海洋环境监测与预报技术研讨会第二轮通知",
+      "date": "2023-10-18",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101814&ver=6936&signature=D4cdNPCP069eo49ra5jo0RvpuvzuIJFZenI7rm0AXbfm*qnRzg8SWj0ls5y29BohMHmbSoXPzOZkkj5THX69oetEqmt4K9DZToeNXPQtbIPrKirRkQIkB99jDUHRv7lY&new=1",
+      "source": "台湾海峡海洋生态系统国家野外站",
       "sourceEn": "WeChat (Sogou search)",
       "type": "media",
-      "channel": "wechat"
+      "channel": "wechat",
+      "snippet": "报告人:台湾海洋大学海洋工程科技中心组长报告人:卢文芳 报告人:中山大学副教授议题六海岸带灾害与管理报告人:林雨霏 报告..."
     },
     {
-      "id": "wx-MjAyMyDlubQmbGRxdW875Lq65bel",
-      "title": "2023 年&ldquo;人工智能 海洋 学&rdquo;研究生暑期学校(第一轮通知)(转发)",
-      "link": "https://weixin.sogou.com/link?url=dn9a_-gY295K0Rci_xozVXfdMkSQTLW6cwJThYulHEtVjXrGTiVgSwt-XFlGQCGhlHK58ufPCQ7WXSQXw5FYgVqXa8Fplpd9hAXbxQbBH3a4bzm2R6ZIu6OTFfMBzW5kCT57zsT5uoNJKbXo2ixvhd-JB37jhyAiEngcrK3s-6Ql99jLeu9VrMmSS83WQ-_OKY8kZ5MrrQByaVqUqlTtIWqVdHNAIEw7qlwhJfQr5oSe8pwhZJk42q4NwlxgXCIufE9_5yRdV-MtPujwwRB2Pw..&amp;type=2&amp;query=%E5%8D%A2%E6%96%87%E8%8A%B3 %E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%A6&amp;token=6CA444C3DC7E1841393E60403258B83139771B616A86E894",
-      "source": "微信公众号（搜狗检索）",
+      "id": "wx-MjAyMyDlubTigJzkurrlt6Xmmbro",
+      "title": "2023 年“人工智能海洋学”研究生暑期学校(第一轮通知)(转发)",
+      "date": "2023-06-22",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101814&ver=6936&signature=QBAWwz0vXs0VG4uDpBbwMArm7drAr2Dug8PFDhhWRQrqsy9HKLaIzbv9zGK2OO9VAmgS*i3xxaJLooVWMC3DIPP0KtxqdKBsARXfVBDja5uMzN1lFKL5LJV3GxuBjC*L&new=1",
+      "source": "海岸过程研究",
       "sourceEn": "WeChat (Sogou search)",
       "type": "media",
-      "channel": "wechat"
+      "channel": "wechat",
+      "snippet": "教授南京信息工程大学卢文芳 副教授中山大学洪 梅 副教授中国人民解放军国防科技大学宫 响 副教授青岛科技大学韩 莹 副教授南京信..."
+    },
+    {
+      "id": "wx-56eR56CU5Yqo5oCBIHwg5oiR5a6e",
+      "title": "科研动态 | 我实验室深海生命与生态过程创新团队首次构建海洋藻华事件系统性提取分析的技术框架",
+      "date": "2022-08-10",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101814&ver=6936&signature=PG4NRc0uXOdtuZV1dslAVR2qbxwp0khYHMdlfkKdy*qqHQLPInLngOCl2o6TdoIhgjXqsMjdZbHqkxADlJkq0AooHrn11I9lWaFKyjwZwwlOvlg*6kFIT8IL6EoK2LQp&new=1",
+      "source": "南方海洋实验室",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "合作团队来自美国特拉华大学、厦门大学和福州大学.图1 研究技术框架2021年以来,卢文芳副教授已在海洋动力与生态系统遥感反演..."
+    },
+    {
+      "id": "wx-56eR56CU6L-b5bGVfOWOpumXqOWk",
+      "title": "科研进展|厦门大学联合遥感中心团队在海平面上升机制和海气二氧化碳通量影响方面取得新进展",
+      "date": "2024-01-24",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101814&ver=6936&signature=qyKY1X8CB1xzJztfQsbDRMNOuDv2gBiqTu0pmc-YKo8RZd3lav45siTaNyZIFwuTsVVzFBvUWsm7YcoZlReX4LwQL7DsKES-YKuWJmKkneR1tlkLA*iBsCMkLFcjad0o&new=1",
+      "source": "近海海洋环境科学国家重点实验室",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "共同作者包括中山大学卢文芳副教授、美国国家海洋和大气管理局(NOAA)太平洋海洋环境实验室(PMEL)博士后李欣钰,以及特..."
+    },
+    {
+      "id": "wx-6ZmI5aSn5Y-v6Zmi5aOr5Y-C5LiO",
+      "title": "陈大可院士参与!董昌明教授团队联合中山大学卢文芳副教授团队构建国际上首个人工智能和数值模式混合的海浪智能模式!",
+      "date": "2026-08-26",
+      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101814&ver=6936&signature=w8yyHrgYe3i3YGz9nEwZe*MeJoy-608k8MjpM8eH6YlQ7OjeevR8kOXoeHWKKFQpmqBXVtBTpgp9Q31IyXDa*sCJ0YHvhmqae8jYABT*D-lPRtDLcIVFsKtE3Xp0NXAJ&new=1",
+      "source": "海洋知圈",
+      "sourceEn": "WeChat (Sogou search)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "近日,南京信息工程大学海洋科学学院董昌明教授团队联合中山大学卢文芳副教授团队,在人工智能与数值模式混合的智能模型研究方..."
     }
   ]
 }

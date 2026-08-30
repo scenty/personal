@@ -17,6 +17,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "project-8",
+    title: "南海三维温盐流智能预报-重建中的“硬编码”物理约束及可解释性研究",
+    titleEn:
+      "“Hard-Coded” Physical Constraints and Interpretability in Intelligent Forecast–Reconstruction of Three-Dimensional Temperature, Salinity, and Currents in the South China Sea",
+    fundingSource: "国家自然科学基金面上项目",
+    fundingSourceEn: "NSFC General Program",
+    role: "主持",
+    roleEn: "PI",
+    duration: "2027–2030",
+    status: "ongoing",
+    description:
+      "面向南海三维温度、盐度与海流的智能预报与重建，研究可嵌入模型的“硬编码”物理约束及其可解释性。",
+    descriptionEn:
+      "Investigates hard-coded physical constraints and their interpretability for intelligent forecast and reconstruction of 3D temperature, salinity, and currents in the South China Sea.",
+  },
+  {
     id: "project-1",
     title: "海浪—风暴潮数值模式及综合预警报技术",
     titleEn: "Wave–Storm Surge Numerical Modeling and Integrated Early Warning",

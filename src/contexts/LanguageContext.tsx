@@ -145,7 +145,7 @@ const translations = {
     'dataProducts.variables': '变量',
 
     'projects.pageTitle': '科研项目',
-    'projects.pageDesc': '主持国家自然基金青年基金、重点研发子任务、中国博士后基金、广东省/福建省科技厅自然基金、南海所开放课题等科研项目。',
+    'projects.pageDesc': '主持国家自然基金面上项目/青年基金、重点研发子任务、中国博士后基金、广东省/福建省科技厅自然基金、南海所开放课题等科研项目。',
     'projects.total': '项目总数',
     'projects.ongoing': '进行中',
     'projects.completed': '已完成',
@@ -294,7 +294,7 @@ const translations = {
     'dataProducts.variables': 'Variables',
 
     'projects.pageTitle': 'Research Projects',
-    'projects.pageDesc': 'Projects funded by NSFC Young Scientists Fund, National Key R&D Program sub-tasks, China Postdoctoral Science Foundation, Guangdong/Fujian NSF, and open programs of SCSIO.',
+    'projects.pageDesc': 'Projects funded by NSFC General Program and Young Scientists Fund, National Key R&D Program sub-tasks, China Postdoctoral Science Foundation, Guangdong/Fujian NSF, and open programs of SCSIO.',
     'projects.total': 'Total Projects',
     'projects.ongoing': 'Ongoing',
     'projects.completed': 'Completed',

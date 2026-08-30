@@ -1,5 +1,52 @@
 # Agent 工作记录
 
+## 2026-08-30：补充国自然面上项目（2027–2030）
+
+### 说明
+列表中已有国家自然科学青年基金、广东省自然基金面上项目；本次新增主持的**国家自然科学基金面上项目**。
+
+### 处理
+1. `projects.ts` 数组头部新增 `project-8`：南海三维温盐流智能预报-重建中的“硬编码”物理约束及可解释性研究；主持；2027–2030；进行中（未给批准号/经费，未填）
+2. 简介与项目页导语同步为「面上项目/青年基金」：`profile.ts`、`LanguageContext.tsx`
+
+### 相关文件
+`src/data/projects.ts`、`src/data/profile.ts`、`src/contexts/LanguageContext.tsx`、`README.md`
+
+---
+
+## 2026-08-30：为 OE 论文补充关键图与公众号外链
+
+### 说明
+延续 2026-08-20 录入的 `yang-2026-oe`（杨光宇一作，通讯卢文芳*、董昌明*，陈大可参与）。sync-news 抓到的董昌明/陈大可合作稿即该文新闻通稿。
+
+### 处理
+1. 从公众号「海洋知圈」「观海临风」正文摘图1（NWM 混合框架），写入 `public/images/yang-2026-oe-figure1.png`（作者肖像未收录）
+2. `publications.ts` 按 OLAR 论文写法补 `figures` 与 `newsCoverage`（海洋知圈 / 观海临风 / happy科研）
+
+### 相关文件
+`src/data/publications.ts`、`public/images/yang-2026-oe-figure1.png`、`README.md`
+
+---
+
+## 2026-08-30：排查并修复 sync-news 遗漏微信 MCC2026 喜报
+
+### 问题
+`https://mp.weixin.qq.com/s/rqgsJDsYVHudRCTd5uOLQw`（喜报丨我院学子在MCC2026海洋计算挑战赛中获得佳绩，发布 2026-08-29）未以原始链接出现在同步结果中。
+
+### 根因
+1. **学院官网未转载**：`marine.sysu.edu.cn/search/all?keys=卢文芳` 无此文。
+2. **公众号无 API**：脚本只走搜狗第一页。同标题已被抓到，但链接是 `weixin.sogou.com/link?...`；`stripTags` 把 `<em>` 换成空格，标题变形；无 `date`，`MCC2026` 又不匹配 `\b(20\d{2})\b`，`newsSortKey=0`，首页只取前 5 条因此看不见。
+
+### 处理
+1. `sync-news.mjs`：搜狗翻 3 页；去注释/`<em>` 再剥标签；解析 `timeConvert` 时间戳；用页面现行 k/h 算法解开 `mp.weixin.qq.com`；按标题去重（种子优先）；学院摘要补日期。
+2. `news.ts`：年份匹配改为可识别 `MCC2026` 这类粘连年份。
+3. MCC 短链写入 `SEED_NEWS`（搜狗签名链会过期，同标题以种子为准）。已 `npm run sync-news`，该条现为列表时间序第一。
+
+### 相关文件
+`scripts/sync-news.mjs`、`src/data/syncedNews.json`、`src/data/news.ts`、`README.md`
+
+---
+
 ## 2026-08-20：为 JMS / OE 两篇新文补充关键词与亮点
 
 ### 处理

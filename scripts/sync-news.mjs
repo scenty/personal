@@ -4,12 +4,13 @@
  * 策略（全文检索，不要求标题含关键词）：
  * 1. 学院官网 /search/all?keys=…（Drupal 全文检索，稳定）
  * 2. 搜狗微信检索（公众号无官方 API，可能风控）
- * 3. 对学院结果再拉正文，确认全文出现关键词后写入
- * 4. 种子链接保证离线也有可用条目
+ * 3. 解开搜狗跳转链为 mp.weixin.qq.com，并写入发布日期
+ * 4. 对学院结果再拉正文，确认全文出现关键词后写入
+ * 5. 种子链接保证离线也有可用条目
  *
  * 用法：node scripts/sync-news.mjs
  */
-import { writeFileSync, readFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -17,6 +18,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = join(__dirname, '../src/data/syncedNews.json');
 const KEYWORD = '卢文芳';
 const COLLEGE_BASE = 'https://marine.sysu.edu.cn';
+const SOGOU_PAGES = 3;
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
@@ -31,15 +33,29 @@ function decodeHtml(s) {
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ');
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&ldquo;/g, '“')
+    .replace(/&rdquo;/g, '”')
+    .replace(/&mdash;/g, '—')
+    .replace(/&ndash;/g, '–')
+    .replace(/&middot;/g, '·')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)));
 }
 
-async function fetchText(url) {
+/** 搜狗高亮是 <em><!--red_beg-->词<!--red_end--></em>，先去注释和 em 再剥标签，避免标题被插入空格 */
+function cleanSogouText(html) {
+  const withoutComments = String(html || '').replace(/<!--[\s\S]*?-->/g, '');
+  const withoutEm = withoutComments.replace(/<\/?em[^>]*>/gi, '');
+  return decodeHtml(stripTags(withoutEm));
+}
+
+async function fetchText(url, extraHeaders = {}) {
   const res = await fetch(url, {
     headers: {
       'User-Agent': UA,
       Accept: 'text/html,application/xhtml+xml',
       'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+      ...extraHeaders,
     },
   });
   if (!res.ok) {
@@ -52,13 +68,40 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function cookieHeader(res) {
+  const parts = res.headers.getSetCookie?.() || [];
+  return parts.map((c) => c.split(';')[0]).join('; ');
+}
+
+/** unix 秒（上海时区）或正文里的 2026年2月2日 / 2026-02-02 */
+function extractNewsDate(text, unixSeconds) {
+  if (unixSeconds) {
+    const iso = new Date(Number(unixSeconds) * 1000).toLocaleString('en-CA', {
+      timeZone: 'Asia/Shanghai',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    });
+    return iso.slice(0, 10);
+  }
+  if (!text) return undefined;
+  const fullZh = text.match(/(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/);
+  if (fullZh) {
+    return `${fullZh[1]}-${String(fullZh[2]).padStart(2, '0')}-${String(fullZh[3]).padStart(2, '0')}`;
+  }
+  const iso = text.match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if (iso) {
+    return `${iso[1]}-${String(iso[2]).padStart(2, '0')}-${String(iso[3]).padStart(2, '0')}`;
+  }
+  return undefined;
+}
+
 /** 学院官网全文检索结果解析 */
 async function fetchCollegeSearchHits() {
   const url = `${COLLEGE_BASE}/search/all?keys=${encodeURIComponent(KEYWORD)}`;
   const html = await fetchText(url);
   const items = [];
 
-  // 优先解析 search-list 卡片（标题 + 摘要）
   const cardRe =
     /class="[^"]*search-list-content[^"]*"[\s\S]*?class="[^"]*search-list-title[^"]*"[\s\S]*?<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>[\s\S]*?class="[^"]*search-list-text[^"]*"[^>]*>([\s\S]*?)<\/div>/gi;
   let m;
@@ -106,9 +149,11 @@ async function fetchCollegeNews() {
       continue;
     }
     const idNum = (hit.path.match(/\/article\/(\d+)/) || [])[1] || hit.path;
+    const date = extractNewsDate(hit.snippet);
     confirmed.push({
       id: `sysu-article${idNum}`,
       title: hit.title,
+      date,
       link: `${COLLEGE_BASE}${hit.path.startsWith('/') ? hit.path : `/${hit.path}`}`,
       source: '中山大学海洋科学学院',
       sourceEn: 'School of Marine Sciences, SYSU',
@@ -120,72 +165,164 @@ async function fetchCollegeNews() {
   return confirmed;
 }
 
+function parseSogouSearchPage(html) {
+  const items = [];
+  const boxRe = /<li[^>]*id="sogou_vr_11002601_box_\d+"[^>]*>([\s\S]*?)<\/li>/gi;
+  let box;
+  while ((box = boxRe.exec(html))) {
+    const block = box[1];
+    const titleM = block.match(
+      /<h3[^>]*>\s*<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>\s*<\/h3>/i,
+    );
+    if (!titleM) continue;
+    const title = cleanSogouText(titleM[2]);
+    if (title.length < 6) continue;
+    const snippetM = block.match(/class="txt-info"[^>]*>([\s\S]*?)<\/p>/i);
+    const accountM = block.match(/class="all-time-y2"[^>]*>([\s\S]*?)<\/span>/i);
+    const timeM = block.match(/timeConvert\('(\d+)'\)/);
+    let link = titleM[1].replace(/&amp;/g, '&');
+    if (link.startsWith('/')) link = `https://weixin.sogou.com${link}`;
+    items.push({
+      title,
+      snippet: snippetM ? cleanSogouText(snippetM[1]) : '',
+      account: accountM ? cleanSogouText(accountM[1]) : '',
+      unix: timeM ? timeM[1] : '',
+      sogouLink: link,
+    });
+  }
+  return items;
+}
+
+function sogouKhOffset(html) {
+  const m = html.match(/substr\(a\+(\d+)\+parseInt\("(\d+)"\)\+b/);
+  if (m) return Number(m[1]) + Number(m[2]);
+  const alt = html.match(/substr\(a\+(\d+)\+b/);
+  if (alt) return Number(alt[1]);
+  return 25;
+}
+
+/** 搜狗 /link 页用 JS 拼接 mp.weixin.qq.com；点击时会带随机 k/h 参数 */
+async function resolveSogouArticleUrl(sogouLink, cookie, referer, khOffset) {
+  const b = Math.floor(100 * Math.random()) + 1;
+  let url = sogouLink;
+  const idx = url.indexOf('url=');
+  if (idx !== -1 && !url.includes('&k=')) {
+    const h = url.substr(idx + khOffset + b, 1);
+    url = `${url}&k=${b}&h=${h}`;
+  }
+  const res = await fetch(url, {
+    headers: {
+      'User-Agent': UA,
+      Accept: 'text/html,application/xhtml+xml',
+      'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+      Cookie: cookie,
+      Referer: referer,
+    },
+    redirect: 'manual',
+  });
+  if (res.status >= 300 && res.status < 400) {
+    const loc = res.headers.get('location') || '';
+    if (loc.includes('mp.weixin.qq.com')) return loc;
+  }
+  if (!res.ok) return '';
+  const body = await res.text();
+  if (/antispider|seccode/.test(body) && !/url\s*\+=/.test(body)) return '';
+  const parts = [...body.matchAll(/url\s*\+=\s*'([^']*)'/g)].map((x) => x[1]);
+  const joined = parts.join('').replace(/@/g, '');
+  if (joined.includes('mp.weixin.qq.com')) return joined;
+  return '';
+}
+
 /**
- * 搜狗微信全文检索。公众号无官方 API；结果链多为跳转链。
- * 不要求标题含关键词；用摘要/标题中是否出现关键词或检索页上下文过滤噪声。
+ * 搜狗微信全文检索。解开跳转链、去掉高亮空格、写入发布日期。
+ * 不要求标题含关键词（查询本身已按全文检索）。
  */
 async function fetchSogouWechatNews() {
   const query = `${KEYWORD} 中山大学海洋科学`;
-  const url = `https://weixin.sogou.com/weixin?type=2&query=${encodeURIComponent(query)}`;
-  const html = await fetchText(url);
-  if (/antispider|seccode/.test(html) && !/txt-box/.test(html)) {
+  const searchUrl = `https://weixin.sogou.com/weixin?type=2&ie=utf8&query=${encodeURIComponent(query)}`;
+  const first = await fetch(searchUrl, {
+    headers: {
+      'User-Agent': UA,
+      Accept: 'text/html,application/xhtml+xml',
+      'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+    },
+  });
+  if (!first.ok) {
+    throw new Error(`HTTP ${first.status} for ${searchUrl}`);
+  }
+  const cookie = cookieHeader(first);
+  const html1 = await first.text();
+  if (/antispider|seccode/.test(html1) && !/txt-box/.test(html1)) {
     console.warn('[sync-news] Sogou WeChat 触发风控，跳过公众号自动抓取');
     return [];
   }
 
-  const items = [];
-  // 每条结果块：标题 + 摘要
-  const blockRe =
-    /<h3[^>]*>\s*<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>\s*<\/h3>[\s\S]*?(?:<p[^>]*class="txt-info"[^>]*>([\s\S]*?)<\/p>)?/gi;
-  let m;
-  while ((m = blockRe.exec(html))) {
-    const title = decodeHtml(stripTags(m[2]));
-    const snippet = decodeHtml(stripTags(m[3] || ''));
-    if (title.length < 6) continue;
-    // 全文相关：标题或摘要含关键词即可（搜狗已按全文检索）
-    const related = title.includes(KEYWORD) || snippet.includes(KEYWORD);
-    if (!related && items.length > 0) {
-      // 仍保留搜狗返回的前若干条（查询已带关键词），避免摘要截断漏掉
+  const khOffset = sogouKhOffset(html1);
+  const hits = parseSogouSearchPage(html1);
+
+  for (let page = 2; page <= SOGOU_PAGES; page++) {
+    await sleep(400);
+    const pageUrl = `https://weixin.sogou.com/weixin?type=2&ie=utf8&page=${page}&query=${encodeURIComponent(query)}`;
+    const res = await fetch(pageUrl, {
+      headers: {
+        'User-Agent': UA,
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        Cookie: cookie,
+        Referer: searchUrl,
+      },
+    });
+    if (!res.ok) break;
+    const pageHtml = await res.text();
+    if (/antispider|seccode/.test(pageHtml) && !/txt-box/.test(pageHtml)) {
+      console.warn(`[sync-news] Sogou page ${page} 触发风控，停止翻页`);
+      break;
     }
-    let link = m[1];
-    if (link.startsWith('/')) link = `https://weixin.sogou.com${link}`;
-    const idSeed = `${title}|${link}`.slice(0, 80);
+    const more = parseSogouSearchPage(pageHtml);
+    if (more.length === 0) break;
+    hits.push(...more);
+  }
+
+  console.log(`[sync-news] sogou parsed hits: ${hits.length}`);
+  const items = [];
+  for (const hit of hits) {
+    const resolved = await resolveSogouArticleUrl(hit.sogouLink, cookie, searchUrl, khOffset);
+    await sleep(250);
+    const link = resolved || hit.sogouLink;
+    if (!resolved) {
+      console.log(`[sync-news] keep sogou redirect: ${hit.title}`);
+    }
+    const date = extractNewsDate(hit.snippet, hit.unix);
     items.push({
-      id: `wx-${Buffer.from(idSeed).toString('base64url').slice(0, 28)}`,
-      title,
+      id: `wx-${Buffer.from(hit.title).toString('base64url').slice(0, 28)}`,
+      title: hit.title,
+      date,
       link,
-      source: '微信公众号（搜狗检索）',
+      source: hit.account || '微信公众号（搜狗检索）',
       sourceEn: 'WeChat (Sogou search)',
       type: 'media',
       channel: 'wechat',
-      snippet: snippet || undefined,
+      snippet: hit.snippet || undefined,
     });
-  }
-
-  // 若块解析失败，退回仅标题列表（搜狗查询本身是全文）
-  if (items.length === 0) {
-    const re = /<h3[^>]*>\s*<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
-    while ((m = re.exec(html))) {
-      const title = decodeHtml(stripTags(m[2]));
-      if (title.length < 6) continue;
-      let link = m[1];
-      if (link.startsWith('/')) link = `https://weixin.sogou.com${link}`;
-      items.push({
-        id: `wx-${Buffer.from(title).toString('base64url').slice(0, 28)}`,
-        title,
-        link,
-        source: '微信公众号（搜狗检索）',
-        sourceEn: 'WeChat (Sogou search)',
-        type: 'media',
-        channel: 'wechat',
-      });
-    }
   }
 
   return [...new Map(items.map((i) => [i.title, i])).values()];
 }
 
 const SEED_NEWS = [
+  {
+    id: 'wx-mcc2026-award',
+    title: '喜报丨我院学子在MCC2026海洋计算挑战赛中获得佳绩',
+    titleEn: 'SMS News | Students awarded at MCC 2026 Ocean Computing Challenge',
+    date: '2026-08-29',
+    link: 'https://mp.weixin.qq.com/s/rqgsJDsYVHudRCTd5uOLQw',
+    source: '中山大学海洋科学',
+    sourceEn: 'SYSU Marine Sciences (WeChat)',
+    type: 'media',
+    channel: 'wechat',
+    snippet:
+      '第四届海洋智能计算大会暨海洋计算挑战赛（MCC 2026）全国总决赛在成都举行。卢文芳副教授指导“不吃压力”队获海浪奖（三等奖）。',
+  },
   {
     id: 'wx-olar-forum-20260721',
     title: '海科院新闻 | 我院助力国产期刊 OLAR 高质量发展',
@@ -245,10 +382,15 @@ const SEED_NEWS = [
 
 function mergeItems(...lists) {
   const map = new Map();
+  const seenTitles = new Set();
   for (const list of lists) {
     for (const item of list) {
       const key = item.link || item.id;
-      if (!map.has(key)) map.set(key, item);
+      if (map.has(key)) continue;
+      const titleKey = (item.title || '').replace(/\s+/g, '');
+      if (titleKey && seenTitles.has(titleKey)) continue;
+      map.set(key, item);
+      if (titleKey) seenTitles.add(titleKey);
     }
   }
   return [...map.values()];
@@ -278,7 +420,7 @@ async function main() {
     updatedAt: new Date().toISOString(),
     keyword: KEYWORD,
     note:
-      '学院官网使用 /search/all?keys= 全文检索，并核对正文含关键词（不要求标题含名）。微信无官方 API，经搜狗检索（可能风控）。',
+      '学院官网使用 /search/all?keys= 全文检索并核对正文。微信经搜狗检索后解析 mp.weixin.qq.com 原文链接与发布日期（可能风控）。',
     items,
   };
   writeFileSync(OUT, JSON.stringify(payload, null, 2), 'utf8');
