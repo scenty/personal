@@ -46,8 +46,9 @@ export const sysuStudents: Student[] = [
     nameEn: "Guangyu Yang",
     institution: "sysu",
     institutionName: "中山大学",
-    degree: "本科/硕士",
+    degree: "硕士",
     status: "current",
+    currentPosition: "杭州联通",
     researchTopic: "Neural Wave Model",
     publications: [
       "Yang et al. (2026) Ocean Engineering",
@@ -55,6 +56,13 @@ export const sysuStudents: Student[] = [
     ],
     awards: [
       "国家奖学金",
+      {
+        title: "MCC2026海洋计算挑战赛海浪奖（全国三等奖）",
+        links: [
+          { text: "获奖报道", link: "https://mp.weixin.qq.com/s/rqgsJDsYVHudRCTd5uOLQw" },
+          { text: "技术攻坚纪实", link: "https://mp.weixin.qq.com/s/vu8XwwZ6rm_qVohFF0dcKA" }
+        ]
+      },
       "中山大学海纳百川模拟国际学术会议一等奖",
       "第六届数字地球会议优秀口头报告",
       "省级大创优秀结题"
@@ -67,7 +75,7 @@ export const sysuStudents: Student[] = [
     nameEn: "Yujiao Zheng",
     institution: "sysu",
     institutionName: "中山大学",
-    degree: "本科/硕士",
+    degree: "硕士",
     status: "current",
     researchTopic: "海洋热浪三维重建",
     bio: "中大本科->硕士，研究方向为海洋热浪三维结构的深海遥感重建。",
@@ -79,10 +87,22 @@ export const sysuStudents: Student[] = [
     nameEn: "Nanxiang Huang",
     institution: "sysu",
     institutionName: "中山大学",
-    degree: "本科",
+    degree: "硕士",
+    year: 2026,
     status: "current",
     researchTopic: "海洋智能预报",
-    bio: "中大本科，拟保送进入团队，研究方向为海洋数值模式与智能预报技术。"
+    publications: ["Huang et al. (2026) Geophysical Research Letters"],
+    awards: [
+      "国家奖学金",
+      {
+        title: "MCC2026海洋计算挑战赛海浪奖（全国三等奖）",
+        links: [
+          { text: "获奖报道", link: "https://mp.weixin.qq.com/s/rqgsJDsYVHudRCTd5uOLQw" },
+          { text: "技术攻坚纪实", link: "https://mp.weixin.qq.com/s/vu8XwwZ6rm_qVohFF0dcKA" }
+        ]
+      }
+    ],
+    bio: "中大本科->硕士，研究方向为海洋数值模式与智能预报技术。"
   },
   {
     id: "zhong-xinyi",
@@ -93,7 +113,7 @@ export const sysuStudents: Student[] = [
     degree: "硕士",
     status: "current",
     researchTopic: "海浪智能降尺度",
-    bio: "中国海大本科，研究方向为海浪智能降尺度。"
+    bio: "中国海大本科->硕士，研究方向为海浪智能降尺度。"
   },
   {
     id: "ren-hengye",
@@ -288,9 +308,16 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "三维热浪重建",
-    bio: "本科生，研究方向为海洋热浪三维重建与可解释人工智能。",
+    bio: "本科生，拟保送进入团队，研究方向为海洋热浪三维重建与可解释人工智能。",
     awards: [
       "国家奖学金",
+      {
+        title: "MCC2026海洋计算挑战赛海浪奖（全国三等奖）",
+        links: [
+          { text: "获奖报道", link: "https://mp.weixin.qq.com/s/rqgsJDsYVHudRCTd5uOLQw" },
+          { text: "技术攻坚纪实", link: "https://mp.weixin.qq.com/s/vu8XwwZ6rm_qVohFF0dcKA" }
+        ]
+      },
       "中山大学优秀学生奖学金一等奖",
       "中山大学优秀学生奖学金二等奖",
       "中山大学海洋科学学院专项奖学金",
@@ -314,7 +341,7 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "海洋智能体开发",
-    bio: "海洋科学本科，物海班班长"
+    bio: "中大海科本科，物海班班长，拟保送中大人工智能学院"
   },
   {
     id: "liu-xiongyu",
@@ -347,7 +374,17 @@ export const sysuUndergraduates: Student[] = [
     degree: "本科",
     status: "current",
     researchTopic: "物理海洋",
-    bio: "2024级物理海洋本科生。"
+    bio: "2024级物理海洋本科生。",
+    awards: [
+      "国家奖学金",
+      {
+        title: "MCC2026海洋计算挑战赛海浪奖（全国三等奖）",
+        links: [
+          { text: "获奖报道", link: "https://mp.weixin.qq.com/s/rqgsJDsYVHudRCTd5uOLQw" },
+          { text: "技术攻坚纪实", link: "https://mp.weixin.qq.com/s/vu8XwwZ6rm_qVohFF0dcKA" }
+        ]
+      }
+    ]
   }
 ];
 

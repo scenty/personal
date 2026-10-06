@@ -1,5 +1,26 @@
 # Agent 工作记录
 
+## 2026-10-06：黄南翔入学、GRL 论文、国家奖学金与 MCC2026
+
+### 说明
+黄南翔原记为本科、拟保送。本次改为 2026 年入学硕士，并补 GRL 一作论文、国家奖学金，以及四人 MCC2026 海浪奖。学院检索与用户给出的四条公众号已写入动态。
+
+### 处理
+1. `students.ts`：黄南翔 `degree` 改为硕士、`year: 2026`；代表性成果指向 GRL；奖项增加国家奖学金与 MCC2026。杨光宇、方希泓、孙浩宸同步 MCC2026（海浪奖 / 全国三等奖），链到喜报与技术纪实。
+2. `publications.ts` 头部新增 `huang-2026-grl`（DOI `10.1029/2026GL123584`，通讯卢文芳*，`firstAuthorId: huang-nanxiang`）。OE、OLAR 论文补学院/公众号报道。
+3. 动态：公众号四条写入 `syncedNews.json` 与 `sync-news.mjs` 的 `SEED_NEWS`。学院新稿为科研动态（175）（2026-09-07，[article/10910](https://marine.sysu.edu.cn/article/10910)）和 2026 学年硕士奖助金材料公示（2026-08-14，[article/10891](https://marine.sysu.edu.cn/article/10891)，名单含杨光宇、郑钰娇，不含黄南翔，也未写国家奖学金）。
+
+### 公众号
+- [科研动态（180）](https://mp.weixin.qq.com/s/u3amdftGHHmze_lbkcjLFg) 2026-10-04
+- [MCC2026 技术攻坚纪实](https://mp.weixin.qq.com/s/vu8XwwZ6rm_qVohFF0dcKA) 2026-09-20
+- [科研动态（175）](https://mp.weixin.qq.com/s/oUT3uL43K4dvXj0h9WN5Kg) 2026-09-06
+- [MCC2026 喜报](https://mp.weixin.qq.com/s/rqgsJDsYVHudRCTd5uOLQw) 2026-08-29（2026-08-30 已入库，本次补学生奖项）
+
+### 相关文件
+`src/data/students.ts`、`src/data/publications.ts`、`src/data/syncedNews.json`、`scripts/sync-news.mjs`、`README.md`
+
+---
+
 ## 2026-08-30：补充国自然面上项目（2027–2030）
 
 ### 说明

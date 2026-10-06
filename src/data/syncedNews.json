@@ -1,8 +1,68 @@
 {
-  "updatedAt": "2026-08-30T14:57:01.705Z",
+  "updatedAt": "2026-10-06T13:30:00.000Z",
   "keyword": "卢文芳",
   "note": "学院官网使用 /search/all?keys= 全文检索并核对正文。微信经搜狗检索后解析 mp.weixin.qq.com 原文链接与发布日期（可能风控）。",
   "items": [
+    {
+      "id": "wx-sst-sla-20261004",
+      "title": "海院科研动态（180）| 我院研究团队在海表变量智能预报领域取得连续进展",
+      "titleEn": "Research highlight: consecutive progress in intelligent sea-surface forecasting",
+      "date": "2026-10-04",
+      "link": "https://mp.weixin.qq.com/s/u3amdftGHHmze_lbkcjLFg",
+      "source": "中山大学海洋科学",
+      "sourceEn": "SYSU Marine Sciences (WeChat)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "卢文芳副教授团队联合釜山大学 Young-Heon Jo 教授，先后实现海面高度异常与海面温度的中短期智能预报。黄南翔等成果发表于 Geophysical Research Letters。"
+    },
+    {
+      "id": "wx-mcc2026-tech",
+      "title": "海科院新闻丨我院 MCC2026 海洋计算挑战赛获奖团队技术攻坚纪实",
+      "titleEn": "SMS News | Technical report of the MCC 2026 award-winning team",
+      "date": "2026-09-20",
+      "link": "https://mp.weixin.qq.com/s/vu8XwwZ6rm_qVohFF0dcKA",
+      "source": "中山大学海洋科学",
+      "sourceEn": "SYSU Marine Sciences (WeChat)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "“不吃压力”队（杨光宇、黄南翔、方希泓、孙浩宸）在卢文芳副教授与吴长茂老师指导下获海浪奖（三等奖），三天模拟由 6606 秒压缩至 2000 秒以内。"
+    },
+    {
+      "id": "sysu-article10910",
+      "title": "海院科研动态（175）| 我院研究团队在人工智能与数值模式混合的海浪智能模型领域取得创新性突破",
+      "titleEn": "Research highlight: hybrid AI–numerical wave model",
+      "date": "2026-09-07",
+      "link": "https://marine.sysu.edu.cn/article/10910",
+      "source": "中山大学海洋科学学院",
+      "sourceEn": "School of Marine Sciences, SYSU",
+      "type": "media",
+      "channel": "college",
+      "snippet": "杨光宇为第一作者、卢文芳与董昌明为共同通讯作者的神经波浪模型论文发表于 Ocean Engineering。"
+    },
+    {
+      "id": "wx-oe-nwm-20260906",
+      "title": "海院科研动态（175）| 我院研究团队在人工智能与数值模式混合的海浪智能模型领域取得创新性突破",
+      "titleEn": "Research highlight: hybrid AI–numerical wave model",
+      "date": "2026-09-06",
+      "link": "https://mp.weixin.qq.com/s/oUT3uL43K4dvXj0h9WN5Kg",
+      "source": "中山大学海洋科学",
+      "sourceEn": "SYSU Marine Sciences (WeChat)",
+      "type": "media",
+      "channel": "wechat",
+      "snippet": "杨光宇为第一作者、卢文芳与董昌明为共同通讯作者的神经波浪模型论文发表于 Ocean Engineering。"
+    },
+    {
+      "id": "sysu-article10891",
+      "title": "关于公示2026学年硕士研究生奖助金已收到成果材料名单的通知",
+      "titleEn": "Notice: materials received for 2026 master's scholarships",
+      "date": "2026-08-14",
+      "link": "https://marine.sysu.edu.cn/article/10891",
+      "source": "中山大学海洋科学学院",
+      "sourceEn": "School of Marine Sciences, SYSU",
+      "type": "media",
+      "channel": "college",
+      "snippet": "公示已收到的2026学年硕士研究生奖助金成果材料。卢文芳老师名下包括学术硕士杨光宇、郑钰娇。"
+    },
     {
       "id": "wx-mcc2026-award",
       "title": "喜报丨我院学子在MCC2026海洋计算挑战赛中获得佳绩",

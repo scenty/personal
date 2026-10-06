@@ -33,6 +33,48 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    id: "huang-2026-grl",
+    authors: "黄南翔，何江南，卢文芳*，Jo Young-Heon",
+    authorsEn: "Huang, N., He, J., Lu, W.*, & Jo, Y.-H.",
+    year: 2026,
+    title: "Achieve Medium-Range SST Forecast by Rolling 1-Day Deep Learning",
+    journal: "Geophysical Research Letters",
+    volume: "53",
+    issue: "18",
+    pages: "e2026GL123584",
+    doi: "10.1029/2026GL123584",
+    doiLink: "https://doi.org/10.1029/2026GL123584",
+    isFirstAuthor: false,
+    isCorrespondingAuthor: true,
+    firstAuthorId: "huang-nanxiang",
+    quartile: "Q1",
+    isCasZone2Above: true,
+    impactFactor: 4.6,
+    keywords: ["海表温度", "中期预报", "滚动训练", "多步训练", "Earthformer", "自回归预报"],
+    keywordsEn: ["sea surface temperature", "medium-range forecast", "rolling training", "multistep training", "Earthformer", "autoregressive forecast"],
+    highlights: [
+      "提出滚动训练与多步训练，在 Earthformer 中实现逐日滚动的中期海表温度预报",
+      "固定 1 日滚动推断，消除传统 Seq2Seq 的时间不连续与预报歧义",
+      "以 OISST 训练、独立 Argo 现场观测检验，15 天以上预报技巧明显提高",
+      "抑制季节系统性偏差，误差近似线性增长，以轻量模型衔接天气尺度与次季节变化"
+    ],
+    highlightsEn: [
+      "Introduced rolling and multistep training so Earthformer produces a continuous 1-day rolling medium-range SST forecast",
+      "A fixed 1-day rolling inference removes the temporal jumps and forecast ambiguity of conventional Seq2Seq models",
+      "Trained on OISST and checked against independent Argo observations, with clear skill gains beyond 15-day leads",
+      "Suppresses seasonal systematic bias and keeps quasi-linear error growth, linking synoptic variability to subseasonal evolution in a lightweight model"
+    ],
+    abstract: "深度学习已显著提升短期海表温度预报能力，但在中期预报中仍易出现误差累积，业务应用也较复杂。为得到轻量、时间连续的海表温度预报，本研究在 Earthformer 中引入滚动训练与多步训练两种策略，优化自回归预报。通过一致的 1 日滚动推断，该框架消除了传统序列到序列模型的时间不连续和预报歧义。优化后的 Multi-Earthformer 以 OISST 资料验证，并对照独立的 Argo 现场观测。结果表明，模式在 15 天以上预报时效的技巧明显提高，季节系统性偏差受到抑制，误差增长保持稳定、近似线性。该方法以较低计算成本，把逐日天气尺度变率与次季节至季节演变衔接起来。",
+    abstractEn: "Deep learning has revolutionized short-term sea surface temperature forecasting, but often struggles with cumulative error propagation and operational complexity in medium-range predictions. This study introduces rolling training and multistep training to optimize autoregressive forecasting within an Earthformer neural network. A consistent 1-day rolling inference removes the temporal discontinuities and forecast ambiguity of traditional sequence-to-sequence models. The resulting Multi-Earthformer is validated with OISST data and independent Argo observations. It improves skill beyond 15-day lead times, suppresses seasonal systematic biases, and maintains stable, quasi-linear error growth, linking daily synoptic variability to subseasonal-to-seasonal evolution without multi-model ensembles.",
+    codeLink: "https://doi.org/10.5281/zenodo.19480774",
+    newsCoverage: [
+      {
+        title: "海院科研动态（180）公众号",
+        link: "https://mp.weixin.qq.com/s/u3amdftGHHmze_lbkcjLFg"
+      }
+    ]
+  },
+  {
     id: "yang-2026-oe",
     authors: "杨光宇，卢文芳*，蒋浩宇，王栋，何江南，董昌明*，陈大可",
     authorsEn: "Yang, G., Lu, W.*, Jiang, H., Wang, D., He, J., Dong, C.*, & Chen, D.",
@@ -75,6 +117,14 @@ export const publications: Publication[] = [
       },
     ],
     newsCoverage: [
+      {
+        title: "海院科研动态（175）公众号",
+        link: "https://mp.weixin.qq.com/s/oUT3uL43K4dvXj0h9WN5Kg"
+      },
+      {
+        title: "学院官网科研动态（175）",
+        link: "https://marine.sysu.edu.cn/article/10910"
+      },
       {
         title: "海洋知圈报道",
         link: "https://mp.weixin.qq.com/s?src=11&timestamp=1788101814&ver=6936&signature=w8yyHrgYe3i3YGz9nEwZe*MeJoy-608k8MjpM8eH6YlQ7OjeevR8kOXoeHWKKFQpmqBXVtBTpgp9Q31IyXDa*sCJ0YHvhmqae8jYABT*D-lPRtDLcIVFsKtE3Xp0NXAJ&new=1",
@@ -193,6 +243,10 @@ export const publications: Publication[] = [
       }
     ],
     newsCoverage: [
+      {
+        title: "海院科研动态（180）公众号",
+        link: "https://mp.weixin.qq.com/s/u3amdftGHHmze_lbkcjLFg"
+      },
       { title: "公众号报道", link: "https://mp.weixin.qq.com/s/WAtv69cG5ugXWJJDgyHv7w" },
       { title: "EurekAlert! 科学新闻", link: "https://www.eurekalert.org/news-releases/1117961" }
     ]
