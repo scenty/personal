@@ -1,5 +1,45 @@
 # Agent 工作记录
 
+## 2026-11-02：Science Advances 论文补图1（NeuralSWM 示意图）
+
+### 处理
+1. 从 `NeuralSWM-Manu.pdf` 提取内嵌 Fig.1 位图（PDF 第3页 Image76，1311×628 JPEG，DCTDecode），原字节直存 `public/images/yang-2026-sciadv-figure1.jpg`（132 KB，未二次编码）。做法：正则解析 PDF 对象 + 按 `/Length` 切 stream，无需 PyMuPDF/poppler。
+2. `publications.ts` 的 `yang-2026-sciadv` 仿 OLAR 补 `figures`（中英 caption，取自稿件 Fig.1 说明）。
+3. 顺带修正 `he-2026-olar` 图路径：`/images/...` → `images/...`，绝对路径在 GitHub Pages 子路径下会 404。两篇图片现均正常加载。
+
+### 验证
+`npm run build` 通过；本地实测 SA 详情页图 1311×628 正常渲染、OLAR 图 1865×1415 正常；`dist/images` 已含新图。
+
+### 备注
+PDF 第1页另有 799×166 的 Science Advances 刊头图（obj 46），未采用。
+
+---
+
+## 2026-11-02：录入 Science Advances 接收论文（in press）
+
+### 说明
+杨光宇共同一作的 NeuralSWM 论文被 *Science Advances* 接收，尚未正式出版，无 DOI。据桌面 `NeuralSWM-Manu.pdf` 录入。首次改动被「同步最新页面」覆盖，已在最新代码（含 `huang-2026-grl`）上重做。
+
+### 处理
+1. `publications.ts` 数组头部新增 `yang-2026-sciadv`：Physics-embedded Neural Spectral Wave Model；作者「杨光宇†，姜浩宇†，卢文芳*，王栋」（前两位共同一作）；通讯卢文芳；中科院一区/Q1；`status: "in press"`；`firstAuthorId: "yang-guangyu"`
+2. `Publication` 接口：`doi` 改为可选，新增 `status?`；引用/BibTeX 在无 DOI 时不再拼接 `doi.org/undefined`，有 status 时写入 `note`
+3. 显示层统一为「期刊名 (in press)」：`Publications.tsx`（列表/年份视图）、`PublicationDetail.tsx`（正文与相关论文）、`PublicationsCarousel.tsx`（首页）
+4. 补中英文摘要（英文取自稿件）、各 4 条亮点、中英文关键词；未填 IF（待正式出版）
+5. `students.ts`：杨光宇 `publications` 置顶追加「Yang et al. (2026) Science Advances (in press)」，学生详情可回链论文页
+
+### 相关文件
+`src/data/publications.ts`、`src/data/students.ts`、`src/pages/Publications.tsx`、`src/pages/PublicationDetail.tsx`、`src/components/PublicationsCarousel.tsx`、`README.md`
+
+### 验证
+`npm run build` 通过；中英文下论文列表/详情/首页轮播、杨光宇学生页回链均正常。本地预览时 5173 端口被前次残留进程占用（新启的 vite 报 `Port 5173 is already in use`），已清理，端口现空闲。
+
+> 经验：`npm run dev` 会派生 `npm` 与 `vite` 两个 node 进程，只结束 `npm`（PID 40000）会留下 `vite`（PID 3888）继续占端口。清理需按 `Win32_Process` 的 CommandLine 匹配 `vite` 一并结束。
+
+### 后续
+正式出版后补 DOI、卷期页码，去掉 `status`，并同步 IF；如需首页动态可加一条 `manualNews`。另：`buildBibtex` 把英文作者逗号当分隔符，会拆成 `Yang and G.† and …`，需结构化作者数组才能修。
+
+---
+
 ## 2026-10-06：黄南翔入学、GRL 论文、国家奖学金与 MCC2026
 
 ### 说明

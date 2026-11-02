@@ -14,7 +14,8 @@ function buildCitation(publication: Publication): string {
   if (publication.volume) text += `, ${publication.volume}`;
   if (publication.issue) text += `(${publication.issue})`;
   if (publication.pages) text += `, ${publication.pages}`;
-  text += `. https://doi.org/${publication.doi}`;
+  if (publication.status) text += ` (${publication.status})`;
+  if (publication.doi) text += `. https://doi.org/${publication.doi}`;
   return text;
 }
 
@@ -35,7 +36,8 @@ function buildBibtex(publication: Publication): string {
   if (publication.volume) lines.push(`  volume = {${publication.volume}},`);
   if (publication.issue) lines.push(`  number = {${publication.issue}},`);
   if (publication.pages) lines.push(`  pages = {${publication.pages}},`);
-  lines.push(`  doi = {${publication.doi}}`);
+  if (publication.status) lines.push(`  note = {${publication.status}},`);
+  if (publication.doi) lines.push(`  doi = {${publication.doi}}`);
   lines.push(`}`);
   return lines.join('\n');
 }
@@ -193,7 +195,9 @@ const PublicationDetail = () => {
 
                 <div className="flex items-center gap-2 mb-8">
                   <FileText className="w-5 h-5 text-primary" />
-                  <span className="font-medium">{publication.journal}</span>
+                  <span className="font-medium">
+                    {publication.journal}{publication.status ? ` (${publication.status})` : ''}
+                  </span>
                 </div>
 
                 {(publication.abstract || publication.abstractEn) && (
@@ -378,7 +382,9 @@ const PublicationDetail = () => {
                       <Link to={`/publications/${pub.id}`} className="hover:text-primary transition-colors">
                         <p className="font-medium text-sm line-clamp-2">{pub.title}</p>
                       </Link>
-                      <p className="text-xs text-muted-foreground mt-1">{pub.journal}, {pub.year}</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {pub.journal}{pub.status ? ` (${pub.status})` : ''}, {pub.year}
+                      </p>
                     </div>
                   ))}
                 </CardContent>

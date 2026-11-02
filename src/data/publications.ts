@@ -9,7 +9,8 @@ export interface Publication {
   volume?: string;
   issue?: string;
   pages?: string;
-  doi: string;
+  status?: string; // 出版状态，如 "in press"
+  doi?: string;
   doiLink?: string;
   pdfLink?: string;
   highlights?: string[];
@@ -32,6 +33,45 @@ export interface Publication {
 }
 
 export const publications: Publication[] = [
+  {
+    id: "yang-2026-sciadv",
+    authors: "杨光宇†，蒋浩宇†，卢文芳*，王栋",
+    authorsEn: "Yang, G.†, Jiang, H.†, Lu, W.*, & Wang, D.",
+    year: 2026,
+    title: "Physics-embedded Neural Spectral Wave Model",
+    journal: "Science Advances",
+    status: "in press",
+    isFirstAuthor: false,
+    isCorrespondingAuthor: true,
+    firstAuthorId: "yang-guangyu",
+    quartile: "Q1",
+    isCasZone2Above: true,
+    keywords: ["神经谱海浪模式", "物理嵌入神经网络", "方向波谱", "零样本迁移", "可微数值模式", "地球系统模式"],
+    keywordsEn: ["Neural spectral wave model", "Physics-embedded neural network", "Directional wave spectrum", "Zero-shot transfer", "Differentiable numerical model", "Earth system model"],
+    abstract: "海面海浪模拟对理解地球气候与海洋环境至关重要，但通过求解方向波谱的数值海浪模式在气候应用中计算代价过高；而纯数据驱动的深度学习方法难以刻画高维海浪物理过程，且无法泛化到训练域之外。为弥合这一鸿沟，我们提出物理-人工智能混合框架——神经谱海浪模式（NeuralSWM）：将可微数值求解器嵌入模式以刻画普适的波能传播，同时用神经网络学习复杂的能量源汇项，从而高效模拟完整的方向波谱。该模式展现出真正的零样本迁移能力：仅在风浪主导的半封闭南海训练，即可模拟涌浪主导的东热带太平洋以及高风速、长风区的南印度洋的海浪动力过程。经卫星高度计验证，NeuralSWM 以传统模式极小部分的计算成本保持了约 96% 的精度。该架构将物理规律与数据驱动效率无缝融合，为把显式海浪动力过程纳入全球地球系统模式提供了可扩展的基础。",
+    abstractEn: "Simulating ocean surface waves is essential for understanding Earth's climate and marine environments, but numerical wave models solving directional wave spectrum remain computationally prohibitive for climate applications. Conversely, data-driven deep learning approaches struggle to capture wave physics with high dimensionality, failing to generalize beyond their specific training domains. To bridge this divide, we present the Neural Spectral Wave Model (NeuralSWM), a hybrid physics-AI framework. By embedding a differentiable numerical solver to govern universal wave propagation alongside a neural network that learns complex energy source terms, NeuralSWM efficiently simulates full directional wave spectra. Remarkably, the model demonstrates true zero-shot transferability: trained exclusively on wind-sea dominated semi-enclosed South China Sea, it demonstrates the capacity to simulate wave dynamics across the swell-dominated Eastern Tropical Pacific and the high-wind, long-fetch regimes of the Southern Indian Ocean. Validated against satellite altimetry, NeuralSWM maintains high accuracy (~96% of the performance) at a fraction of traditional computational costs. By seamlessly fusing physical laws with data-driven efficiency, this architecture provides a scalable foundation for integrating explicit wave dynamics into global Earth system models.",
+    highlights: [
+      "提出物理-人工智能混合的神经谱海浪模式 NeuralSWM：可微数值求解器负责波能传播，神经网络学习能量源汇项",
+      "仅用南海 2022 年 ERA5 数据训练，有效波高 RMSE 为 0.144 m、相关系数 0.991",
+      "零样本迁移至东热带太平洋与南印度洋，经卫星高度计验证保持约 96% 的性能",
+      "多区域联合训练可消除跨域偏差，为海浪动力过程耦合进地球系统模式提供可扩展方案"
+    ],
+    highlightsEn: [
+      "Proposed NeuralSWM, a hybrid physics-AI spectral wave model: a differentiable numerical solver handles wave propagation while a neural network learns the energy source terms",
+      "Trained only on 2022 ERA5 data over the South China Sea, achieving an SWH RMSE of 0.144 m and a correlation coefficient of 0.991",
+      "Zero-shot transfer to the Eastern Tropical Pacific and Southern Indian Ocean retains ~96% of the performance when validated against satellite altimetry",
+      "Multi-region joint training removes cross-domain biases, offering a scalable path to coupling explicit wave dynamics into Earth system models"
+    ],
+    figures: [
+      {
+        image: "images/yang-2026-sciadv-figure1.jpg",
+        caption:
+          "神经谱海浪模式（NeuralSWM）示意图。模式在 10 m 风矢量与水深等环境强迫下演化波作用量谱 N(x, θ, k)：传播核心（Propagation Core）依据频散关系重算群速度 cg 等量，并用守恒输运算子 𝒯 推进状态；神经参数化（Neural Parameterizations）将状态与强迫投影为随频率变化的特征图，交由逐点网络 StotNet 推断总源汇项倾向 Stot；时间积分结合输运与源汇更新，得到下一时刻的波作用量谱 Nn+1。",
+        captionEn:
+          "Schematic of the Neural Spectral Wave Model (NeuralSWM). The model evolves the wave action state N(x, θ, k) under environmental forcings (10-m wind vectors and bathymetry). The Propagation Core recomputes dispersion-derived quantities (including the group velocity cg) and advances the state via conservative transport operators 𝒯. In the Neural Parameterizations, the state and forcings are projected into spectral-dependent feature maps and passed to a point-wise StotNet that infers the total source-term tendency Stot. Time integration combines transport and source updates to obtain the next-step state Nn+1."
+      }
+    ],
+  },
   {
     id: "huang-2026-grl",
     authors: "黄南翔，何江南，卢文芳*，Jo Young-Heon",
@@ -237,7 +277,7 @@ export const publications: Publication[] = [
     ],
     figures: [
       {
-        image: "/images/he-2026-olar-figure2.png",
+        image: "images/he-2026-olar-figure2.png",
         caption: "SLA预报框架示意图。(A) 数据时间线和产品类型：展示了训练数据（2006-2020）、测试数据（2021）和预报数据（2024-2025）的时间线。(B) Earthformer架构用于SLA预测：展示了从观测SLA输入到预测SLA输出的编码器-解码器结构，包括Cuboid attention机制。(C) 输入SLA和预测策略：展示了如何使用观测序列进行多步预测。(D) 训练策略：比较了常规训练、多步训练和滚动训练三种方法。",
         captionEn: "Framework for SLA forecasting. (A) Data timeline and product types: Timeline showing training data (2006-2020), test data (2021), and forecast data (2024-2025). (B) Earthformer architecture for SLA prediction: Encoder-decoder structure from observed SLA input to predicted SLA output, including Cuboid attention mechanism. (C) Input SLA and prediction strategy: How to use observed sequences for multi-step prediction. (D) Training strategies: Comparison of conventional training, multi-step training, and rolling training methods."
       }

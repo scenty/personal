@@ -111,7 +111,7 @@ const PublicationsCarousel = () => {
 
                   {/* Journal */}
                   <p className="text-sm text-muted-foreground mb-3 font-medium">
-                    {pub.journal}
+                    {pub.journal}{pub.status ? ` (${pub.status})` : ''}
                   </p>
 
                   {/* Authors */}

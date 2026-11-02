@@ -51,6 +51,7 @@ export const sysuStudents: Student[] = [
     currentPosition: "杭州联通",
     researchTopic: "Neural Wave Model",
     publications: [
+      "Yang et al. (2026) Science Advances (in press)",
       "Yang et al. (2026) Ocean Engineering",
       "Yang et al. (2024) Science of The Total Environment"
     ],

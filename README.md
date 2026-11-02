@@ -92,7 +92,7 @@ personal/
 姓名、单位、联系方式、社交（知乎 / ResearchGate / ORCID / Scholar / 学院页）、荣誉、`awards`（首页 3+2）、`education`、`roles`、`teaching`、`bio`/`bioEn`（含 `{paperCount}`/`{q2Count}`）。**首页与 Contact 均以此为唯一内容源。**
 
 ### `publications.ts`
-论文结构化列表；详情页支持 DOI/PDF/数据/代码、亮点、图表、媒体报道；侧边栏可复制引用与 BibTeX。
+论文结构化列表；详情页支持 DOI/PDF/数据/代码、亮点、图表、媒体报道；侧边栏可复制引用与 BibTeX。`status` 字段用于标注未正式出版状态（如 `in press`），列表、详情、首页轮播统一显示为「期刊名 (in press)」；`doi` 可缺省。`figures` 的 `image` 一律写相对路径（如 `images/xxx.png`），因站点部署在 GitHub Pages 子路径下，以 `/` 开头的绝对路径会 404。
 
 ### `news.ts` / `syncedNews.json`
 - `manualNews`：手动动态
@@ -141,7 +141,7 @@ npm run lint
 ### 添加论文
 编辑 `src/data/publications.ts` 数组头部；学生一作填 `firstAuthorId`，并在 `students.ts` 对应学生的 `publications` 列表追加引用串。若有媒体报道，填 `newsCoverage`，会自动出现在动态页。
 
-近期已录入：Huang et al. (2026) *Geophysical Research Letters*（黄南翔一作，通讯卢文芳*，绑 `huang-nanxiang`）；He et al. (2026) *Journal of Marine Systems*；Yang et al. (2026) *Ocean Engineering*（双通讯，分别绑 `he-jiangnan` / `yang-guangyu`；已补关键词、亮点、NWM 框架图与公众号/学院报道）。
+近期已录入：Yang et al. (2026) *Science Advances*（in press，NeuralSWM，绑 `yang-guangyu`，含图1示意图）；Huang et al. (2026) *Geophysical Research Letters*（黄南翔一作，通讯卢文芳*，绑 `huang-nanxiang`）；He et al. (2026) *Journal of Marine Systems*；Yang et al. (2026) *Ocean Engineering*（双通讯，分别绑 `he-jiangnan` / `yang-guangyu`；已补关键词、亮点、NWM 框架图与公众号/学院报道）。
 
 ### 更新简介 / 奖励 / 教学
 只改 `src/data/profile.ts`（勿在 `Home.tsx` 再写一份 bio）。

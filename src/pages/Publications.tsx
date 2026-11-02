@@ -137,7 +137,9 @@ const Publications = () => {
                       <p className="text-sm text-muted-foreground mb-2">
                         {language === 'en' && pub.authorsEn ? pub.authorsEn : pub.authors}
                       </p>
-                      <p className="text-sm font-medium text-foreground">{pub.journal}</p>
+                      <p className="text-sm font-medium text-foreground">
+                        {pub.journal}{pub.status ? ` (${pub.status})` : ''}
+                      </p>
                       {pub.highlights && language === 'zh' && (
                         <div className="mt-2 flex flex-wrap gap-2">
                           {pub.highlights.map((highlight, idx) => (
@@ -200,7 +202,7 @@ const Publications = () => {
                               <p className="text-sm text-muted-foreground">
                                 {language === 'en' && pub.authorsEn ? pub.authorsEn : pub.authors}
                               </p>
-                              <p className="text-sm">{pub.journal}</p>
+                              <p className="text-sm">{pub.journal}{pub.status ? ` (${pub.status})` : ''}</p>
                             </div>
                             <Button asChild variant="ghost" size="sm">
                               <Link to={`/publications/${pub.id}`}>
