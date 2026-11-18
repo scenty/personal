@@ -1,5 +1,35 @@
 # Agent 工作记录
 
+## 2026-11-18：科研项目补相关论文（重点研发 / 广东省面上）
+
+### 说明
+`projects.ts` 中重点研发（project-1）原无 `relatedPublicationIds`；广东省面上（project-2）仅有 `he-2026-olar`。国自然面上（project-8，2027–2030）本次未挂文。
+
+### 处理
+1. project-1（科技部重点研发）：`liu-2024-om`、`yang-2026-oe`、`yang-2026-sciadv`
+2. project-2（广东省自然基金面上）：在原有基础上追加 `huang-2026-grl`；周期由 `2023–2026` 更正为 `2024–2027`
+3. project-4（珠江口中华白海豚）：周期改为 `2023`，状态改为 `completed`（已结题）
+
+### 相关文件
+`src/data/projects.ts`、`README.md`
+
+---
+
+## 2026-11-18：补充两则最新公众号动态（厦大系友报告 / 全重倡议上台）
+
+### 说明
+延续既有「公众号短链写入 `SEED_NEWS` + `syncedNews.json`」流程（参见 2026-10-06、2026-08-30、2026-07-21）。本次为两条新链接，非重复录入。
+
+### 处理
+1. [厦大物海系友返校](https://mp.weixin.qq.com/s/UdE7cuXNsmcYHuXzID23cg)（发布 2026-11-06，厦门大学海洋与地球学院）：2013 级系友卢文芳主题报告与现场照片 → `wx-xmu-alumni-20261106`，`type: talk`
+2. [17 家全重 AI 赋能海洋观探测倡议](https://mp.weixin.qq.com/s/sugqKIyqSBOnRv_8rRCsYw)（发布 2026-11-18，智慧海洋；会议 11-15 杭州）：正文未点名，按本人说明「代表工业产品适应性全重上台」写入 snippet → `wx-ai-ocean-labs-20261118`，`type: talk`
+3. 两条置顶写入 `syncedNews.json` 与 `scripts/sync-news.mjs` 的 `SEED_NEWS`（种子优先，避免搜狗签名链覆盖）
+
+### 相关文件
+`src/data/syncedNews.json`、`scripts/sync-news.mjs`、`README.md`
+
+---
+
 ## 2026-11-02：Science Advances 论文补图1（NeuralSWM 示意图）
 
 ### 处理

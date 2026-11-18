@@ -43,7 +43,8 @@ export const projects: Project[] = [
     duration: "2023–2026",
     status: "ongoing",
     description: "国家重点研发计划项目，旨在发展海浪-风暴潮耦合数值模式及综合预警报技术。",
-    descriptionEn: "National Key R&D project on coupled wave–storm surge modeling and integrated early-warning technology."
+    descriptionEn: "National Key R&D project on coupled wave–storm surge modeling and integrated early-warning technology.",
+    relatedPublicationIds: ["liu-2024-om", "yang-2026-oe", "yang-2026-sciadv"],
   },
   {
     id: "project-2",
@@ -53,11 +54,11 @@ export const projects: Project[] = [
     fundingSourceEn: "Guangdong NSF General Program",
     role: "主持",
     roleEn: "PI",
-    duration: "2023–2026",
+    duration: "2024–2027",
     status: "ongoing",
     description: "利用机器学习方法重建南海北部三维温度结构，为海洋环境预报提供数据支撑。",
     descriptionEn: "Machine-learning reconstruction of 3D temperature structure in the northern South China Sea for environmental forecasting.",
-    relatedPublicationIds: ["he-2026-olar"]
+    relatedPublicationIds: ["he-2026-olar", "huang-2026-grl"],
   },
   {
     id: "project-3",
@@ -80,10 +81,10 @@ export const projects: Project[] = [
     fundingSourceEn: "Fundamental Research Funds for Central Universities",
     role: "主持",
     roleEn: "PI",
-    duration: "2022–2024",
-    status: "ongoing",
+    duration: "2023",
+    status: "completed",
     description: "研究珠江口海洋动力环境对中华白海豚栖息地的影响机制。",
-    descriptionEn: "Mechanisms of Pearl River Estuary ocean dynamics affecting Chinese white dolphin habitats."
+    descriptionEn: "Mechanisms of Pearl River Estuary ocean dynamics affecting Chinese white dolphin habitats.",
   },
   {
     id: "project-5",

@@ -1,8 +1,32 @@
 {
-  "updatedAt": "2026-10-06T13:30:00.000Z",
+  "updatedAt": "2026-11-18T09:00:00.000Z",
   "keyword": "卢文芳",
   "note": "学院官网使用 /search/all?keys= 全文检索并核对正文。微信经搜狗检索后解析 mp.weixin.qq.com 原文链接与发布日期（可能风控）。",
   "items": [
+    {
+      "id": "wx-ai-ocean-labs-20261118",
+      "title": "李家彪、潘德炉、陈大可、王军成、戴民汉、张偲、王海斌等8位院士出席！17家全国重点实验室共同发起《AI赋能海洋观探测前沿合作倡议》",
+      "titleEn": "8 academicians attend Hangzhou symposium; 17 national key labs launch AI for ocean observing initiative",
+      "date": "2026-11-18",
+      "link": "https://mp.weixin.qq.com/s/sugqKIyqSBOnRv_8rRCsYw",
+      "source": "智慧海洋",
+      "sourceEn": "Smart Ocean (WeChat)",
+      "type": "talk",
+      "channel": "wechat",
+      "snippet": "11月15日，17家全国重点实验室在杭州联合主办“AI赋能海洋观探测与认知”研讨会并共同发起合作倡议。卢文芳代表工业产品适应性全国重点实验室上台。"
+    },
+    {
+      "id": "wx-xmu-alumni-20261106",
+      "title": "重温厦园韶华 聚力薪火相传 | 物理海洋与气象系系友返校活动举行",
+      "titleEn": "XMU Physical Oceanography & Meteorology alumni reunion and invited talks",
+      "date": "2026-11-06",
+      "link": "https://mp.weixin.qq.com/s/UdE7cuXNsmcYHuXzID23cg",
+      "source": "厦门大学海洋与地球学院",
+      "sourceEn": "College of Ocean and Earth Sciences, XMU (WeChat)",
+      "type": "talk",
+      "channel": "wechat",
+      "snippet": "10月31日至11月1日，厦大物理海洋与气象系系友返校。2013级系友卢文芳作主题报告，分享人工智能与物理海洋交叉及“数值-智能混合”海洋模型新范式；报道含现场照片。"
+    },
     {
       "id": "wx-sst-sla-20261004",
       "title": "海院科研动态（180）| 我院研究团队在海表变量智能预报领域取得连续进展",

@@ -108,9 +108,11 @@ npm run sync-news   # 写入 src/data/syncedNews.json，再提交即可上线
 > 微信公众号无开放 API，脚本经搜狗检索（最多 3 页），解开跳转链为 `mp.weixin.qq.com`，并写入发布日期；可能触发验证码。学院官网 `/search/all?keys=` 更稳定。静态站无法在访客浏览器里实时爬公众号。
 >
 > 搜狗解出的签名链可能随时间失效。重要稿件的稳定短链请写入 `scripts/sync-news.mjs` 的 `SEED_NEWS`（与同标题自动结果去重，种子优先）。首页动态只展示按时间排序后的前 5 条。
+>
+> 2026-11-18 已种子化两条最新动态：[厦大物海系友返校报告](https://mp.weixin.qq.com/s/UdE7cuXNsmcYHuXzID23cg)（2026-11-06）、[17 家全重 AI 赋能海洋观探测倡议／代表工业产品适应性全重上台](https://mp.weixin.qq.com/s/sugqKIyqSBOnRv_8rRCsYw)（2026-11-18）。
 
 ### `students.ts` / `projects.ts` / `dataProducts.ts`
-学生（含课题）、项目（`duration`、`relatedPublicationIds`）、数据产品（`paperId` 内链）与专著下载。最新主持项目含国家自然科学基金面上项目（2027–2030，南海三维温盐流智能预报-重建中的物理约束与可解释性）。黄南翔为 2026 年入学硕士（原拟保送本科身份已改）。杨光宇、黄南翔、方希泓、孙浩宸的奖项含 MCC2026 海浪奖（全国三等奖）。
+学生（含课题）、项目（`duration`、`relatedPublicationIds`）、数据产品（`paperId` 内链）与专著下载。最新主持项目含国家自然科学基金面上项目（2027–2030，南海三维温盐流智能预报-重建中的物理约束与可解释性）。重点研发（海浪—风暴潮）关联 Liu-2024 / Yang-OE-2026 / Yang-SA-2026；广东省面上关联 He-OLAR-2026 与 Huang-GRL-2026。黄南翔为 2026 年入学硕士（原拟保送本科身份已改）。杨光宇、黄南翔、方希泓、孙浩宸的奖项含 MCC2026 海浪奖（全国三等奖）。
 
 ## 技术栈
 
