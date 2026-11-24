@@ -311,6 +311,35 @@ async function fetchSogouWechatNews() {
 
 const SEED_NEWS = [
   {
+    id: 'wx-zhuhai-ai-ocean-lab-20261123',
+    title:
+      '喜报！中山大学海洋科学学院牵头申报“珠海市人工智能海洋学重点实验室”获批认定为珠海市重点实验室（学科类）！',
+    titleEn:
+      'Zhuhai Key Laboratory of AI Oceanography approved, led by the School of Marine Sciences',
+    date: '2026-11-23',
+    link: 'https://mp.weixin.qq.com/s/0Qk67UgwgrJs6ROsOPu2RA',
+    source: '海洋知圈',
+    sourceEn: 'Ocean Circle (WeChat)',
+    type: 'award',
+    channel: 'wechat',
+    snippet:
+      '珠海市科技创新局公布2026年度珠海市重点实验室认定名单。学院牵头申报的“珠海市人工智能海洋学重点实验室”获批为学科类市重点实验室，卢文芳副教授任副主任。',
+  },
+  {
+    id: 'wx-nwm-ocean-circle-20260823',
+    title:
+      '陈大可院士参与！董昌明教授团队联合中山大学卢文芳副教授团队构建国际上首个人工智能和数值模式混合的海浪智能模式！',
+    titleEn: 'First hybrid AI–numerical wave model, with Academician Chen Dake among the authors',
+    date: '2026-08-23',
+    link: 'https://mp.weixin.qq.com/s/H6et6892yKizVcq7bR-TRw',
+    source: '海洋知圈',
+    sourceEn: 'Ocean Circle (WeChat)',
+    type: 'media',
+    channel: 'wechat',
+    snippet:
+      '杨光宇为第一作者，卢文芳与董昌明为共同通讯作者。神经波浪模型论文发表于 Ocean Engineering，陈大可院士参与。',
+  },
+  {
     id: 'wx-ai-ocean-labs-20261118',
     title:
       '李家彪、潘德炉、陈大可、王军成、戴民汉、张偲、王海斌等8位院士出席！17家全国重点实验室共同发起《AI赋能海洋观探测前沿合作倡议》',
@@ -436,6 +465,19 @@ const SEED_NEWS = [
     channel: 'wechat',
   },
   {
+    id: 'wx-shenlan-class-20260822',
+    title: '“深蓝”拔尖班 | 听师兄师姐说',
+    titleEn: 'Shenlan honors class: notes from senior students',
+    date: '2026-08-22',
+    link: 'https://mp.weixin.qq.com/s/MWhhaC76-nMOPc42D_Qlpg',
+    source: '中山大学海洋科学',
+    sourceEn: 'SYSU Marine Sciences (WeChat)',
+    type: 'media',
+    channel: 'wechat',
+    snippet:
+      '担任大学生创新创业训练计划省级项目《面向次表层海洋热浪研究的三维智能重建》负责人，在卢文芳老师指导下推进项目研究。',
+  },
+  {
     id: 'wx-seed-olar-he',
     title: '公众号报道：海平面异常智能预报相关成果',
     date: '2026',
@@ -447,14 +489,25 @@ const SEED_NEWS = [
   },
 ];
 
+const EXCLUDE_LINKS = new Set([
+  'https://marine.sysu.edu.cn/article/10891',
+  'https://marine.sysu.edu.cn/article/10575',
+  'https://marine.sysu.edu.cn/article/10543',
+]);
+const EXCLUDE_TITLES = new Set([
+  '董昌明教授团队联合中山大学卢文芳副教授团队在人工智能与数值模式混合的海浪智能模型方面取得创新性突破',
+  '海科院新闻|我院举办2024年3-4月教职工集体生日会',
+]);
+
 function mergeItems(...lists) {
   const map = new Map();
   const seenTitles = new Set();
   for (const list of lists) {
     for (const item of list) {
       const key = item.link || item.id;
-      if (map.has(key)) continue;
       const titleKey = (item.title || '').replace(/\s+/g, '');
+      if (EXCLUDE_LINKS.has(item.link) || EXCLUDE_TITLES.has(titleKey)) continue;
+      if (map.has(key)) continue;
       if (titleKey && seenTitles.has(titleKey)) continue;
       map.set(key, item);
       if (titleKey) seenTitles.add(titleKey);

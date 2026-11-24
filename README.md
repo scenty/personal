@@ -71,20 +71,20 @@ personal/
 
 ## 页面与路由
 
-顶部导航：**首页 · 研究成果 · 学生团队 · 科研项目 · 联系方式**。教学 / 动态 / 数据产品仍可通过首页快捷入口或直接 URL 访问。
+顶部导航：**首页 · 研究成果 · 学生团队 · 新闻动态 · 科研项目**。联系方式不在顶栏，首页按钮、学生页和页脚仍可进入 `/#/contact`。教学 / 数据产品仍可通过首页快捷入口或直接 URL 访问。
 
 | 路由 | 页面文件 | 说明 |
 |------|----------|------|
-| `/#/` | `Home.tsx` | 简介（读 profile）、教育/任职、统计、轮播、动态预览、快捷入口 |
+| `/#/` | `Home.tsx` | 简介（读 profile）、教育/任职、统计、轮播、学生团队后的动态活页、动态预览、快捷入口 |
 | `/#/publications` | `Publications.tsx` | 论文列表（中英） |
 | `/#/publications/:id` | `PublicationDetail.tsx` | 详情；复制引用 / BibTeX |
 | `/#/students` | `Students.tsx` | 学生团队 |
 | `/#/students/:id` | `StudentDetail.tsx` | 学生详情 |
 | `/#/teaching` | `Teaching.tsx` | 课程与教学荣誉（不在顶栏） |
-| `/#/news` | `News.tsx` | 媒体报道与站内动态（不在顶栏） |
+| `/#/news` | `News.tsx` | 媒体报道与站内动态（顶栏） |
 | `/#/projects` | `Projects.tsx` | 科研项目（周期 + 相关论文） |
 | `/#/data-products` | `DataProducts.tsx` | 数据产品；`paperId` 站内链到论文（不在顶栏） |
-| `/#/contact` | `Contact.tsx` | 联系方式与学术外链（含 Scholar、学院页） |
+| `/#/contact` | `Contact.tsx` | 联系方式与学术外链（含 Scholar、学院页；不在顶栏） |
 
 ## 数据文件说明
 
@@ -110,6 +110,10 @@ npm run sync-news   # 写入 src/data/syncedNews.json，再提交即可上线
 > 搜狗解出的签名链可能随时间失效。重要稿件的稳定短链请写入 `scripts/sync-news.mjs` 的 `SEED_NEWS`（与同标题自动结果去重，种子优先）。首页动态只展示按时间排序后的前 5 条。
 >
 > 2026-11-18 已种子化两条最新动态：[厦大物海系友返校报告](https://mp.weixin.qq.com/s/UdE7cuXNsmcYHuXzID23cg)（2026-11-06）、[17 家全重 AI 赋能海洋观探测倡议／代表工业产品适应性全重上台](https://mp.weixin.qq.com/s/sugqKIyqSBOnRv_8rRCsYw)（2026-11-18）。
+>
+> 2026-11-24 新增 [珠海市人工智能海洋学重点实验室获批](https://mp.weixin.qq.com/s/0Qk67UgwgrJs6ROsOPu2RA)（海洋知圈，2026-11-23，卢文芳任副主任）。海洋知圈海浪智能模式稿的搜狗签名链已换成短链 [H6et6892yKizVcq7bR-TRw](https://mp.weixin.qq.com/s/H6et6892yKizVcq7bR-TRw)（发布日由 2026-08-26 更正为 2026-08-23）。首页学生团队下方增加动态活页，整页跳转到 `/#/news`。
+>
+> 同日从动态中移除奖助金公示（article/10891）、大创培育名单（article/10543）、年会第四轮通知（article/10575）、观海临风签名链和 2024 年教职工生日会。青年编委指向 [OLAR 高质量发展](https://mp.weixin.qq.com/s/HYDal3DNTqrgERsFQE2bzw)，良师指向 [2025 年表彰仪式](https://mp.weixin.qq.com/s/IU0e7lYDrGlxrcVdy9SMDA)。「深蓝」拔尖班改为短链 [MWhhaC76-nMOPc42D_Qlpg](https://mp.weixin.qq.com/s/MWhhaC76-nMOPc42D_Qlpg)。
 
 ### `students.ts` / `projects.ts` / `dataProducts.ts`
 学生（含课题）、项目（`duration`、`relatedPublicationIds`）、数据产品（`paperId` 内链）与专著下载。最新主持项目含国家自然科学基金面上项目（2027–2030，南海三维温盐流智能预报-重建中的物理约束与可解释性）。重点研发（海浪—风暴潮）关联 Liu-2024 / Yang-OE-2026 / Yang-SA-2026；广东省面上关联 He-OLAR-2026 与 Huang-GRL-2026。黄南翔为 2026 年入学硕士（原拟保送本科身份已改）。杨光宇、黄南翔、方希泓、孙浩宸的奖项含 MCC2026 海浪奖（全国三等奖）。

@@ -1,8 +1,20 @@
 {
-  "updatedAt": "2026-11-18T09:00:00.000Z",
+  "updatedAt": "2026-11-24T07:50:00.000Z",
   "keyword": "卢文芳",
   "note": "学院官网使用 /search/all?keys= 全文检索并核对正文。微信经搜狗检索后解析 mp.weixin.qq.com 原文链接与发布日期（可能风控）。",
   "items": [
+    {
+      "id": "wx-zhuhai-ai-ocean-lab-20261123",
+      "title": "喜报！中山大学海洋科学学院牵头申报“珠海市人工智能海洋学重点实验室”获批认定为珠海市重点实验室（学科类）！",
+      "titleEn": "Zhuhai Key Laboratory of AI Oceanography approved, led by the School of Marine Sciences",
+      "date": "2026-11-23",
+      "link": "https://mp.weixin.qq.com/s/0Qk67UgwgrJs6ROsOPu2RA",
+      "source": "海洋知圈",
+      "sourceEn": "Ocean Circle (WeChat)",
+      "type": "award",
+      "channel": "wechat",
+      "snippet": "珠海市科技创新局公布2026年度珠海市重点实验室认定名单。学院牵头申报的“珠海市人工智能海洋学重点实验室”获批为学科类市重点实验室，卢文芳副教授任副主任。"
+    },
     {
       "id": "wx-ai-ocean-labs-20261118",
       "title": "李家彪、潘德炉、陈大可、王军成、戴民汉、张偲、王海斌等8位院士出席！17家全国重点实验室共同发起《AI赋能海洋观探测前沿合作倡议》",
@@ -74,18 +86,6 @@
       "type": "media",
       "channel": "wechat",
       "snippet": "杨光宇为第一作者、卢文芳与董昌明为共同通讯作者的神经波浪模型论文发表于 Ocean Engineering。"
-    },
-    {
-      "id": "sysu-article10891",
-      "title": "关于公示2026学年硕士研究生奖助金已收到成果材料名单的通知",
-      "titleEn": "Notice: materials received for 2026 master's scholarships",
-      "date": "2026-08-14",
-      "link": "https://marine.sysu.edu.cn/article/10891",
-      "source": "中山大学海洋科学学院",
-      "sourceEn": "School of Marine Sciences, SYSU",
-      "type": "media",
-      "channel": "college",
-      "snippet": "公示已收到的2026学年硕士研究生奖助金成果材料。卢文芳老师名下包括学术硕士杨光宇、郑钰娇。"
     },
     {
       "id": "wx-mcc2026-award",
@@ -207,27 +207,6 @@
       "snippet": "雨润春泥，学海同舟。阳春三月，我院2025级2班在班主任卢文芳老师和青年教师专职辅导员彭娟老师的带领下，赴广州十三行博物馆开展春日研学实践活动。途中春雨绵绵，同学们满怀热忱赴约，在古韵文脉中放松身心、凝聚情谊。广州十三行博物馆被誉为清代“天子南库”，是海上丝绸之路商贸繁荣与中外文化交融的文化殿堂。伴着春雨，同学们有序抵达场馆，静心驻足，在详实的图文展板、珍贵的文物藏品与逼真的还原场景中，品读十三行的辉煌历程。同学们流连于广彩瓷器、外销画作与商船模型前，领略粤商开放包容和锐意进取的精神风貌，探寻中外文化交流的印记。参观结束后，同学们欢聚一堂，放声欢唱，用青春旋律驱散疲惫；集体用餐时围坐畅谈观展感"
     },
     {
-      "id": "sysu-article10543",
-      "title": "海洋科学学院关于公布2025年9月“大学生创新创业训练计划项目”院级培育课题名单的通知",
-      "date": "2025-09-30",
-      "link": "https://marine.sysu.edu.cn/article/10543",
-      "source": "中山大学海洋科学学院",
-      "sourceEn": "School of Marine Sciences, SYSU",
-      "type": "media",
-      "channel": "college",
-      "snippet": "根据《海洋科学学院关于征集2025年9月“大学生创新创业训练计划项目”培育课题成员的通知》，经学生兴趣选择、指导老师及学院审定，现公布《海洋酶驱动的可降解塑料关键前体丁二酸的高效合成》等32项院级培育课题信息，请各课题组在老师的指导下精心准备和认真执行，为申报中山大学2026年度大学生创新训练计划项目做好准备工作。联系人：孟峥，0756-3668827，mengzh6@mail.sysu.edu.cn海洋科学学院2025年9月30日培育课题名单如下：序号课题名称课题组成员指导老师姓名1海洋酶驱动的可降解塑料关键前体丁二酸的高效合成汤雅忻/23319067,冯培珅/24318005,龚祥刚/24"
-    },
-    {
-      "id": "sysu-article10575",
-      "title": "第三届中山大学海洋系统科学开放年会第四轮通知",
-      "link": "https://marine.sysu.edu.cn/article/10575",
-      "source": "中山大学海洋科学学院",
-      "sourceEn": "School of Marine Sciences, SYSU",
-      "type": "media",
-      "channel": "college",
-      "snippet": "一、会议背景为加强海洋科技创新，促进海洋研究各系统、各单位和各专业的国际合作与交流，推动海洋科学研究发展，在前两届中山大学海洋系统科学开放年会成功举办的基础上，第三届年会拟于2025年10月17-20日在中山大学珠海校区召开。会议由中山大学与南方海洋科学与工程广东省实验室（珠海）共同主办，南方海洋科学与工程广东省实验室（珠海）承办。 来自全球多个国家及地区的高校、科研机构专家学者，以及学生代表、企业同仁齐聚珠海，围绕海洋系统科学领域的前沿科学问题展开深度研讨与思想碰撞。我们诚挚期待海内外从事海洋科学及相关领域研究的专业机构与各界人士，共探科研创新路径，共同擘画学科未来！二、顾问委员会主任：陈"
-    },
-    {
       "id": "sysu-article10527",
       "title": "第三届中山大学海洋系统科学开放年会（2025）第三轮通知",
       "link": "https://marine.sysu.edu.cn/article/10527",
@@ -336,17 +315,6 @@
       "snippet": "// 南方海洋科学与工程广东省实验室(珠海)深海生命与生态过程创新团队卢文芳副教授提出海洋藻华事件提取分析的技术框架,以南..."
     },
     {
-      "id": "wx-6JGj5piM5piO5pWZ5o6I5Zui6Zif",
-      "title": "董昌明教授团队联合中山大学卢文芳副教授团队在人工智能与数值模式混合的海浪智能模型方面取得创新性突破",
-      "date": "2026-08-22",
-      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=hk4f0DtN4qpRTMxoZYt*r4qmufSgnHjm0RglSfm6usRPVkFSHKA5MKiS8qi0rkVb2VGaf0euDqyCFFuhzDc89*CtA8Vw7T-DBuhTvKdLV3SblZmmmgM-U-kQt7NLwkW4&new=1",
-      "source": "观海临风",
-      "sourceEn": "WeChat (Sogou search)",
-      "type": "media",
-      "channel": "wechat",
-      "snippet": "近日,南京信息工程大学海洋科学学院董昌明教授团队联合中山大学卢文芳副教授团队,在人工智能与数值模式混合的智能模型研究方..."
-    },
-    {
       "id": "wx-5rW3wrfnoJTlrabmnK8gfCDpooTl",
       "title": "海·研学术 | 预告:Dynamical Decomposition of Multiscale Oceanic Motions",
       "date": "2023-04-10",
@@ -405,7 +373,7 @@
       "id": "wx-4oCc5rex6JOd4oCd5ouU5bCW54-t",
       "title": "“深蓝”拔尖班 | 听师兄师姐说",
       "date": "2026-08-22",
-      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOkH-0RPgFNsXogtXZNmBz3-hFc7A9szdzGvhZ5mvg7tmoceDjHFU9GmpcuAnYYtSvbTt8begBhbpuHXVDtZIVo3&new=1",
+      "link": "https://mp.weixin.qq.com/s/MWhhaC76-nMOPc42D_Qlpg",
       "source": "中山大学海洋科学",
       "sourceEn": "WeChat (Sogou search)",
       "type": "media",
@@ -422,17 +390,6 @@
       "type": "media",
       "channel": "wechat",
       "snippet": "该大创项目指导老师和论文通讯作者为卢文芳副教授,该论文还得到了中山大学来志刚教授和上海交通大学廖恩惠副教授的指导.期刊..."
-    },
-    {
-      "id": "wx-5rW356eR6Zmi5paw6Ze7IHwg5oiR",
-      "title": "海科院新闻 | 我院举办2024年3-4月教职工集体生日会",
-      "date": "2024-05-07",
-      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=cQcBO9qbx9GXPs8QXQj8ZT5lAUMQiw3STUjU5aCJPOnvtyufTcowwUXfChEViIsrUrDOcX0mzaQPLJe6NQi4s1ga0juDEivixiGKdN-6Cp1M8ELhzJ1zp*V3jgsfXcCo&new=1",
-      "source": "中山大学海洋科学",
-      "sourceEn": "WeChat (Sogou search)",
-      "type": "media",
-      "channel": "wechat",
-      "snippet": "海洋科学学院分工会在海琴3号A202“教职工小家”举办了2024年... 为卢文芳副教授,4月“幸运寿星”为曾智老师,“幸运寿星”将..."
     },
     {
       "id": "wx-56ys5Y2B5bGK5rW35bOh5Lik5bK4",
@@ -479,15 +436,16 @@
       "snippet": "共同作者包括中山大学卢文芳副教授、美国国家海洋和大气管理局(NOAA)太平洋海洋环境实验室(PMEL)博士后李欣钰,以及特..."
     },
     {
-      "id": "wx-6ZmI5aSn5Y-v6Zmi5aOr5Y-C5LiO",
-      "title": "陈大可院士参与!董昌明教授团队联合中山大学卢文芳副教授团队构建国际上首个人工智能和数值模式混合的海浪智能模式!",
-      "date": "2026-08-26",
-      "link": "https://mp.weixin.qq.com/s?src=11&timestamp=1788101814&ver=6936&signature=w8yyHrgYe3i3YGz9nEwZe*MeJoy-608k8MjpM8eH6YlQ7OjeevR8kOXoeHWKKFQpmqBXVtBTpgp9Q31IyXDa*sCJ0YHvhmqae8jYABT*D-lPRtDLcIVFsKtE3Xp0NXAJ&new=1",
+      "id": "wx-nwm-ocean-circle-20260823",
+      "title": "陈大可院士参与！董昌明教授团队联合中山大学卢文芳副教授团队构建国际上首个人工智能和数值模式混合的海浪智能模式！",
+      "titleEn": "First hybrid AI–numerical wave model, with Academician Chen Dake among the authors",
+      "date": "2026-08-23",
+      "link": "https://mp.weixin.qq.com/s/H6et6892yKizVcq7bR-TRw",
       "source": "海洋知圈",
-      "sourceEn": "WeChat (Sogou search)",
+      "sourceEn": "Ocean Circle (WeChat)",
       "type": "media",
       "channel": "wechat",
-      "snippet": "近日,南京信息工程大学海洋科学学院董昌明教授团队联合中山大学卢文芳副教授团队,在人工智能与数值模式混合的智能模型研究方..."
+      "snippet": "杨光宇为第一作者，卢文芳与董昌明为共同通讯作者。神经波浪模型论文发表于 Ocean Engineering，陈大可院士参与。"
     }
   ]
 }

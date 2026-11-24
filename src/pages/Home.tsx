@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, GraduationCap, Database, FolderGit2, Mail, TrendingUp, Users, ExternalLink, MessageCircle, FileText, IdCard, Building2, Download, Presentation, Newspaper, Library } from 'lucide-react';
+import { BookOpen, GraduationCap, Database, FolderGit2, Mail, TrendingUp, Users, ExternalLink, MessageCircle, FileText, IdCard, Building2, Download, Presentation, Newspaper, Library, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import HeroCarousel from '@/components/HeroCarousel';
@@ -286,6 +286,49 @@ const Home = () => {
 
       <PublicationsCarousel />
       <StudentsCarousel />
+
+      <section className="py-8 md:py-12 bg-gray-50 dark:bg-muted/40">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <Link to="/news" className="group block max-w-3xl mx-auto">
+            <div className="relative pt-3 pl-2 pr-3 pb-3">
+              <div className="absolute top-0 left-8 right-10 bottom-2 rounded-sm border border-amber-200/90 bg-amber-100/90 dark:border-amber-900 dark:bg-amber-950/50 -rotate-2" />
+              <div className="absolute top-2 left-12 right-6 bottom-1 rounded-sm border border-stone-200 bg-stone-100 dark:border-stone-700 dark:bg-stone-900 rotate-1" />
+              <div className="relative rounded-sm border border-stone-200 bg-[#fffdf8] shadow-lg transition-all group-hover:-translate-y-0.5 group-hover:shadow-xl dark:border-border dark:bg-card">
+                <div className="absolute bottom-0 left-0 top-0 flex w-8 flex-col items-center justify-around border-r border-dashed border-stone-300 py-5 dark:border-stone-600">
+                  <span className="h-2.5 w-2.5 rounded-full border border-stone-300 bg-stone-200 dark:border-stone-600 dark:bg-stone-700" />
+                  <span className="h-2.5 w-2.5 rounded-full border border-stone-300 bg-stone-200 dark:border-stone-600 dark:bg-stone-700" />
+                  <span className="h-2.5 w-2.5 rounded-full border border-stone-300 bg-stone-200 dark:border-stone-600 dark:bg-stone-700" />
+                </div>
+                <div className="py-6 pl-12 pr-6">
+                  <div className="mb-4 flex items-center justify-between gap-3">
+                    <p className="text-xs font-semibold tracking-[0.22em] text-primary">
+                      {language === 'zh' ? '动态活页' : 'NEWS LEAF'}
+                    </p>
+                    <span className="inline-flex items-center text-xs text-primary">
+                      {language === 'zh' ? '进入新闻动态' : 'Open news'}
+                      <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                  <ul className="space-y-3">
+                    {latestNews.slice(0, 3).map((item) => {
+                      const title = language === 'en' && item.titleEn ? item.titleEn : item.title;
+                      return (
+                        <li key={item.id} className="border-b border-stone-200/80 pb-3 last:border-0 last:pb-0 dark:border-border">
+                          <p className="text-sm font-medium leading-snug">{title}</p>
+                          <p className="mt-1 text-xs text-muted-foreground">
+                            {item.date}
+                            {item.source ? ` · ${language === 'en' && item.sourceEn ? item.sourceEn : item.source}` : ''}
+                          </p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
 
       {/* News preview */}
       <section className="py-16 md:py-20 bg-white dark:bg-background">

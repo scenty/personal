@@ -1,5 +1,54 @@
 # Agent 工作记录
 
+## 2026-11-24：删减新闻并改两条获奖链接
+
+### 处理
+1. 从 `syncedNews.json` 删除：硕士奖助金公示（article/10891）、大创院级培育名单（article/10543）、开放年会第四轮通知（article/10575）、观海临风签名链、2024 年 3–4 月教职工生日会。观海临风同时从 `yang-2026-oe` 的报道列表去掉，避免新闻页再汇总出来。`sync-news.mjs` 用链接和标题排除，避免下次同步加回。
+2. 「获聘 OLAR 优秀青年编委」改为打开 [我院助力国产期刊 OLAR 高质量发展](https://mp.weixin.qq.com/s/HYDal3DNTqrgERsFQE2bzw)（2026-07-21）。与原论坛稿同一链接，列表只保留青年编委这一条。
+3. 「我心目中的良师」改为打开 [2025 年 6–9 月生日会暨良师表彰](https://mp.weixin.qq.com/s/IU0e7lYDrGlxrcVdy9SMDA)（2025-09-15）。
+4. 「深蓝」拔尖班的失效签名链换成 [MWhhaC76-nMOPc42D_Qlpg](https://mp.weixin.qq.com/s/MWhhaC76-nMOPc42D_Qlpg)（2026-08-22），并写入种子。
+
+### 相关文件
+`src/data/news.ts`、`src/data/syncedNews.json`、`src/data/publications.ts`、`scripts/sync-news.mjs`、`README.md`
+
+---
+
+## 2026-11-24：顶栏文案改为新闻动态并前移
+
+### 处理
+顶栏中文由「动态」改为「新闻动态」，顺序放到「科研项目」之前：首页 · 研究成果 · 学生团队 · 新闻动态 · 科研项目。页面标题仍为「动态」。
+
+### 相关文件
+`src/components/Navbar.tsx`、`src/contexts/LanguageContext.tsx`、`README.md`
+
+---
+
+## 2026-11-24：顶栏用动态替换联系方式
+
+### 处理
+顶栏（桌面与移动菜单）去掉「联系方式」，同一位置改为「动态」（`/#/news`）。联系方式页面仍保留，首页、学生页和页脚可以进入。
+
+### 相关文件
+`src/components/Navbar.tsx`、`README.md`
+
+---
+
+## 2026-11-24：新动态、修正海洋知圈失效链、首页动态活页
+
+### 说明
+用户给出新稿，并指出两条搜狗签名链打开后是微信「参数错误」。其中海洋知圈海浪智能模式稿的稳定短链由用户直接提供，停止继续检索。
+
+### 处理
+1. 新稿 [珠海市人工智能海洋学重点实验室获批](https://mp.weixin.qq.com/s/0Qk67UgwgrJs6ROsOPu2RA)（海洋知圈，2026-11-23 22:03）：卢文芳任实验室副主任 → `wx-zhuhai-ai-ocean-lab-20261123`，`type: award`
+2. 海洋知圈旧链（`timestamp=1788101814` / `w8yy…`）打开为「参数错误」。改为短链 [H6et6892yKizVcq7bR-TRw](https://mp.weixin.qq.com/s/H6et6892yKizVcq7bR-TRw)，标题与发布日核对为 2026-08-23 22:06。`syncedNews.json`、`publications.ts` 的 `yang-2026-oe` 报道、`SEED_NEWS` 同步
+3. 首页学生团队轮播下方增加动态活页，整页链到 `/news`，纸页上列出最新 3 条
+4. happy科研那条签名链（`lGnx…`）仍会打开「参数错误」，本次没有替换短链
+
+### 相关文件
+`src/data/syncedNews.json`、`src/data/publications.ts`、`scripts/sync-news.mjs`、`src/pages/Home.tsx`、`README.md`
+
+---
+
 ## 2026-11-18：科研项目补相关论文（重点研发 / 广东省面上）
 
 ### 说明

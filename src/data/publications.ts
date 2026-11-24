@@ -51,7 +51,7 @@ export const publications: Publication[] = [
     abstract: "海面海浪模拟对理解地球气候与海洋环境至关重要，但通过求解方向波谱的数值海浪模式在气候应用中计算代价过高；而纯数据驱动的深度学习方法难以刻画高维海浪物理过程，且无法泛化到训练域之外。为弥合这一鸿沟，我们提出物理-人工智能混合框架——神经谱海浪模式（NeuralSWM）：将可微数值求解器嵌入模式以刻画普适的波能传播，同时用神经网络学习复杂的能量源汇项，从而高效模拟完整的方向波谱。该模式展现出真正的零样本迁移能力：仅在风浪主导的半封闭南海训练，即可模拟涌浪主导的东热带太平洋以及高风速、长风区的南印度洋的海浪动力过程。经卫星高度计验证，NeuralSWM 以传统模式极小部分的计算成本保持了约 96% 的精度。该架构将物理规律与数据驱动效率无缝融合，为把显式海浪动力过程纳入全球地球系统模式提供了可扩展的基础。",
     abstractEn: "Simulating ocean surface waves is essential for understanding Earth's climate and marine environments, but numerical wave models solving directional wave spectrum remain computationally prohibitive for climate applications. Conversely, data-driven deep learning approaches struggle to capture wave physics with high dimensionality, failing to generalize beyond their specific training domains. To bridge this divide, we present the Neural Spectral Wave Model (NeuralSWM), a hybrid physics-AI framework. By embedding a differentiable numerical solver to govern universal wave propagation alongside a neural network that learns complex energy source terms, NeuralSWM efficiently simulates full directional wave spectra. Remarkably, the model demonstrates true zero-shot transferability: trained exclusively on wind-sea dominated semi-enclosed South China Sea, it demonstrates the capacity to simulate wave dynamics across the swell-dominated Eastern Tropical Pacific and the high-wind, long-fetch regimes of the Southern Indian Ocean. Validated against satellite altimetry, NeuralSWM maintains high accuracy (~96% of the performance) at a fraction of traditional computational costs. By seamlessly fusing physical laws with data-driven efficiency, this architecture provides a scalable foundation for integrating explicit wave dynamics into global Earth system models.",
     highlights: [
-      "提出物理-人工智能混合的神经谱海浪模式 NeuralSWM：可微数值求解器负责波能传播，神经网络学习能量源汇项",
+      "开发了国际上首个数值-智能混合的神经谱海浪模式 NeuralSWM：可微数值求解器负责波能传播，神经网络学习能量源汇项",
       "仅用南海 2022 年 ERA5 数据训练，有效波高 RMSE 为 0.144 m、相关系数 0.991",
       "零样本迁移至东热带太平洋与南印度洋，经卫星高度计验证保持约 96% 的性能",
       "多区域联合训练可消除跨域偏差，为海浪动力过程耦合进地球系统模式提供可扩展方案"
@@ -167,11 +167,7 @@ export const publications: Publication[] = [
       },
       {
         title: "海洋知圈报道",
-        link: "https://mp.weixin.qq.com/s?src=11&timestamp=1788101814&ver=6936&signature=w8yyHrgYe3i3YGz9nEwZe*MeJoy-608k8MjpM8eH6YlQ7OjeevR8kOXoeHWKKFQpmqBXVtBTpgp9Q31IyXDa*sCJ0YHvhmqae8jYABT*D-lPRtDLcIVFsKtE3Xp0NXAJ&new=1",
-      },
-      {
-        title: "观海临风报道",
-        link: "https://mp.weixin.qq.com/s?src=11&timestamp=1788101813&ver=6936&signature=hk4f0DtN4qpRTMxoZYt*r4qmufSgnHjm0RglSfm6usRPVkFSHKA5MKiS8qi0rkVb2VGaf0euDqyCFFuhzDc89*CtA8Vw7T-DBuhTvKdLV3SblZmmmgM-U-kQt7NLwkW4&new=1",
+        link: "https://mp.weixin.qq.com/s/H6et6892yKizVcq7bR-TRw",
       },
     ],
   },
@@ -472,7 +468,7 @@ export const publications: Publication[] = [
   },
   {
     id: "su-2021-rse",
-    authors: "苏华，张涛，林明，卢文芳*，严晓海*",
+    authors: "苏华，张天一，林梦婧，卢文芳*，严晓海*",
     authorsEn: "Su, H., Zhang, T., Lin, M., Lu, W.*, & Yan, X.H.*",
     year: 2021,
     title: "Predicting Subsurface Thermohaline Structure from Remote Sensing Data Based on Long Short-Term Memory Neural Networks",

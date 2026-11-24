@@ -14,7 +14,7 @@ const translations = {
     'nav.publications': '研究成果',
     'nav.students': '学生团队',
     'nav.teaching': '教学',
-    'nav.news': '动态',
+    'nav.news': '新闻动态',
     'nav.dataProducts': '数据产品',
     'nav.projects': '科研项目',
     'nav.contact': '联系方式',
